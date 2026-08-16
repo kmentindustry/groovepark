@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GroovePark Amsterdam</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0D0D18; font-family: Arial, sans-serif; min-height: 100vh; }
+
+  .rainbow-bar {
+    height: 6px;
+    background: linear-gradient(90deg,
+      #FF0018 0%, #FF0018 11.1%,
+      #FF8C00 11.1%, #FF8C00 22.2%,
+      #FFD700 22.2%, #FFD700 33.3%,
+      #00C850 33.3%, #00C850 44.4%,
+      #0060FF 44.4%, #0060FF 55.5%,
+      #8B00FF 55.5%, #8B00FF 66.6%,
+      #FF69B4 66.6%, #FF69B4 77.7%,
+      #ffffff 77.7%, #ffffff 88.8%,
+      #A0522D 88.8%, #A0522D 100%
+    );
+  }
+
+  .hero {
+    text-align: center;
+    padding: 40px 20px 20px;
+  }
+
+  .logo {
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: white;
+  }
+
+  .logo span { color: #00897B; }
+
+  .tagline {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-top: 8px;
+    margin-bottom: 30px;
+  }
+
+  .lang-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .lang-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 480px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+  }
+
+  .lang-btn {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .lang-btn:hover, .lang-btn.active {
+    background: #00897B;
+    border-color: #00897B;
+  }
+
+  .info-box {
+    display: none;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+  }
+
+  .info-box.visible { display: block; }
+
+  .info-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 3px solid #00897B;
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .info-card h2 {
+    color: #00897B;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .info-card p {
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .programme-item {
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+  }
+
+  .prog-time { color: #00897B; font-weight: 700; min-width: 90px; }
+
+  .footer-strip {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255,255,255,0.25);
+    font-size: 11px;
+  }
+
+  .ig { color: #00897B; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="rainbow-bar"></div>
+
+<div class="hero">
+  <div class="logo">GROOVE<span>PARK</span></div>
+  <div class="tagline">Community Dance & Movement Programme</div>
+  <div class="lang-label">Choose your language / Kies je taal</div>
+  <div class="lang-grid">
+    <button class="lang-btn" onclick="show('en', this)">🇬🇧 English</button>
+    <button class="lang-btn" onclick="show('nl', this)">🇳🇱 Nederlands</button>
+    <button class="lang-btn" onclick="show('es', this)">🇪🇸 Español</button>
+    <button class="lang-btn" onclick="show('fr', this)">🇫🇷 Français</button>
+    <button class="lang-btn" onclick="show('pt', this)">🇵🇹 Português</button>
+    <button class="lang-btn" onclick="show('bg', this)">🇧🇬 Български</button>
+    <button class="lang-btn" onclick="show('ur', this)">🇵🇰 اردو</button>
+    <button class="lang-btn" onclick="show('wo', this)">🇸🇳 Wolof</button>
+    <button class="lang-btn" onclick="show('lo', this)">🇱🇦 ລາວ</button>
+  </div>
+</div>
+
+<!-- ENGLISH -->
+<div class="info-box" id="en">
+  <div class="info-card">
+    <h2>What is GroovePark?</h2>
+    <p>GroovePark is a free weekly community programme for the LGBTQ+ community and allies in Amsterdam. No experience needed. Just show up.</p>
+  </div>
+  <div class="info-card">
+    <h2>Launch Date</h2>
+    <p>Wednesday 26 August 2026 — every Wednesday thereafter<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam West</p>
+  </div>
+  <div class="info-card">
+    <h2>Programme</h2>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Dance & Choreography — all levels welcome</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — body-positive movement</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Self-Defence — safe and supportive</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue Practice — open floor</span></div>
+  </div>
+  <div class="info-card">
+    <h2>Free · No registration · All bodies welcome</h2>
+    <p>Follow <span class="ig">@iamnandov</span> for updates</p>
+  </div>
+</div>
+
+<!-- DUTCH -->
+<div class="info-box" id="nl">
+  <div class="info-card">
+    <h2>Wat is GroovePark?</h2>
+    <p>GroovePark is een gratis wekelijks gemeenschapsprogramma voor de LGBTQ+ gemeenschap en bondgenoten in Amsterdam. Geen ervaring nodig. Gewoon langskomen.</p>
+  </div>
+  <div class="info-card">
+    <h2>Lanceringsdatum</h2>
+    <p>Woensdag 26 augustus 2026 — daarna elke woensdag<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam West</p>
+  </div>
+  <div class="info-card">
+    <h2>Programma</h2>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Dans & Choreografie — alle niveaus welkom</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — lichaamspositieve beweging</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Zelfverdediging — veilig en ondersteunend</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — open dansvloer</span></div>
+  </div>
+  <div class="info-card">
+    <h2>Gratis · Geen aanmelding · Iedereen welkom</h2>
+    <p>Volg <span class="ig">@iamnandov</span> voor updates</p>
+  </div>
+</div>
+
+<!-- SPANISH -->
+<div class="info-box" id="es">
+  <div class="info-card">
+    <h2>¿Qué es GroovePark?</h2>
+    <p>GroovePark es un programa comunitario semanal y gratuito para la comunidad LGBTQ+ y aliados en Ámsterdam. No se necesita experiencia. Solo ven.</p>
+  </div>
+  <div class="info-card">
+    <h2>Fecha de lanzamiento</h2>
+    <p>Miércoles 26 de agosto de 2026 — todos los miércoles a partir de entonces<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Ámsterdam Oeste</p>
+  </div>
+  <div class="info-card">
+    <h2>Programa</h2>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Danza y Coreografía — todos los niveles</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — movimiento corporal positivo</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Defensa personal — espacio seguro</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — pista abierta</span></div>
+  </div>
+  <div class="info-card">
+    <h2>Gratis · Sin registro · Todos los cuerpos bienvenidos</h2>
+    <p>Sigue <span class="ig">@iamnandov</span> para actualizaciones</p>
+  </div>
+</div>
+
+<!-- FRENCH -->
+<div class="info-box" id="fr">
+  <div class="info-card">
+    <h2>Qu'est-ce que GroovePark?</h2>
+    <p>GroovePark est un programme communautaire hebdomadaire gratuit pour la communauté LGBTQ+ et ses alliés à Amsterdam. Aucune expérience requise. Venez simplement.</p>
+  </div>
+  <div class="info-card">
+    <h2>Date de lancement</h2>
+    <p>Mercredi 26 août 2026 — chaque mercredi ensuite<br>17h30 – 22h00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam Ouest</p>
+  </div>
+  <div class="info-card">
+    <h2>Programme</h2>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Danse & Chorégraphie — tous niveaux</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — mouvement bienveillant</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Autodéfense — espace sûr</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — piste ouverte</span></div>
+  </div>
+  <div class="info-card">
+    <h2>Gratuit · Sans inscription · Tous les corps bienvenus</h2>
+    <p>Suivez <span class="ig">@iamnandov</span> pour les mises à jour</p>
+  </div>
+</div>
+
+<!-- PORTUGUESE -->
+<div class="info-box" id="pt">
+  <div class="info-card">
+    <h2>O que é o GroovePark?</h2>
+    <p>GroovePark é um programa comunitário semanal e gratuito para a comunidade LGBTQ+ e aliados em Amesterdão. Não é necessária experiência. Apareça apenas.</p>
+  </div>
+  <div class="info-card">
+    <h2>Data de lançamento</h2>
+    <p>Quarta-feira, 26 de agosto de 2026 — todas as quartas-feiras a seguir<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amesterdão Oeste</p>
+  </div>
+  <div class="info-card">
+    <h2>Programa</h2>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Dança & Coreografia — todos os níveis</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — movimento corporal positivo</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Defesa pessoal — espaço seguro</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — pista aberta</span></div>
+  </div>
+  <div class="info-card">
+    <h2>Gratuito · Sem inscrição · Todos os corpos bem-vindos</h2>
+    <p>Siga <span class="ig">@iamnandov</span> para atualizações</p>
+  </div>
+</div>
+
+<!-- BULGARIAN -->
+<div class="info-box" id="bg">
+  <div class="info-card">
+    <h2>Какво е GroovePark?</h2>
+    <p>GroovePark е безплатна седмична общностна програма за ЛГБТК+ общността и съюзниците в Амстердам. Не е нужен опит. Просто елате.</p>
+  </div>
+  <div class="info-card">
+    <h2>Дата на стартиране</h2>
+    <p>Сряда, 26 август 2026 г. — всяка следваща сряда<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Амстердам Запад</p>
+  </div>
+  <div class="info-card">
+    <h2>Програма</h2>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Танц & Хореография — всички нива</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Фитнес — позитивно движение</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Самоотбрана — безопасно пространство</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — открит танцов под</span></div>
+  </div>
+  <div class="info-card">
+    <h2>Безплатно · Без регистрация · Всички тела добре дошли</h2>
+    <p>Следвайте <span class="ig">@iamnandov</span> за актуализации</p>
+  </div>
+</div>
+
+<!-- URDU -->
+<div class="info-box" id="ur" dir="rtl">
+  <div class="info-card">
+    <h2>GroovePark کیا ہے؟</h2>
+    <p>GroovePark ایمسٹرڈیم میں LGBTQ+ کمیونٹی اور اتحادیوں کے لیے ایک مفت ہفتہ وار کمیونٹی پروگرام ہے۔ کوئی تجربہ ضروری نہیں۔ بس آ جائیں۔</p>
+  </div>
+  <div class="info-card">
+    <h2>آغاز کی تاریخ</h2>
+    <p>بدھ، 26 اگست 2026 — اس کے بعد ہر بدھ<br>17:30 – 22:00<br>SCIP Studio، Tweede Kostverlorenkade 15، ایمسٹرڈیم ویسٹ</p>
+  </div>
+  <div class="info-card">
+    <h2>پروگرام</h2>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>رقص اور کوریوگرافی — تمام سطحیں</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>فٹنس — جسم کی مثبت حرکت</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>خود دفاع — محفوظ جگہ</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — کھلا فلور</span></div>
+  </div>
+  <div class="info-card">
+    <h2>مفت · کوئی رجسٹریشن نہیں · سب کا خیرمقدم</h2>
+    <p>اپڈیٹ کے لیے <span class="ig">@iamnandov</span> کو فالو کریں</p>
+  </div>
+</div>
+
+<!-- WOLOF -->
+<div class="info-box" id="wo">
+  <div class="info-card">
+    <h2>Lan la GroovePark?</h2>
+    <p>GroovePark dafa am xam-xam bu dëkk bi LGBTQ+ ak xarit yi ci Amsterdam. Amul laaj ci kanam. Kaay rekk.</p>
+  </div>
+  <div class="info-card">
+    <h2>Bés bu tane</h2>
+    <p>Àllarba, 26 Ut 2026 — àllarba bés bu nekk ci kanam<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam West</p>
+  </div>
+  <div class="info-card">
+    <h2>Programa bi</h2>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Fàww ak Koreografi — dëkk yëp</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — yëgël bu baax</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Sëriñ bopp — dëkk bu jekk</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — piste bu tam</span></div>
+  </div>
+  <div class="info-card">
+    <h2>Dafa sore · Amul laaj · Dëkk yëp nekk</h2>
+    <p>Xool <span class="ig">@iamnandov</span> ci Instagram</p>
+  </div>
+</div>
+
+<!-- LAO -->
+<div class="info-box" id="lo">
+  <div class="info-card">
+    <h2>GroovePark ແມ່ນຫຍັງ?</h2>
+    <p>GroovePark ແມ່ນໂຄງການຊຸມຊົນປະຈຳອາທິດຟຣີສຳລັບກຸ່ມ LGBTQ+ ແລະ ພວກພ້ອງໃນ Amsterdam. ບໍ່ຕ້ອງການປະສົບການ. ແຄ່ມາຮ່ວມ.</p>
+  </div>
+  <div class="info-card">
+    <h2>ວັນເປີດຕົວ</h2>
+    <p>ວັນພຸດ 26 ສິງຫາ 2026 — ທຸກໆວັນພຸດຕໍ່ໄປ<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam West</p>
+  </div>
+  <div class="info-card">
+    <h2>ໂຄງການ</h2>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>ເຕັ້ນ & ເຄື່ອນໄຫວ — ທຸກລະດັບ</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>ອອກກຳລັງກາຍ — ທາງບວກ</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>ປ້ອງກັນຕົນເອງ — ພື້ນທີ່ປອດໄພ</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — ເວທີເປີດ</span></div>
+  </div>
+  <div class="info-card">
+    <h2>ຟຣີ · ບໍ່ຕ້ອງລົງທະບຽນ · ທຸກຄົນຍິນດີຕ້ອນຮັບ</h2>
+    <p>ຕິດຕາມ <span class="ig">@iamnandov</span> ສຳລັບຂ່າວສານ</p>
+  </div>
+</div>
+
+<div class="footer-strip">
+  GroovePark · SCIP Studio Amsterdam West · @iamnandov · Free · Weekly
+</div>
+
+<div class="rainbow-bar"></div>
+
+<script>
+function show(lang, btnElement) {
+  // Hide all language boxes
+  document.querySelectorAll('.info-box').forEach(b => b.classList.remove('visible'));
+  
+  // Remove 'active' class from all buttons
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  
+  // Show selected language box
+  const targetBox = document.getElementById(lang);
+  if (targetBox) {
+    targetBox.classList.add('visible');
+    
+    // Highlight the clicked button reliably
+    if (btnElement) {
+      btnElement.classList.add('active');
+    }
+    
+    // Smooth scroll to content
+    targetBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// Automatically load English by default when visitors open the page
+document.addEventListener("DOMContentLoaded", () => {
+  const defaultBtn = document.querySelector('.lang-btn');
+  if (defaultBtn) {
+    show('en', defaultBtn);
+  }
+});
+</script>
+</body>
+</html>
