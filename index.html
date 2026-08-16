@@ -126,6 +126,25 @@
 
   .prog-time { color: #00897B; font-weight: 700; min-width: 90px; }
 
+  .cta-btn {
+    display: inline-block;
+    background: #00897B;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+
+  .cta-btn:hover {
+    background: #00695c;
+  }
+
   .footer-strip {
     text-align: center;
     padding: 20px;
@@ -142,18 +161,18 @@
 
 <div class="hero">
   <div class="logo">GROOVE<span>PARK</span></div>
-  <div class="tagline">Promoting community and recreational growth</div>
+  <div class="tagline">Community Dance & Movement Programme</div>
   <div class="lang-label">Choose your language / Kies je taal</div>
   <div class="lang-grid">
-    <button class="lang-btn" onclick="show('en')">🇬🇧 English</button>
-    <button class="lang-btn" onclick="show('nl')">🇳🇱 Nederlands</button>
-    <button class="lang-btn" onclick="show('es')">🇪🇸 Español</button>
-    <button class="lang-btn" onclick="show('fr')">🇫🇷 Français</button>
-    <button class="lang-btn" onclick="show('pt')">🇵🇹 Português</button>
-    <button class="lang-btn" onclick="show('bg')">🇧🇬 Български</button>
-    <button class="lang-btn" onclick="show('ur')">🇵🇰 اردو</button>
-    <button class="lang-btn" onclick="show('wo')">🇸🇳 Wolof</button>
-    <button class="lang-btn" onclick="show('lo')">🇱🇦 ລາວ</button>
+    <button class="lang-btn" onclick="show('en', this)">🇬🇧 English</button>
+    <button class="lang-btn" onclick="show('nl', this)">🇳🇱 Nederlands</button>
+    <button class="lang-btn" onclick="show('es', this)">🇪🇸 Español</button>
+    <button class="lang-btn" onclick="show('fr', this)">🇫🇷 Français</button>
+    <button class="lang-btn" onclick="show('pt', this)">🇵🇹 Português</button>
+    <button class="lang-btn" onclick="show('bg', this)">🇧🇬 Български</button>
+    <button class="lang-btn" onclick="show('ur', this)">🇵🇰 اردو</button>
+    <button class="lang-btn" onclick="show('wo', this)">🇸🇳 Wolof</button>
+    <button class="lang-btn" onclick="show('lo', this)">🇱🇦 ລາວ</button>
   </div>
 </div>
 
@@ -169,13 +188,18 @@
   </div>
   <div class="info-card">
     <h2>Programme</h2>
-    <div class="programme-item"><span class="prog-time">17:30–18:30</span><span>Dance & Choreography — all levels welcome</span></div>
-    <div class="programme-item"><span class="prog-time">18:45–19:45</span><span>Fitness Session — body-positive movement</span></div>
-    <div class="programme-item"><span class="prog-time">20:00–21:00</span><span>Self-Defence — safe and supportive</span></div>
-    <div class="programme-item"><span class="prog-time">21:15–22:00</span><span>Ballroom & Vogue Practice — open floor</span></div>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Dance & Choreography — all levels welcome</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — body-positive movement</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Self-Defence — safe and supportive</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue Practice — open floor</span></div>
+  </div>
+  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
+    <h2>Sign Up / Teach a Session</h2>
+    <p>One registration gives you open access to all weekly sessions. Join to participate, or let us know if you'd like to teach!</p>
+    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Open Google Sign-Up Form</a>
   </div>
   <div class="info-card">
-    <h2>Free · No registration · All bodies welcome</h2>
+    <h2>Free · No registration required · All bodies welcome</h2>
     <p>Follow <span class="ig">@iamnandov</span> for updates</p>
   </div>
 </div>
@@ -192,13 +216,18 @@
   </div>
   <div class="info-card">
     <h2>Programma</h2>
-    <div class="programme-item"><span class="prog-time">17:30–18:30</span><span>Dans & Choreografie — alle niveaus welkom</span></div>
-    <div class="programme-item"><span class="prog-time">18:45–19:45</span><span>Fitness — lichaamspositive beweging</span></div>
-    <div class="programme-item"><span class="prog-time">20:00–21:00</span><span>Zelfverdediging — veilig en ondersteunend</span></div>
-    <div class="programme-item"><span class="prog-time">21:15–22:00</span><span>Ballroom & Vogue — open dansvloer</span></div>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Dans & Choreografie — alle niveaus welkom</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — lichaamspositieve beweging</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Zelfverdediging — veilig en ondersteunend</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — open dansvloer</span></div>
+  </div>
+  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
+    <h2>Aanmelden / Lesgeven</h2>
+    <p>Eén aanmelding geeft toegang tot alle wekelijkse sessies. Meld je aan om mee te doen, of laat het weten als je een les wilt geven!</p>
+    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Open Aanmeldformulier</a>
   </div>
   <div class="info-card">
-    <h2>Gratis · Geen aanmelding · Iedereen welkom</h2>
+    <h2>Gratis · Geen verplichte aanmelding · Iedereen welkom</h2>
     <p>Volg <span class="ig">@iamnandov</span> voor updates</p>
   </div>
 </div>
@@ -215,13 +244,18 @@
   </div>
   <div class="info-card">
     <h2>Programa</h2>
-    <div class="programme-item"><span class="prog-time">17:30–18:30</span><span>Danza y Coreografía — todos los niveles</span></div>
-    <div class="programme-item"><span class="prog-time">18:45–19:45</span><span>Fitness — movimiento corporal positivo</span></div>
-    <div class="programme-item"><span class="prog-time">20:00–21:00</span><span>Defensa personal — espacio seguro</span></div>
-    <div class="programme-item"><span class="prog-time">21:15–22:00</span><span>Ballroom & Vogue — pista abierta</span></div>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Danza y Coreografía — todos los niveles</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — movimiento corporal positivo</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Defensa personal — espacio seguro</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — pista abierta</span></div>
+  </div>
+  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
+    <h2>Inscribirse / Enseñar</h2>
+    <p>Un solo registro te da acceso a todas las sesiones semanales. ¡Únete o dinos si deseas impartir una sesión!</p>
+    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Abrir Formulario Google</a>
   </div>
   <div class="info-card">
-    <h2>Gratis · Sin registro · Todos los cuerpos bienvenidos</h2>
+    <h2>Gratis · Sin registro obligatorio · Todos los cuerpos bienvenidos</h2>
     <p>Sigue <span class="ig">@iamnandov</span> para actualizaciones</p>
   </div>
 </div>
@@ -238,10 +272,15 @@
   </div>
   <div class="info-card">
     <h2>Programme</h2>
-    <div class="programme-item"><span class="prog-time">17:30–18:30</span><span>Danse & Chorégraphie — tous niveaux</span></div>
-    <div class="programme-item"><span class="prog-time">18:45–19:45</span><span>Fitness — mouvement bienveillant</span></div>
-    <div class="programme-item"><span class="prog-time">20:00–21:00</span><span>Autodéfense — espace sûr</span></div>
-    <div class="programme-item"><span class="prog-time">21:15–22:00</span><span>Ballroom & Vogue — piste ouverte</span></div>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Danse & Chorégraphie — tous niveaux</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — mouvement bienveillant</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Autodéfense — espace sûr</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — piste ouverte</span></div>
+  </div>
+  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
+    <h2>Inscriptions / Enseigner</h2>
+    <p>Une inscription vous donne accès à toutes les sessions. Participez ou proposez d'animer un atelier !</p>
+    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Ouvrir le Formulaire</a>
   </div>
   <div class="info-card">
     <h2>Gratuit · Sans inscription · Tous les corps bienvenus</h2>
@@ -261,10 +300,15 @@
   </div>
   <div class="info-card">
     <h2>Programa</h2>
-    <div class="programme-item"><span class="prog-time">17:30–18:30</span><span>Dança & Coreografia — todos os níveis</span></div>
-    <div class="programme-item"><span class="prog-time">18:45–19:45</span><span>Fitness — movimento corporal positivo</span></div>
-    <div class="programme-item"><span class="prog-time">20:00–21:00</span><span>Defesa pessoal — espaço seguro</span></div>
-    <div class="programme-item"><span class="prog-time">21:15–22:00</span><span>Ballroom & Vogue — pista aberta</span></div>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Dança & Coreografia — todos os níveis</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — movimento corporal positivo</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Defesa pessoal — espaço seguro</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — pista aberta</span></div>
+  </div>
+  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
+    <h2>Inscrição / Ensinar</h2>
+    <p>Um registo dá acesso a todas as sessões. Participe ou informe-nos se deseja orientar uma aula!</p>
+    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Abrir Formulário Google</a>
   </div>
   <div class="info-card">
     <h2>Gratuito · Sem inscrição · Todos os corpos bem-vindos</h2>
@@ -284,10 +328,15 @@
   </div>
   <div class="info-card">
     <h2>Програма</h2>
-    <div class="programme-item"><span class="prog-time">17:30–18:30</span><span>Танц & Хореография — всички нива</span></div>
-    <div class="programme-item"><span class="prog-time">18:45–19:45</span><span>Фитнес — позитивно движение</span></div>
-    <div class="programme-item"><span class="prog-time">20:00–21:00</span><span>Самоотбрана — безопасно пространство</span></div>
-    <div class="programme-item"><span class="prog-time">21:15–22:00</span><span>Ballroom & Vogue — открит танцов под</span></div>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Танц & Хореография — всички нива</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Фитнес — позитивно движение</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Самоотбрана — безопасно пространство</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — открит танцов под</span></div>
+  </div>
+  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
+    <h2>Записване / Преподаване</h2>
+    <p>Едно записване ви дава достъп до всички сесии. Включете се или ни пишете, ако искате да водите клас!</p>
+    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Отворете Формуляра</a>
   </div>
   <div class="info-card">
     <h2>Безплатно · Без регистрация · Всички тела добре дошли</h2>
@@ -307,14 +356,19 @@
   </div>
   <div class="info-card">
     <h2>پروگرام</h2>
-    <div class="programme-item"><span class="prog-time">17:30–18:30</span><span>رقص اور کوریوگرافی — تمام سطحیں</span></div>
-    <div class="programme-item"><span class="prog-time">18:45–19:45</span><span>فٹنس — جسم کی مثبت حرکت</span></div>
-    <div class="programme-item"><span class="prog-time">20:00–21:00</span><span>خود دفاع — محفوظ جگہ</span></div>
-    <div class="programme-item"><span class="prog-time">21:15–22:00</span><span>Ballroom & Vogue — کھلا فلور</span></div>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>رقص اور کوریوگرافی — تمام سطحیں</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>فٹنس — جسم کی مثبت حرکت</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>خود دفاع — محفوظ جگہ</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — کھلا فلور</span></div>
+  </div>
+  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
+    <h2>سائن اپ / پڑھائیں</h2>
+    <p>ایک سائن اپ آپ کو تمام سیشنز تک رسائی دیتا ہے۔ حصہ لیں یا سیشن پڑھانے کے لیے ہمیں بتائیں!</p>
+    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">گوگل فارم کھولیں</a>
   </div>
   <div class="info-card">
     <h2>مفت · کوئی رجسٹریشن نہیں · سب کا خیرمقدم</h2>
-    <p>اپڈیٹ کے لیے <span class="ig">iamnandov</span> کو فالو کریں</p>
+    <p>اپڈیٹ کے لیے <span class="ig">@iamnandov</span> کو فالو کریں</p>
   </div>
 </div>
 
@@ -330,10 +384,15 @@
   </div>
   <div class="info-card">
     <h2>Programa bi</h2>
-    <div class="programme-item"><span class="prog-time">17:30–18:30</span><span>Fàww ak Koreografi — dëkk yëp</span></div>
-    <div class="programme-item"><span class="prog-time">18:45–19:45</span><span>Fitness — yëgël bu baax</span></div>
-    <div class="programme-item"><span class="prog-time">20:00–21:00</span><span>Sëriñ bopp — dëkk bu jekk</span></div>
-    <div class="programme-item"><span class="prog-time">21:15–22:00</span><span>Ballroom & Vogue — piste bu tam</span></div>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>Fàww ak Koreografi — dëkk yëp</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — yëgël bu baax</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>Sëriñ bopp — dëkk bu jekk</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — piste bu tam</span></div>
+  </div>
+  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
+    <h2>Bindu / Jàngale</h2>
+    <p>Benn bindu dina la may nga bokk ci lépp. Bokkul walla xamal ñu su fekkee dañuy bëgg jàngale!</p>
+    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Ubbi Kayitu Google</a>
   </div>
   <div class="info-card">
     <h2>Dafa sore · Amul laaj · Dëkk yëp nekk</h2>
@@ -353,10 +412,15 @@
   </div>
   <div class="info-card">
     <h2>ໂຄງການ</h2>
-    <div class="programme-item"><span class="prog-time">17:30–18:30</span><span>ເຕັ້ນ & ເຄື່ອນໄຫວ — ທຸກລະດັບ</span></div>
-    <div class="programme-item"><span class="prog-time">18:45–19:45</span><span>ອອກກຳລັງກາຍ — ທາງບວກ</span></div>
-    <div class="programme-item"><span class="prog-time">20:00–21:00</span><span>ປ້ອງກັນຕົນເອງ — ພື້ນທີ່ປອດໄພ</span></div>
-    <div class="programme-item"><span class="prog-time">21:15–22:00</span><span>Ballroom & Vogue — ເວທີເປີດ</span></div>
+    <div class="programme-item"><span class="prog-time">17:30</span><span>ເຕັ້ນ & ເຄື່ອນໄຫວ — ທຸກລະດັບ</span></div>
+    <div class="programme-item"><span class="prog-time">18:45</span><span>ອອກກຳລັງກາຍ — ທາງບວກ</span></div>
+    <div class="programme-item"><span class="prog-time">20:00</span><span>ປ້ອງກັນຕົນເອງ — ພື້ນທີ່ປອດໄພ</span></div>
+    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — ເວທີເປີດ</span></div>
+  </div>
+  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
+    <h2>ລົງທະບຽນ / ສອນ class</h2>
+    <p>ການລົງທະບຽນຄັ້ງດຽວໃຫ້ສິດເຂົ້າຮ່ວມທຸກ class. ມາຮ່ວມມ່ວນຊື່ນ ຫຼື ແຈ້ງພວກເຮົາຖ້າຕ້ອງການສອນ!</p>
+    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">ເປີດແບບຟອມ Google</a>
   </div>
   <div class="info-card">
     <h2>ຟຣີ · ບໍ່ຕ້ອງລົງທະບຽນ · ທຸກຄົນຍິນດີຕ້ອນຮັບ</h2>
@@ -365,19 +429,33 @@
 </div>
 
 <div class="footer-strip">
-  GroovePark · SCIP Studio Amsterdam West · @kmentindustry · Free · Weekly
+  GroovePark · SCIP Studio Amsterdam West · @iamnandov · Free · Weekly
 </div>
 
 <div class="rainbow-bar"></div>
 
 <script>
-function show(lang) {
+function show(lang, btnElement) {
   document.querySelectorAll('.info-box').forEach(b => b.classList.remove('visible'));
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(lang).classList.add('visible');
-  event.target.classList.add('active');
-  document.getElementById(lang).scrollIntoView({behavior: 'smooth', block: 'start'});
+  
+  const targetBox = document.getElementById(lang);
+  if (targetBox) {
+    targetBox.classList.add('visible');
+    if (btnElement) {
+      btnElement.classList.add('active');
+    }
+    targetBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
+
+// Automatically show English on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const defaultBtn = document.querySelector('.lang-btn');
+  if (defaultBtn) {
+    show('en', defaultBtn);
+  }
+});
 </script>
 </body>
 </html>
