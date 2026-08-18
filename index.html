@@ -457,5 +457,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+ <!-- Trigger Button -->
+<button onclick="document.getElementById('rulesModal').showModal()" class="btn">
+  View Safety & Guidelines
+</button>
+
+<!-- Pop-up Overlay -->
+<dialog id="rulesModal" class="modal">
+  <h2>GroovePark Guidelines</h2>
+  <ul>
+    <li><strong>Consent First:</strong> Respect personal space and pronouns.</li>
+    <li><strong>No Unprompted Photos:</strong> Strict privacy policy.</li>
+    <li><strong>Comfort & Hygiene:</strong> Wear comfortable clothes and clean indoor shoes/socks.</li>
+  </ul>
+  <button onclick="document.getElementById('rulesModal').close()">Close</button>
+</dialog>
 </body>
 </html>
