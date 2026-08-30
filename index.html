@@ -126,24 +126,45 @@
 
   .prog-time { color: #00897B; font-weight: 700; min-width: 90px; }
 
-  .cta-btn {
-    display: inline-block;
-    background: #00897B;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
+  .prep-note {
     font-size: 13px;
-    font-weight: bold;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: rgba(255,255,255,0.6);
     margin-top: 10px;
-    transition: background 0.2s;
+    line-height: 1.5;
   }
 
-  .cta-btn:hover {
-    background: #00695c;
+  /* Static Map & Directions Styling */
+  .map-box {
+    width: 100%;
+    height: 180px;
+    background-color: #1e293b;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
   }
+
+  .map-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .dir-list {
+    margin-top: 8px;
+    padding-left: 18px;
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .dir-list li { margin-bottom: 6px; }
 
   .footer-strip {
     text-align: center;
@@ -161,126 +182,170 @@
 
 <div class="hero">
   <div class="logo">GROOVE<span>PARK</span></div>
-  <div class="tagline">Community Dance & Movement Programme</div>
+  <div class="tagline">Promoting community and recreational growth</div>
   <div class="lang-label">Choose your language / Kies je taal</div>
   <div class="lang-grid">
-    <button class="lang-btn" onclick="show('en', this)">🇬🇧 English</button>
-    <button class="lang-btn" onclick="show('nl', this)">🇳🇱 Nederlands</button>
-    <button class="lang-btn" onclick="show('es', this)">🇪🇸 Español</button>
-    <button class="lang-btn" onclick="show('fr', this)">🇫🇷 Français</button>
-    <button class="lang-btn" onclick="show('pt', this)">🇵🇹 Português</button>
-    <button class="lang-btn" onclick="show('bg', this)">🇧🇬 Български</button>
-    <button class="lang-btn" onclick="show('ur', this)">🇵🇰 اردو</button>
-    <button class="lang-btn" onclick="show('wo', this)">🇸🇳 Wolof</button>
-    <button class="lang-btn" onclick="show('lo', this)">🇱🇦 ລາວ</button>
+    <button class="lang-btn" onclick="show('en')">🇬🇧 English</button>
+    <button class="lang-btn" onclick="show('nl')">🇳🇱 Nederlands</button>
+    <button class="lang-btn" onclick="show('es')">🇪🇸 Español</button>
+    <button class="lang-btn" onclick="show('fr')">🇫🇷 Français</button>
+    <button class="lang-btn" onclick="show('pt')">🇵🇹 Português</button>
+    <button class="lang-btn" onclick="show('bg')">🇧🇬 Български</button>
+    <button class="lang-btn" onclick="show('ur')">🇵🇰 اردو</button>
+    <button class="lang-btn" onclick="show('wo')">🇸🇳 Wolof</button>
+    <button class="lang-btn" onclick="show('lo')">🇱🇦 ລາວ</button>
   </div>
 </div>
 
-<!-- ENGLISH -->
 <div class="info-box" id="en">
   <div class="info-card">
     <h2>What is GroovePark?</h2>
     <p>GroovePark is a free weekly community programme for the LGBTQ+ community and allies in Amsterdam. No experience needed. Just show up.</p>
   </div>
   <div class="info-card">
-    <h2>Launch Date</h2>
-    <p>Wednesday 26 August 2026 — every Wednesday thereafter<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam West</p>
+    <h2>Launch & Location</h2>
+    <p>Wednesday 26 August 2026 — every Wednesday thereafter<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amsterdam West</p>
+  </div>
+  <div class="info-card">
+    <h2>Offline Directions & Location Map</h2>
+    <p><em>(Saved on your phone for offline use if your connection drops)</em></p>
+    <div class="map-box">
+      <img src="https://via.placeholder.com/480x180/1e293b/00897B?text=Buurtkamer+Kostelijk+Map+Snapshot" alt="Buurtkamer Kostelijk Map">
+    </div>
+    <ul class="dir-list">
+      <li><strong>Address:</strong> Buurtkamer Kostelijk, Amsterdam West</li>
+      <li><strong>Tram/Bus:</strong> Take Tram 7 or 13 to nearest stop in West.</li>
+      <li><strong>Landmarks:</strong> Located near the canal path on Kostverlorenkade. Look for the entrance flags/posters!</li>
+    </ul>
   </div>
   <div class="info-card">
     <h2>Programme</h2>
-    <div class="programme-item"><span class="prog-time">17:30</span><span>Dance & Choreography — all levels welcome</span></div>
-    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — body-positive movement</span></div>
-    <div class="programme-item"><span class="prog-time">20:00</span><span>Self-Defence — safe and supportive</span></div>
-    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue Practice — open floor</span></div>
-  </div>
-  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
-    <h2>Sign Up / Teach a Session</h2>
-    <p>One registration gives you open access to all weekly sessions. Join to participate, or let us know if you'd like to teach!</p>
-    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Open Google Sign-Up Form</a>
+    <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Dance & Choreography — all levels welcome</span></div>
+    <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness Session — body-positive movement</span></div>
+    <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Self-Defence — safe and supportive</span></div>
+    <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom & Vogue Practice — open floor</span></div>
   </div>
   <div class="info-card">
-    <h2>Free · No registration required · All bodies welcome</h2>
+    <h2>Preparation & Hygiene</h2>
+    <p>Please bring your own water bottle, clean extra shoes, and a change of clothes. Preparation is highly encouraged!</p>
+    <div class="prep-note">⚠️ Note: There are no shower facilities available at the venue.</div>
+  </div>
+  <div class="info-card">
+    <h2>Free · No registration · All bodies welcome</h2>
     <p>Follow <span class="ig">@iamnandov</span> for updates</p>
   </div>
 </div>
 
-<!-- DUTCH -->
 <div class="info-box" id="nl">
   <div class="info-card">
     <h2>Wat is GroovePark?</h2>
     <p>GroovePark is een gratis wekelijks gemeenschapsprogramma voor de LGBTQ+ gemeenschap en bondgenoten in Amsterdam. Geen ervaring nodig. Gewoon langskomen.</p>
   </div>
   <div class="info-card">
-    <h2>Lanceringsdatum</h2>
-    <p>Woensdag 26 augustus 2026 — daarna elke woensdag<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam West</p>
+    <h2>Locatie & Tijden</h2>
+    <p>Woensdag 26 augustus 2026 — daarna elke woensdag<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amsterdam West</p>
+  </div>
+  <div class="info-card">
+    <h2>Offline Routebeschrijving & Kaart</h2>
+    <p><em>(Opgeslagen op je telefoon voor offline gebruik als je internet wegvalt)</em></p>
+    <div class="map-box">
+      <img src="https://via.placeholder.com/480x180/1e293b/00897B?text=Buurtkamer+Kostelijk+Map+Snapshot" alt="Buurtkamer Kostelijk Kaart">
+    </div>
+    <ul class="dir-list">
+      <li><strong>Adres:</strong> Buurtkamer Kostelijk, Amsterdam West</li>
+      <li><strong>OV:</strong> Neem Tram 7 of 13 naar de dichtstbijzijnde halte in West.</li>
+      <li><strong>Herkerpunten:</strong> Gelegen nabij het kanaal op Kostverlorenkade. Zoek naar de vlaggen/posters bij de ingang!</li>
+    </ul>
   </div>
   <div class="info-card">
     <h2>Programma</h2>
-    <div class="programme-item"><span class="prog-time">17:30</span><span>Dans & Choreografie — alle niveaus welkom</span></div>
-    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — lichaamspositieve beweging</span></div>
-    <div class="programme-item"><span class="prog-time">20:00</span><span>Zelfverdediging — veilig en ondersteunend</span></div>
-    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — open dansvloer</span></div>
-  </div>
-  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
-    <h2>Aanmelden / Lesgeven</h2>
-    <p>Eén aanmelding geeft toegang tot alle wekelijkse sessies. Meld je aan om mee te doen, of laat het weten als je een les wilt geven!</p>
-    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Open Aanmeldformulier</a>
+    <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Dans & Choreografie — alle niveaus welkom</span></div>
+    <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — lichaamspositieve beweging</span></div>
+    <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Zelfverdediging — veilig en ondersteunend</span></div>
+    <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom & Vogue — open dansvloer</span></div>
   </div>
   <div class="info-card">
-    <h2>Gratis · Geen verplichte aanmelding · Iedereen welkom</h2>
+    <h2>Voorbereiding & Hygiëne</h2>
+    <p>Neem je eigen waterfles, schone extra schoenen en een setje droge kleding mee. Goede voorbereiding wordt sterk aanbevolen!</p>
+    <div class="prep-note">⚠️ Let op: Er zijn geen douches aanwezig op de locatie.</div>
+  </div>
+  <div class="info-card">
+    <h2>Gratis · Geen aanmelding · Iedereen welkom</h2>
     <p>Volg <span class="ig">@iamnandov</span> voor updates</p>
   </div>
 </div>
 
-<!-- SPANISH -->
 <div class="info-box" id="es">
   <div class="info-card">
     <h2>¿Qué es GroovePark?</h2>
     <p>GroovePark es un programa comunitario semanal y gratuito para la comunidad LGBTQ+ y aliados en Ámsterdam. No se necesita experiencia. Solo ven.</p>
   </div>
   <div class="info-card">
-    <h2>Fecha de lanzamiento</h2>
-    <p>Miércoles 26 de agosto de 2026 — todos los miércoles a partir de entonces<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Ámsterdam Oeste</p>
+    <h2>Ubicación y Horario</h2>
+    <p>Miércoles 26 de agosto de 2026 — todos los miércoles a partir de entonces<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Ámsterdam Oeste</p>
+  </div>
+  <div class="info-card">
+    <h2>Indicaciones Offline y Mapa</h2>
+    <p><em>(Guardado en tu teléfono para uso offline si pierdes la conexión)</em></p>
+    <div class="map-box">
+      <img src="https://via.placeholder.com/480x180/1e293b/00897B?text=Buurtkamer+Kostelijk+Mapa" alt="Buurtkamer Kostelijk Mapa">
+    </div>
+    <ul class="dir-list">
+      <li><strong>Dirección:</strong> Buurtkamer Kostelijk, Ámsterdam Oeste</li>
+      <li><strong>Tranvía/Autobús:</strong> Tranvía 7 o 13 hasta la parada más cercana.</li>
+      <li><strong>Puntos de referencia:</strong> Cerca del canal en Kostverlorenkade. ¡Busca las banderas/pósters en la entrada!</li>
+    </ul>
   </div>
   <div class="info-card">
     <h2>Programa</h2>
-    <div class="programme-item"><span class="prog-time">17:30</span><span>Danza y Coreografía — todos los niveles</span></div>
-    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — movimiento corporal positivo</span></div>
-    <div class="programme-item"><span class="prog-time">20:00</span><span>Defensa personal — espacio seguro</span></div>
-    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — pista abierta</span></div>
-  </div>
-  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
-    <h2>Inscribirse / Enseñar</h2>
-    <p>Un solo registro te da acceso a todas las sesiones semanales. ¡Únete o dinos si deseas impartir una sesión!</p>
-    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Abrir Formulario Google</a>
+    <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Danza y Coreografía — todos los niveles</span></div>
+    <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — movimiento corporal positivo</span></div>
+    <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Defensa personal — espacio seguro</span></div>
+    <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom & Vogue — pista abierta</span></div>
   </div>
   <div class="info-card">
-    <h2>Gratis · Sin registro obligatorio · Todos los cuerpos bienvenidos</h2>
+    <h2>Preparación e Higiene</h2>
+    <p>Trae tu propia botella de agua, zapatos limpios adicionales y ropa de cambio. ¡La preparación previa es muy recomendable!</p>
+    <div class="prep-note">⚠️ Nota: El recinto no dispone de duchas.</div>
+  </div>
+  <div class="info-card">
+    <h2>Gratis · Sin registro · Todos los cuerpos bienvenidos</h2>
     <p>Sigue <span class="ig">@iamnandov</span> para actualizaciones</p>
   </div>
 </div>
 
-<!-- FRENCH -->
 <div class="info-box" id="fr">
   <div class="info-card">
     <h2>Qu'est-ce que GroovePark?</h2>
     <p>GroovePark est un programme communautaire hebdomadaire gratuit pour la communauté LGBTQ+ et ses alliés à Amsterdam. Aucune expérience requise. Venez simplement.</p>
   </div>
   <div class="info-card">
-    <h2>Date de lancement</h2>
-    <p>Mercredi 26 août 2026 — chaque mercredi ensuite<br>17h30 – 22h00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam Ouest</p>
+    <h2>Lieu et Horaires</h2>
+    <p>Mercredi 26 août 2026 — chaque mercredi ensuite<br>18h00 – 20h00<br>Buurtkamer Kostelijk, Amsterdam Ouest</p>
+  </div>
+  <div class="info-card">
+    <h2>Itinéraire Hors Ligne & Carte</h2>
+    <p><em>(Enregistré sur votre téléphone si vous perdez la connexion)</em></p>
+    <div class="map-box">
+      <img src="https://via.placeholder.com/480x180/1e293b/00897B?text=Buurtkamer+Kostelijk+Carte" alt="Buurtkamer Kostelijk Carte">
+    </div>
+    <ul class="dir-list">
+      <li><strong>Adresse:</strong> Buurtkamer Kostelijk, Amsterdam Ouest</li>
+      <li><strong>Tram/Bus:</strong> Tram 7 ou 13 jusqu'à l'arrêt le plus proche.</li>
+      <li><strong>Repères:</strong> Près du canal sur Kostverlorenkade. Cherchez les drapeaux/affiches à l'entrée!</li>
+    </ul>
   </div>
   <div class="info-card">
     <h2>Programme</h2>
-    <div class="programme-item"><span class="prog-time">17:30</span><span>Danse & Chorégraphie — tous niveaux</span></div>
-    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — mouvement bienveillant</span></div>
-    <div class="programme-item"><span class="prog-time">20:00</span><span>Autodéfense — espace sûr</span></div>
-    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — piste ouverte</span></div>
+    <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Danse & Chorégraphie — tous niveaux</span></div>
+    <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — mouvement bienveillant</span></div>
+    <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Autodéfense — espace sûr</span></div>
+    <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom & Vogue — piste ouverte</span></div>
   </div>
-  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
-    <h2>Inscriptions / Enseigner</h2>
-    <p>Une inscription vous donne accès à toutes les sessions. Participez ou proposez d'animer un atelier !</p>
-    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Ouvrir le Formulaire</a>
+  <div class="info-card">
+    <h2>Préparation et Hygiène</h2>
+    <p>Apportez votre propre gourde d'eau, des chaussures propres de rechange et des vêtements de rechange. Une bonne préparation est fortement recommandée!</p>
+    <div class="prep-note">⚠️ Remarque: Le lieu ne dispose pas de douches.</div>
   </div>
   <div class="info-card">
     <h2>Gratuit · Sans inscription · Tous les corps bienvenus</h2>
@@ -288,27 +353,38 @@
   </div>
 </div>
 
-<!-- PORTUGUESE -->
 <div class="info-box" id="pt">
   <div class="info-card">
     <h2>O que é o GroovePark?</h2>
     <p>GroovePark é um programa comunitário semanal e gratuito para a comunidade LGBTQ+ e aliados em Amesterdão. Não é necessária experiência. Apareça apenas.</p>
   </div>
   <div class="info-card">
-    <h2>Data de lançamento</h2>
-    <p>Quarta-feira, 26 de agosto de 2026 — todas as quartas-feiras a seguir<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amesterdão Oeste</p>
+    <h2>Localização e Horário</h2>
+    <p>Quarta-feira, 26 de agosto de 2026 — todas as quartas-feiras a seguir<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amesterdão Oeste</p>
+  </div>
+  <div class="info-card">
+    <h2>Direções Offline e Mapa</h2>
+    <p><em>(Guardado no seu telemóvel para uso offline)</em></p>
+    <div class="map-box">
+      <img src="https://via.placeholder.com/480x180/1e293b/00897B?text=Buurtkamer+Kostelijk+Mapa" alt="Buurtkamer Kostelijk Mapa">
+    </div>
+    <ul class="dir-list">
+      <li><strong>Endereço:</strong> Buurtkamer Kostelijk, Amesterdão Oeste</li>
+      <li><strong>Elétrico/Autocarro:</strong> Elétrico 7 ou 13 até à paragem mais próxima.</li>
+      <li><strong>Pontos de referência:</strong> Perto do canal em Kostverlorenkade. Procure as bandeiras/cartazes na entrada!</li>
+    </ul>
   </div>
   <div class="info-card">
     <h2>Programa</h2>
-    <div class="programme-item"><span class="prog-time">17:30</span><span>Dança & Coreografia — todos os níveis</span></div>
-    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — movimento corporal positivo</span></div>
-    <div class="programme-item"><span class="prog-time">20:00</span><span>Defesa pessoal — espaço seguro</span></div>
-    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — pista aberta</span></div>
+    <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Dança & Coreografia — todos os níveis</span></div>
+    <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — movimento corporal positivo</span></div>
+    <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Defesa pessoal — espaço seguro</span></div>
+    <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom & Vogue — pista aberta</span></div>
   </div>
-  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
-    <h2>Inscrição / Ensinar</h2>
-    <p>Um registo dá acesso a todas as sessões. Participe ou informe-nos se deseja orientar uma aula!</p>
-    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Abrir Formulário Google</a>
+  <div class="info-card">
+    <h2>Preparação e Higiene</h2>
+    <p>Traga a sua própria garrafa de água, sapatos limpos extra e uma muda de roupa. Preparação prévia é altamente recomendada!</p>
+    <div class="prep-note">⚠️ Nota: O local não dispõe de chuveiros.</div>
   </div>
   <div class="info-card">
     <h2>Gratuito · Sem inscrição · Todos os corpos bem-vindos</h2>
@@ -316,27 +392,38 @@
   </div>
 </div>
 
-<!-- BULGARIAN -->
 <div class="info-box" id="bg">
   <div class="info-card">
     <h2>Какво е GroovePark?</h2>
     <p>GroovePark е безплатна седмична общностна програма за ЛГБТК+ общността и съюзниците в Амстердам. Не е нужен опит. Просто елате.</p>
   </div>
   <div class="info-card">
-    <h2>Дата на стартиране</h2>
-    <p>Сряда, 26 август 2026 г. — всяка следваща сряда<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Амстердам Запад</p>
+    <h2>Място и Час</h2>
+    <p>Сряда, 26 август 2026 г. — всяка следваща сряда<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Амстердам Запад</p>
+  </div>
+  <div class="info-card">
+    <h2>Офлайн упътвания и карта</h2>
+    <p><em>(Запазено на телефона за офлайн употреба)</em></p>
+    <div class="map-box">
+      <img src="https://via.placeholder.com/480x180/1e293b/00897B?text=Buurtkamer+Kostelijk+Карта" alt="Buurtkamer Kostelijk Карта">
+    </div>
+    <ul class="dir-list">
+      <li><strong>Адрес:</strong> Buurtkamer Kostelijk, Амстердам Запад</li>
+      <li><strong>Трамвай/Автобус:</strong> Трамвай 7 или 13 до най-близката спирка.</li>
+      <li><strong>Ориентири:</strong> До канала на Kostverlorenkade. Търсете знамената/плакатите на входа!</li>
+    </ul>
   </div>
   <div class="info-card">
     <h2>Програма</h2>
-    <div class="programme-item"><span class="prog-time">17:30</span><span>Танц & Хореография — всички нива</span></div>
-    <div class="programme-item"><span class="prog-time">18:45</span><span>Фитнес — позитивно движение</span></div>
-    <div class="programme-item"><span class="prog-time">20:00</span><span>Самоотбрана — безопасно пространство</span></div>
-    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — открит танцов под</span></div>
+    <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Танц & Хореография — всички нива</span></div>
+    <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Фитнес — позитивно движение</span></div>
+    <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Самоотбрана — безопасно пространство</span></div>
+    <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom & Vogue — открит танцов под</span></div>
   </div>
-  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
-    <h2>Записване / Преподаване</h2>
-    <p>Едно записване ви дава достъп до всички сесии. Включете се или ни пишете, ако искате да водите клас!</p>
-    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Отворете Формуляра</a>
+  <div class="info-card">
+    <h2>Подготовка и Хигиена</h2>
+    <p>Моля, носете си бутилка за вода, чисти резервни обувки и дрехи за преобличане. Подготовката е силно препоръчителна!</p>
+    <div class="prep-note">⚠️ Забележка: В обекта няма душове.</div>
   </div>
   <div class="info-card">
     <h2>Безплатно · Без регистрация · Всички тела добре дошли</h2>
@@ -344,27 +431,38 @@
   </div>
 </div>
 
-<!-- URDU -->
 <div class="info-box" id="ur" dir="rtl">
   <div class="info-card">
     <h2>GroovePark کیا ہے؟</h2>
     <p>GroovePark ایمسٹرڈیم میں LGBTQ+ کمیونٹی اور اتحادیوں کے لیے ایک مفت ہفتہ وار کمیونٹی پروگرام ہے۔ کوئی تجربہ ضروری نہیں۔ بس آ جائیں۔</p>
   </div>
   <div class="info-card">
-    <h2>آغاز کی تاریخ</h2>
-    <p>بدھ، 26 اگست 2026 — اس کے بعد ہر بدھ<br>17:30 – 22:00<br>SCIP Studio، Tweede Kostverlorenkade 15، ایمسٹرڈیم ویسٹ</p>
+    <h2>مقام اور وقت</h2>
+    <p>بدھ، 26 اگست 2026 — اس کے بعد ہر بدھ<br>18:00 – 20:00<br>Buurtkamer Kostelijk، ایمسٹرڈیم ویسٹ</p>
+  </div>
+  <div class="info-card">
+    <h2>آف لائن راستے اور نقشہ</h2>
+    <p><em>(انٹرنیٹ نہ ہونے کی صورت کے لیے آپ کے فون پر محفوظ)</em></p>
+    <div class="map-box">
+      <img src="https://via.placeholder.com/480x180/1e293b/00897B?text=Buurtkamer+Kostelijk+نقشہ" alt="Buurtkamer Kostelijk نقشہ">
+    </div>
+    <ul class="dir-list">
+      <li><strong>پتہ:</strong> Buurtkamer Kostelijk، ایمسٹرڈیم ویسٹ</li>
+      <li><strong>ٹرام / بس:</strong> ٹرام 7 یا 13 کے ذریعے قریبی اسٹاپ پر اتریں۔</li>
+      <li><strong>نشانی:</strong> Kostverlorenkade نہر کے قریب۔ داخلے پر جھنڈے یا پوسٹر دیکھیں۔</li>
+    </ul>
   </div>
   <div class="info-card">
     <h2>پروگرام</h2>
-    <div class="programme-item"><span class="prog-time">17:30</span><span>رقص اور کوریوگرافی — تمام سطحیں</span></div>
-    <div class="programme-item"><span class="prog-time">18:45</span><span>فٹنس — جسم کی مثبت حرکت</span></div>
-    <div class="programme-item"><span class="prog-time">20:00</span><span>خود دفاع — محفوظ جگہ</span></div>
-    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — کھلا فلور</span></div>
+    <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>رقص اور کوریوگرافی — تمام سطحیں</span></div>
+    <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>فٹنس — جسم کی مثبت حرکت</span></div>
+    <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>خود دفاع — محفوظ جگہ</span></div>
+    <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom & Vogue — کھلا فلور</span></div>
   </div>
-  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
-    <h2>سائن اپ / پڑھائیں</h2>
-    <p>ایک سائن اپ آپ کو تمام سیشنز تک رسائی دیتا ہے۔ حصہ لیں یا سیشن پڑھانے کے لیے ہمیں بتائیں!</p>
-    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">گوگل فارم کھولیں</a>
+  <div class="info-card">
+    <h2>تیاری اور صفائی</h2>
+    <p>برائے مہربانی اپنی پانی کی بوتل، اضافی صاف جوتے اور تبدیل کرنے کے لیے کپڑے ساتھ لائیں۔ تیاری کی انتہائی سفارش کی جاتی ہے!</p>
+    <div class="prep-note">⚠️ نوٹ: جگہ پر شاور کی سہولت موجود نہیں ہے۔</div>
   </div>
   <div class="info-card">
     <h2>مفت · کوئی رجسٹریشن نہیں · سب کا خیرمقدم</h2>
@@ -372,27 +470,37 @@
   </div>
 </div>
 
-<!-- WOLOF -->
 <div class="info-box" id="wo">
   <div class="info-card">
     <h2>Lan la GroovePark?</h2>
     <p>GroovePark dafa am xam-xam bu dëkk bi LGBTQ+ ak xarit yi ci Amsterdam. Amul laaj ci kanam. Kaay rekk.</p>
   </div>
   <div class="info-card">
-    <h2>Bés bu tane</h2>
-    <p>Àllarba, 26 Ut 2026 — àllarba bés bu nekk ci kanam<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam West</p>
+    <h2>Bés ak Barab</h2>
+    <p>Àllarba, 26 Ut 2026 — àllarba bés bu nekk ci kanam<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amsterdam West</p>
+  </div>
+  <div class="info-card">
+    <h2>Yoon ak Nataal bu Barab bi</h2>
+    <div class="map-box">
+      <img src="https://via.placeholder.com/480x180/1e293b/00897B?text=Buurtkamer+Kostelijk+Map" alt="Buurtkamer Kostelijk Map">
+    </div>
+    <ul class="dir-list">
+      <li><strong>Barab:</strong> Buurtkamer Kostelijk, Amsterdam West</li>
+      <li><strong>Tram:</strong> Jël Tram 7 walla 13 ba ci wàllu West.</li>
+      <li><strong>Mandarga:</strong> Mu ngi nekk ci wetu Kostverlorenkade. Xoolal raaya walla poster yi ci bunt bi!</li>
+    </ul>
   </div>
   <div class="info-card">
     <h2>Programa bi</h2>
-    <div class="programme-item"><span class="prog-time">17:30</span><span>Fàww ak Koreografi — dëkk yëp</span></div>
-    <div class="programme-item"><span class="prog-time">18:45</span><span>Fitness — yëgël bu baax</span></div>
-    <div class="programme-item"><span class="prog-time">20:00</span><span>Sëriñ bopp — dëkk bu jekk</span></div>
-    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — piste bu tam</span></div>
+    <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Fàww ak Koreografi — dëkk yëp</span></div>
+    <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — yëgël bu baax</span></div>
+    <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Sëriñ bopp — dëkk bu jekk</span></div>
+    <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom & Vogue — piste bu tam</span></div>
   </div>
-  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
-    <h2>Bindu / Jàngale</h2>
-    <p>Benn bindu dina la may nga bokk ci lépp. Bokkul walla xamal ñu su fekkee dañuy bëgg jàngale!</p>
-    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">Ubbi Kayitu Google</a>
+  <div class="info-card">
+    <h2>Toggal ak Set</h2>
+    <p>Indil sa ndoxu bopp, dollik dali set ak yere yu bes. Toggal bu baax dafa am solo!</p>
+    <div class="prep-note">⚠️ Xamle: Amul sangubaay ci barab bi.</div>
   </div>
   <div class="info-card">
     <h2>Dafa sore · Amul laaj · Dëkk yëp nekk</h2>
@@ -400,27 +508,37 @@
   </div>
 </div>
 
-<!-- LAO -->
 <div class="info-box" id="lo">
   <div class="info-card">
     <h2>GroovePark ແມ່ນຫຍັງ?</h2>
     <p>GroovePark ແມ່ນໂຄງການຊຸມຊົນປະຈຳອາທິດຟຣີສຳລັບກຸ່ມ LGBTQ+ ແລະ ພວກພ້ອງໃນ Amsterdam. ບໍ່ຕ້ອງການປະສົບການ. ແຄ່ມາຮ່ວມ.</p>
   </div>
   <div class="info-card">
-    <h2>ວັນເປີດຕົວ</h2>
-    <p>ວັນພຸດ 26 ສິງຫາ 2026 — ທຸກໆວັນພຸດຕໍ່ໄປ<br>17:30 – 22:00<br>SCIP Studio, Tweede Kostverlorenkade 15, Amsterdam West</p>
+    <h2>ສະຖານທີ່ ແລະ ເວລາ</h2>
+    <p>ວັນພຸດ 26 ສິງຫາ 2026 — ທຸກໆວັນພຸດຕໍ່ໄປ<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amsterdam West</p>
+  </div>
+  <div class="info-card">
+    <h2>ເສັ້ນທາງ ອອບໄລນ໌ ແລະ ແຜນທີ່</h2>
+    <div class="map-box">
+      <img src="https://via.placeholder.com/480x180/1e293b/00897B?text=Buurtkamer+Kostelijk+Map" alt="Buurtkamer Kostelijk Map">
+    </div>
+    <ul class="dir-list">
+      <li><strong>ທີ່ຢູ່:</strong> Buurtkamer Kostelijk, Amsterdam West</li>
+      <li><strong>ລົດຮາມ/ລົດເມ:</strong> ຂີ່ Tram 7 ຫຼື 13 ມາສະຖານີໃກ້ສຸດ.</li>
+      <li><strong>ຈຸດສັງເກດ:</strong> ຢູ່ໃກ້ຄອງ Kostverlorenkade. ສັງເກດເບິ່ງທຸງ/ໂປສເຕີຢູ່ທາງເຂົ້າ!</li>
+    </ul>
   </div>
   <div class="info-card">
     <h2>ໂຄງການ</h2>
-    <div class="programme-item"><span class="prog-time">17:30</span><span>ເຕັ້ນ & ເຄື່ອນໄຫວ — ທຸກລະດັບ</span></div>
-    <div class="programme-item"><span class="prog-time">18:45</span><span>ອອກກຳລັງກາຍ — ທາງບວກ</span></div>
-    <div class="programme-item"><span class="prog-time">20:00</span><span>ປ້ອງກັນຕົນເອງ — ພື້ນທີ່ປອດໄພ</span></div>
-    <div class="programme-item"><span class="prog-time">21:15</span><span>Ballroom & Vogue — ເວທີເປີດ</span></div>
+    <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>ເຕັ້ນ & ເຄື່ອນໄຫວ — ທຸກລະດັບ</span></div>
+    <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>ອອກກຳລັງກາຍ — ທາງບວກ</span></div>
+    <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>ປ້ອງກັນຕົນເອງ — ພື້ນທີ່ປອດໄພ</span></div>
+    <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom & Vogue — ເວທີເປີດ</span></div>
   </div>
-  <div class="info-card" style="border-left-color: #FF8C00; text-align: center;">
-    <h2>ລົງທະບຽນ / ສອນ class</h2>
-    <p>ການລົງທະບຽນຄັ້ງດຽວໃຫ້ສິດເຂົ້າຮ່ວມທຸກ class. ມາຮ່ວມມ່ວນຊື່ນ ຫຼື ແຈ້ງພວກເຮົາຖ້າຕ້ອງການສອນ!</p>
-    <a href="https://forms.gle/vBDgP4YA6TEBhsKGA" target="_blank" class="cta-btn">ເປີດແບບຟອມ Google</a>
+  <div class="info-card">
+    <h2>ການກຽມຕົວ ແລະ ສຸຂະອະນາໄມ</h2>
+    <p>ກະລຸນານຳເອົານ້ຳດື່ມ, ເກີບສະອາດສຳຮອງ ແລະ ເຊື້ອຜ້າປ່ຽນມາເອງ. ແນະນຳໃຫ້ກຽມຕົວມາເປັນຢ່າງດີ!</p>
+    <div class="prep-note">⚠️ ໝາຍເຫດ: ບໍ່ມີຫ້ອງອາບນ້ຳຢູ່ສະຖານທີ່.</div>
   </div>
   <div class="info-card">
     <h2>ຟຣີ · ບໍ່ຕ້ອງລົງທະບຽນ · ທຸກຄົນຍິນດີຕ້ອນຮັບ</h2>
@@ -429,48 +547,19 @@
 </div>
 
 <div class="footer-strip">
-  GroovePark · SCIP Studio Amsterdam West · @iamnandov · Free · Weekly
+  GroovePark · Buurtkamer Kostelijk Amsterdam West · @iamnandov · Free · Weekly
 </div>
 
 <div class="rainbow-bar"></div>
 
 <script>
-function show(lang, btnElement) {
+function show(lang) {
   document.querySelectorAll('.info-box').forEach(b => b.classList.remove('visible'));
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  
-  const targetBox = document.getElementById(lang);
-  if (targetBox) {
-    targetBox.classList.add('visible');
-    if (btnElement) {
-      btnElement.classList.add('active');
-    }
-    targetBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  document.getElementById(lang).classList.add('visible');
+  event.target.classList.add('active');
+  document.getElementById(lang).scrollIntoView({behavior: 'smooth', block: 'start'});
 }
-
-// Automatically show English on page load
-document.addEventListener("DOMContentLoaded", () => {
-  const defaultBtn = document.querySelector('.lang-btn');
-  if (defaultBtn) {
-    show('en', defaultBtn);
-  }
-});
 </script>
- <!-- Trigger Button -->
-<button onclick="document.getElementById('rulesModal').showModal()" class="btn">
-  View Safety & Guidelines
-</button>
-
-<!-- Pop-up Overlay -->
-<dialog id="rulesModal" class="modal">
-  <h2>GroovePark Guidelines</h2>
-  <ul>
-    <li><strong>Consent First:</strong> Respect personal space and pronouns.</li>
-    <li><strong>No Unprompted Photos:</strong> Strict privacy policy.</li>
-    <li><strong>Comfort & Hygiene:</strong> Wear comfortable clothes and clean indoor shoes/socks.</li>
-  </ul>
-  <button onclick="document.getElementById('rulesModal').close()">Close</button>
-</dialog>
 </body>
 </html>
