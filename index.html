@@ -13,6 +13,8 @@
       --muted: #a2a7b8;
       --accent: #ff5c8a;
       --accent-2: #7b61ff;
+      --success: #7ef9b2;
+      --warn: #ffd166;
       --border: rgba(255, 255, 255, 0.1);
       --radius: 14px;
     }
@@ -123,7 +125,7 @@
 
     .card h2 {
       font-size: 1.2rem;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .card p.sub {
@@ -150,9 +152,9 @@
       border: 0;
     }
 
-    .organizer-grid {
+    .form-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 12px;
       margin-bottom: 14px;
     }
@@ -176,7 +178,7 @@
     }
 
     textarea {
-      min-height: 150px;
+      min-height: 130px;
       resize: vertical;
       margin-bottom: 12px;
     }
@@ -195,13 +197,75 @@
     .btn.secondary {
       background: var(--surface-2);
       border: 1px solid var(--border);
-      margin-left: 8px;
+    }
+
+    .btn.confirm {
+      background: #1b6b43;
+      color: #fff;
+    }
+
+    .btn.discard {
+      background: #4b222e;
+      color: #ffd6e0;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pending-box {
+      margin-top: 18px;
+      border: 1px dashed rgba(255, 209, 102, 0.5);
+      background: rgba(255, 209, 102, 0.06);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .pending-header {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--warn);
+      margin-bottom: 10px;
+    }
+
+    .event-item {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .event-meta strong {
+      display: block;
+      font-size: 0.98rem;
+    }
+
+    .event-meta span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .confirmed-list {
+      margin-top: 12px;
     }
 
     .status {
-      margin-left: 10px;
       font-size: 0.85rem;
-      color: #7ef9b2;
+      color: var(--success);
+    }
+
+    .error-msg {
+      font-size: 0.85rem;
+      color: #ff8fa3;
     }
   </style>
 </head>
@@ -219,23 +283,22 @@
     <section class="hero">
       <h1 id="hero-title">GroovePark &amp; LGBT Channel Monthly Calendar</h1>
       <p id="hero-desc">
-        Accessible community movement, safe spaces, and monthly LGBT Channel agenda items.
-        Check the live read-only calendar below or generate a weekly WhatsApp digest for your channel.
+        Accessible community movement, safe spaces, and monthly agenda items for the LGBT Channel.
+        Browse the read-only calendar below, stage new events with explicit confirmation before adding, or generate a weekly WhatsApp digest.
       </p>
       <div class="badges">
-        <span class="badge" id="badge-1">🏳️‍🌈 LGBT Channel Monthly Agenda</span>
-        <span class="badge" id="badge-2">🗓️ Read-Only Live Calendar</span>
-        <span class="badge" id="badge-3">💬 WhatsApp Digest Tool</span>
+        <span class="badge" id="badge-1">🏳️‍🌈 LGBT Channel Monthly Calendar</span>
+        <span class="badge" id="badge-2">🗓️ Read-Only Live View</span>
+        <span class="badge" id="badge-3">✅ Confirmation Required to Add</span>
       </div>
     </section>
 
     <section class="card">
-      <h2 id="cal-title">Monthly Agenda Calendar</h2>
+      <h2 id="cal-title">LGBT Channel Monthly Calendar (Read-Only View)</h2>
       <p class="sub" id="cal-sub">
-        Replace the <code>src</code> URL below with your published Google Calendar embed link (<strong>LGBT Channel Monthly Calendar</strong>).
+        Paste your published Google Calendar embed URL into the iframe <code>src</code> below so visitors only have read-only viewing access.
       </p>
       <div class="calendar-frame-wrap">
-        <!-- Replace YOUR_EMBED_URL with your Google Calendar "Embed code" src URL -->
         <iframe
           id="gcal-iframe"
           src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID_HERE&ctz=Europe%2FAmsterdam"
@@ -245,19 +308,67 @@
     </section>
 
     <section class="card">
-      <h2 id="org-title">Organizer Mode: Weekly WhatsApp Channel Digest</h2>
-      <p class="sub" id="org-sub">
-        Quickly format highlights from the monthly calendar into a ready-to-post WhatsApp Channel message.
+      <h2 id="add-title">Stage New Event (Requires Your Confirmation)</h2>
+      <p class="sub" id="add-sub">
+        Submitting this form places the event into a staging review box first. Nothing is added to your confirmed list or downloadable calendar file until you click <strong>Confirm &amp; Add</strong>.
       </p>
 
-      <div class="organizer-grid">
+      <div class="form-grid">
+        <div>
+          <label for="ev-title" id="lbl-ev-title">Event Title</label>
+          <input id="ev-title" type="text" placeholder="e.g., Sunday Movement & Connect" />
+        </div>
+        <div>
+          <label for="ev-date" id="lbl-ev-date">Date</label>
+          <input id="ev-date" type="date" />
+        </div>
+        <div>
+          <label for="ev-start" id="lbl-ev-start">Start Time</label>
+          <input id="ev-start" type="time" value="18:00" />
+        </div>
+        <div>
+          <label for="ev-end" id="lbl-ev-end">End Time</label>
+          <input id="ev-end" type="time" value="21:30" />
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label for="ev-loc" id="lbl-ev-loc">Location / Notes</label>
+          <input id="ev-loc" type="text" placeholder="e.g., Amsterdam — Community Space" />
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn" id="stage-btn">Review Event Before Adding</button>
+        <span id="form-feedback"></span>
+      </div>
+
+      <div class="pending-box" id="pending-box" style="display: none;">
+        <div class="pending-header" id="pending-header">Pending Confirmation — Review details before adding:</div>
+        <div id="pending-list"></div>
+      </div>
+
+      <div class="confirmed-list" id="confirmed-section" style="display: none;">
+        <h3 id="confirmed-title" style="font-size: 1rem; margin-top: 18px; margin-bottom: 8px;">Confirmed Events</h3>
+        <div id="confirmed-list"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="org-title">Organizer Mode: Weekly WhatsApp Channel Digest</h2>
+      <p class="sub" id="org-sub">
+        Format highlights into a ready-to-post WhatsApp Channel update.
+      </p>
+
+      <div class="form-grid">
         <div>
           <label for="week-label" id="lbl-week">Week / Month Focus</label>
-          <input id="week-label" type="text" value="Weekly Highlight — LGBT Channel" />
+          <input id="week-label" type="text" value="Weekly Highlight — LGBT Channel Monthly Calendar" />
         </div>
         <div>
           <label for="event-highlight" id="lbl-event">Featured Session / Event</label>
-          <input id="event-highlight" type="text" value="GroovePark & Community Check-In (18:00–21:30)" />
+          <input id="event-highlight" type="text" value="GroovePark Community Session (18:00–21:30)" />
         </div>
         <div>
           <label for="location-info" id="lbl-loc">Location / Notes</label>
@@ -265,9 +376,11 @@
         </div>
       </div>
 
-      <button class="btn" id="gen-btn">Generate Digest</button>
-      <button class="btn secondary" id="copy-btn">Copy Message</button>
-      <span class="status" id="copy-status"></span>
+      <div class="btn-row">
+        <button class="btn" id="gen-btn">Generate Digest</button>
+        <button class="btn secondary" id="copy-btn">Copy Message</button>
+        <span class="status" id="copy-status"></span>
+      </div>
 
       <div style="margin-top: 14px;">
         <label for="digest-output" id="lbl-out">WhatsApp Channel Draft</label>
@@ -280,58 +393,227 @@
     const translations = {
       en: {
         heroTitle: "GroovePark & LGBT Channel Monthly Calendar",
-        heroDesc: "Accessible community movement, safe spaces, and monthly LGBT Channel agenda items. Check the live read-only calendar below or generate a weekly WhatsApp digest for your channel.",
-        badge1: "🏳️‍🌈 LGBT Channel Monthly Agenda",
-        badge2: "🗓️ Read-Only Live Calendar",
-        badge3: "💬 WhatsApp Digest Tool",
-        calTitle: "Monthly Agenda Calendar",
+        heroDesc: "Accessible community movement, safe spaces, and monthly agenda items for the LGBT Channel. Browse the read-only calendar below, stage new events with explicit confirmation before adding, or generate a weekly WhatsApp digest.",
+        badge1: "🏳️‍🌈 LGBT Channel Monthly Calendar",
+        badge2: "🗓️ Read-Only Live View",
+        badge3: "✅ Confirmation Required to Add",
+        calTitle: "LGBT Channel Monthly Calendar (Read-Only View)",
+        addTitle: "Stage New Event (Requires Your Confirmation)",
+        lblEvTitle: "Event Title",
+        lblEvDate: "Date",
+        lblEvStart: "Start Time",
+        lblEvEnd: "End Time",
+        lblEvLoc: "Location / Notes",
+        stageBtn: "Review Event Before Adding",
+        pendingHeader: "Pending Confirmation — Review details before adding:",
+        confirmBtn: "Confirm & Add",
+        discardBtn: "Cancel",
+        icsBtn: "Download .ICS",
+        confirmedTitle: "Confirmed Events",
         orgTitle: "Organizer Mode: Weekly WhatsApp Channel Digest",
-        orgSub: "Quickly format highlights from the monthly calendar into a ready-to-post WhatsApp Channel message.",
+        orgSub: "Format highlights into a ready-to-post WhatsApp Channel update.",
         lblWeek: "Week / Month Focus",
         lblEvent: "Featured Session / Event",
         lblLoc: "Location / Notes",
         lblOut: "WhatsApp Channel Draft",
         genBtn: "Generate Digest",
         copyBtn: "Copy Message",
-        copied: "Copied!"
+        copied: "Copied!",
+        missingFields: "Please enter an event title and date first.",
+        stagedMsg: "Staged for review — click Confirm & Add below to approve."
       },
       nl: {
         heroTitle: "GroovePark & LGBT Kanaal Maandkalender",
-        heroDesc: "Toegankelijke community-beweging, veilige plekken en maandelijkse agenda-items voor het LGBT Kanaal. Bekijk de kalender hieronder of maak een wekelijkse WhatsApp-samenvatting.",
-        badge1: "🏳️‍🌈 LGBT Kanaal Maandagenda",
-        badge2: "🗓️ Alleen-Lezen Kalender",
-        badge3: "💬 WhatsApp Samenvatting",
-        calTitle: "Maandelijkse Agendakalender",
+        heroDesc: "Toegankelijke community-beweging, veilige plekken en maandelijkse agenda-items voor het LGBT Kanaal. Bekijk de alleen-lezen kalender hieronder, zet nieuwe events eerst klaar ter bevestiging of maak een WhatsApp-samenvatting.",
+        badge1: "🏳️‍🌈 LGBT Kanaal Maandkalender",
+        badge2: "🗓️ Alleen-Lezen Weergave",
+        badge3: "✅ Bevestiging Vereist Voor Toevoegen",
+        calTitle: "LGBT Kanaal Maandkalender (Alleen-Lezen Weergave)",
+        addTitle: "Nieuw Event Klaarzetten (Bevestiging Vereist)",
+        lblEvTitle: "Event Titel",
+        lblEvDate: "Datum",
+        lblEvStart: "Starttijd",
+        lblEvEnd: "Eindtijd",
+        lblEvLoc: "Locatie / Notities",
+        stageBtn: "Controleer Event Voor Toevoegen",
+        pendingHeader: "Wacht op Bevestiging — Controleer gegevens voor toevoegen:",
+        confirmBtn: "Bevestig & Voeg Toe",
+        discardBtn: "Annuleer",
+        icsBtn: "Download .ICS",
+        confirmedTitle: "Bevestigde Events",
         orgTitle: "Organisator Modus: Wekelijkse WhatsApp Kanaal Update",
-        orgSub: "Zet hoogtepunten uit de maandkalender snel om in een bericht voor het WhatsApp Kanaal.",
+        orgSub: "Zet hoogtepunten snel om in een bericht voor het WhatsApp Kanaal.",
         lblWeek: "Week- / Maandfocus",
         lblEvent: "Uitgelichte Sessie / Activiteit",
         lblLoc: "Locatie / Notities",
         lblOut: "Concept WhatsApp Bericht",
         genBtn: "Genereer Update",
         copyBtn: "Kopieer Bericht",
-        copied: "Gekopieerd!"
+        copied: "Gekopieerd!",
+        missingFields: "Vul eerst een event titel en datum in.",
+        stagedMsg: "Klaargezet ter controle — klik hieronder op Bevestig & Voeg Toe."
       },
       es: {
         heroTitle: "GroovePark y Calendario Mensual del Canal LGBT",
-        heroDesc: "Movimiento comunitario accesible, espacios seguros y agenda mensual del Canal LGBT. Revisa el calendario en vivo o genera un resumen semanal para tu canal de WhatsApp.",
-        badge1: "🏳️‍🌈 Agenda Mensual Canal LGBT",
-        badge2: "🗓️ Calendario en Modo Lectura",
-        badge3: "💬 Resumen para WhatsApp",
-        calTitle: "Calendario de Agenda Mensual",
+        heroDesc: "Movimiento comunitario accesible, espacios seguros y agenda mensual del Canal LGBT. Revisa el calendario en modo lectura, prepara eventos con confirmación previa o genera un resumen de WhatsApp.",
+        badge1: "🏳️‍🌈 Calendario Mensual Canal LGBT",
+        badge2: "🗓️ Vista de Solo Lectura",
+        badge3: "✅ Requiere Confirmación al Agregar",
+        calTitle: "Calendario Mensual del Canal LGBT (Solo Lectura)",
+        addTitle: "Preparar Nuevo Evento (Requiere Confirmación)",
+        lblEvTitle: "Título del Evento",
+        lblEvDate: "Fecha",
+        lblEvStart: "Hora de Inicio",
+        lblEvEnd: "Hora de Fin",
+        lblEvLoc: "Ubicación / Notas",
+        stageBtn: "Revisar Evento Antes de Agregar",
+        pendingHeader: "Pendiente de Confirmación — Revisa los datos antes de agregar:",
+        confirmBtn: "Confirmar y Agregar",
+        discardBtn: "Cancelar",
+        icsBtn: "Descargar .ICS",
+        confirmedTitle: "Eventos Confirmados",
         orgTitle: "Modo Organizador: Resumen Semanal para Canal de WhatsApp",
-        orgSub: "Convierte las actividades clave del calendario mensual en un mensaje listo para tu canal.",
+        orgSub: "Convierte las actividades clave en un mensaje listo para tu canal.",
         lblWeek: "Enfoque de la Semana / Mes",
         lblEvent: "Sesión o Evento Destacado",
         lblLoc: "Ubicación / Notas",
         lblOut: "Borrador para WhatsApp",
         genBtn: "Generar Resumen",
         copyBtn: "Copiar Mensaje",
-        copied: "¡Copiado!"
+        copied: "¡Copiado!",
+        missingFields: "Ingresa primero el título y la fecha del evento.",
+        stagedMsg: "Listo para revisión — haz clic en Confirmar y Agregar abajo."
       }
     };
 
     let currentLang = "en";
+    let pendingEvents = [];
+    let confirmedEvents = [];
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function downloadIcs(ev) {
+      const cleanDate = ev.date.replace(/-/g, "");
+      const startCompact = ev.start.replace(":", "") + "00";
+      const endCompact = ev.end.replace(":", "") + "00";
+      const uid = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}@groovepark.local`;
+      const icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//GroovePark//LGBT Channel Monthly Calendar//EN",
+        "BEGIN:VEVENT",
+        `UID:${uid}`,
+        `DTSTART:${cleanDate}T${startCompact}`,
+        `DTEND:${cleanDate}T${endCompact}`,
+        `SUMMARY:${ev.title}`,
+        `LOCATION:${ev.location || ""}`,
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${ev.title.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "event"}.ics`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function renderQueues() {
+      const t = translations[currentLang];
+      const pendingBox = document.getElementById("pending-box");
+      const pendingList = document.getElementById("pending-list");
+      const confirmedSection = document.getElementById("confirmed-section");
+      const confirmedList = document.getElementById("confirmed-list");
+
+      document.getElementById("pending-header").textContent = t.pendingHeader;
+      document.getElementById("confirmed-title").textContent = t.confirmedTitle;
+
+      if (pendingEvents.length === 0) {
+        pendingBox.style.display = "none";
+        pendingList.innerHTML = "";
+      } else {
+        pendingBox.style.display = "block";
+        pendingList.innerHTML = pendingEvents.map((ev, idx) => `
+          <div class="event-item">
+            <div class="event-meta">
+              <strong>${escapeHtml(ev.title)}</strong>
+              <span>${escapeHtml(ev.date)} · ${escapeHtml(ev.start)} – ${escapeHtml(ev.end)}${ev.location ? " · " + escapeHtml(ev.location) : ""}</span>
+            </div>
+            <div class="btn-row">
+              <button class="btn confirm" onclick="confirmPendingEvent(${idx})">${escapeHtml(t.confirmBtn)}</button>
+              <button class="btn discard" onclick="discardPendingEvent(${idx})">${escapeHtml(t.discardBtn)}</button>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      if (confirmedEvents.length === 0) {
+        confirmedSection.style.display = "none";
+        confirmedList.innerHTML = "";
+      } else {
+        confirmedSection.style.display = "block";
+        confirmedList.innerHTML = confirmedEvents.map((ev, idx) => `
+          <div class="event-item">
+            <div class="event-meta">
+              <strong>${escapeHtml(ev.title)}</strong>
+              <span>${escapeHtml(ev.date)} · ${escapeHtml(ev.start)} – ${escapeHtml(ev.end)}${ev.location ? " · " + escapeHtml(ev.location) : ""}</span>
+            </div>
+            <div class="btn-row">
+              <button class="btn secondary" onclick="downloadConfirmedEvent(${idx})">${escapeHtml(t.icsBtn)}</button>
+            </div>
+          </div>
+        `).join("");
+      }
+    }
+
+    window.confirmPendingEvent = function (idx) {
+      const [item] = pendingEvents.splice(idx, 1);
+      if (item) {
+        confirmedEvents.push(item);
+        renderQueues();
+      }
+    };
+
+    window.discardPendingEvent = function (idx) {
+      pendingEvents.splice(idx, 1);
+      renderQueues();
+    };
+
+    window.downloadConfirmedEvent = function (idx) {
+      const item = confirmedEvents[idx];
+      if (item) downloadIcs(item);
+    };
+
+    document.getElementById("stage-btn").addEventListener("click", () => {
+      const t = translations[currentLang];
+      const feedback = document.getElementById("form-feedback");
+      const title = document.getElementById("ev-title").value.trim();
+      const date = document.getElementById("ev-date").value;
+      const start = document.getElementById("ev-start").value || "18:00";
+      const end = document.getElementById("ev-end").value || "21:30";
+      const location = document.getElementById("ev-loc").value.trim();
+
+      if (!title || !date) {
+        feedback.className = "error-msg";
+        feedback.textContent = t.missingFields;
+        return;
+      }
+
+      pendingEvents.push({ title, date, start, end, location });
+      document.getElementById("ev-title").value = "";
+      document.getElementById("ev-loc").value = "";
+      feedback.className = "status";
+      feedback.textContent = t.stagedMsg;
+      renderQueues();
+    });
 
     function buildDigest() {
       const week = document.getElementById("week-label").value.trim();
@@ -342,33 +624,44 @@
         `🏳️‍🌈 *${week}*`,
         `📌 *Highlight:* ${eventText}`,
         `📍 *Details:* ${loc}`,
-        `🗓️ Check the monthly calendar for full dates & updates.`
+        `🗓️ Check the LGBT Channel Monthly Calendar for full dates & updates.`
       ].join("\n");
 
       document.getElementById("digest-output").value = text;
+    }
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+      document.getElementById("hero-title").textContent = t.heroTitle;
+      document.getElementById("hero-desc").textContent = t.heroDesc;
+      document.getElementById("badge-1").textContent = t.badge1;
+      document.getElementById("badge-2").textContent = t.badge2;
+      document.getElementById("badge-3").textContent = t.badge3;
+      document.getElementById("cal-title").textContent = t.calTitle;
+      document.getElementById("add-title").textContent = t.addTitle;
+      document.getElementById("lbl-ev-title").textContent = t.lblEvTitle;
+      document.getElementById("lbl-ev-date").textContent = t.lblEvDate;
+      document.getElementById("lbl-ev-start").textContent = t.lblEvStart;
+      document.getElementById("lbl-ev-end").textContent = t.lblEvEnd;
+      document.getElementById("lbl-ev-loc").textContent = t.lblEvLoc;
+      document.getElementById("stage-btn").textContent = t.stageBtn;
+      document.getElementById("org-title").textContent = t.orgTitle;
+      document.getElementById("org-sub").textContent = t.orgSub;
+      document.getElementById("lbl-week").textContent = t.lblWeek;
+      document.getElementById("lbl-event").textContent = t.lblEvent;
+      document.getElementById("lbl-loc").textContent = t.lblLoc;
+      document.getElementById("lbl-out").textContent = t.lblOut;
+      document.getElementById("gen-btn").textContent = t.genBtn;
+      document.getElementById("copy-btn").textContent = t.copyBtn;
+      renderQueues();
     }
 
     document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         document.querySelectorAll(".lang-btn").forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
-        currentLang = btn.dataset.lang;
-        const t = translations[currentLang];
-
-        document.getElementById("hero-title").textContent = t.heroTitle;
-        document.getElementById("hero-desc").textContent = t.heroDesc;
-        document.getElementById("badge-1").textContent = t.badge1;
-        document.getElementById("badge-2").textContent = t.badge2;
-        document.getElementById("badge-3").textContent = t.badge3;
-        document.getElementById("cal-title").textContent = t.calTitle;
-        document.getElementById("org-title").textContent = t.orgTitle;
-        document.getElementById("org-sub").textContent = t.orgSub;
-        document.getElementById("lbl-week").textContent = t.lblWeek;
-        document.getElementById("lbl-event").textContent = t.lblEvent;
-        document.getElementById("lbl-loc").textContent = t.lblLoc;
-        document.getElementById("lbl-out").textContent = t.lblOut;
-        document.getElementById("gen-btn").textContent = t.genBtn;
-        document.getElementById("copy-btn").textContent = t.copyBtn;
+        applyLanguage(btn.dataset.lang);
       });
     });
 
@@ -379,14 +672,12 @@
       const status = document.getElementById("copy-status");
       try {
         await navigator.clipboard.writeText(output.value);
-        status.textContent = translations[currentLang].copied;
-        setTimeout(() => { status.textContent = ""; }, 2000);
       } catch {
         output.select();
         document.execCommand("copy");
-        status.textContent = translations[currentLang].copied;
-        setTimeout(() => { status.textContent = ""; }, 2000);
       }
+      status.textContent = translations[currentLang].copied;
+      setTimeout(() => { status.textContent = ""; }, 2000);
     });
 
     buildDigest();
