@@ -216,7 +216,7 @@
       gap: 6px;
       overflow-x: auto;
       scrollbar-width: none;
-      background: rgba(17, 26, 32, 0.9);
+      background: rgba(17, 26, 32, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border-strong);
@@ -266,6 +266,14 @@
       }
     }
 
+    .status-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
     .eyebrow {
       display: inline-block;
       background: var(--teal-soft);
@@ -277,7 +285,27 @@
       letter-spacing: 0.08em;
       padding: 5px 12px;
       border-radius: 999px;
-      margin-bottom: 12px;
+    }
+
+    .live-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--gold-soft);
+      color: #FDE68A;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #FBBF24;
+      display: inline-block;
     }
 
     .hero h1 {
@@ -348,15 +376,6 @@
       color: #5EEAD4;
     }
 
-    .btn-confirm {
-      background: var(--teal);
-      color: #051312;
-      padding: 7px 13px;
-      font-size: 0.8rem;
-      border-radius: 9px;
-      font-weight: 800;
-    }
-
     .btn-remove {
       background: var(--rose-soft);
       color: #FDA4AF;
@@ -364,65 +383,6 @@
       padding: 7px 13px;
       font-size: 0.8rem;
       border-radius: 9px;
-    }
-
-    .poll-card {
-      background: var(--surface-soft);
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-md);
-      padding: 15px;
-      margin-bottom: 12px;
-    }
-
-    .poll-opt {
-      width: 100%;
-      text-align: left;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--ink);
-      border-radius: 10px;
-      padding: 9px 12px;
-      margin-top: 8px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      font-family: inherit;
-      font-size: 0.86rem;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .poll-opt:hover {
-      border-color: var(--teal);
-    }
-
-    .poll-bar {
-      position: absolute;
-      inset: 0 auto 0 0;
-      background: var(--teal-soft);
-      pointer-events: none;
-      transition: width 0.25s ease;
-    }
-
-    .poll-opt span {
-      position: relative;
-      z-index: 1;
-    }
-
-    .rsvp-stat {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--teal-soft);
-      border: 1px solid rgba(20, 184, 166, 0.35);
-      color: #5EEAD4;
-      padding: 7px 13px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 800;
     }
 
     .notice-banner {
@@ -533,6 +493,41 @@
       color: var(--muted);
       font-size: 0.9rem;
       margin-bottom: 16px;
+    }
+
+    /* Form Controls */
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      background: var(--surface-soft);
+      color: var(--ink);
+      border: 1px solid var(--border-strong);
+      border-radius: 11px;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--teal);
+      background: var(--bg-elev);
     }
 
     /* Schedule Timeline */
@@ -683,6 +678,13 @@
       font-weight: 800;
     }
 
+    .day-cell.launch-sunday {
+      background: var(--gold-soft);
+      border-color: rgba(245, 158, 11, 0.48);
+      color: #FDE68A;
+      font-weight: 800;
+    }
+
     .day-cell.selected {
       outline: 2px solid #FFFFFF;
       outline-offset: 1px;
@@ -815,12 +817,40 @@
     }
 
     .regenboog-box strong {
+      display: block;
+      font-size: 0.95rem;
+      color: #5EEAD4;
+      margin-bottom: 4px;
+    }
+
+    .regenboog-box p {
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+
+    .event-row {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 10px 13px;
+      margin-bottom: 7px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .event-row strong {
+      display: block;
+      font-size: 0.88rem;
+    }
+
     .event-row span {
       font-size: 0.8rem;
       color: var(--muted);
     }
 
-    /* Polls, RSVP, Charter, Spotlight & Transit */
+    /* Polls, RSVP, Charter, Spotlight, Plans & FAQ */
     .rsvp-counter-pill {
       display: inline-flex;
       align-items: center;
@@ -958,16 +988,74 @@
       color: var(--muted);
     }
 
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .roadmap-card {
+      background: var(--surface-soft);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+
+    .roadmap-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 7px;
+      background: var(--teal-soft);
+      color: #5EEAD4;
+    }
+
+    .roadmap-badge.gold {
+      background: var(--gold-soft);
+      color: #FDE68A;
+    }
+
+    .roadmap-card strong {
+      display: block;
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+    }
+
+    .roadmap-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .faq-item {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      margin-bottom: 8px;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+
+    .faq-item p {
+      margin-top: 7px;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
     .msg-ok {
       font-size: 0.84rem;
       font-weight: 700;
       color: #5EEAD4;
-    }
-
-    .msg-err {
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: #FDA4AF;
     }
 
     footer {
@@ -1019,12 +1107,14 @@
     <!-- Sticky Section Bar -->
     <nav class="anchor-nav" aria-label="Page sections">
       <a href="#join" data-i18n="navJoin">Join &amp; Channel</a>
+      <a href="#plans" data-i18n="navPlans">What's in the Works</a>
       <a href="#rsvp" data-i18n="navRsvp">Sunday RSVP</a>
       <a href="#polls" data-i18n="navPolls">Community Polls</a>
       <a href="#calendar" data-i18n="navCal">2027 Calendar</a>
       <a href="#schedule" data-i18n="navSchedule">Sunday Times</a>
-      <a href="#spotlight" data-i18n="navSpotlight">2027 Facilitators</a>
+      <a href="#spotlight" data-i18n="navSpotlight">Instructors</a>
       <a href="#charter" data-i18n="navCharter">Safer-Space Charter</a>
+      <a href="#faq" data-i18n="navFaq">First-Timer FAQ</a>
       <a href="#location" data-i18n="navLocation">Location &amp; Transit</a>
       <a href="#disclaimers" data-i18n="navPrep">Prep &amp; Disclaimers</a>
       <a href="#host" data-i18n="navHost">De Regenboog Groep</a>
@@ -1034,10 +1124,16 @@
       <!-- Hero -->
       <section class="hero" id="join">
         <div>
-          <span class="eyebrow" data-i18n="heroKicker">2027 Sunday Relaunch · 18:00–21:30</span>
+          <div class="status-pill-row">
+            <span class="eyebrow" data-i18n="heroKicker">2027 Relaunch · Sunday, Jan 10 · 18:00–21:30</span>
+            <span class="live-status-pill">
+              <span class="live-dot"></span>
+              <span data-i18n="liveStatus">Status: Preparing for Dec 2026 Break → Relaunching Jan 10, 2027 (18:00)</span>
+            </span>
+          </div>
           <h1 data-i18n="heroTitle">GroovePark &amp; LGBT Channel Monthly Calendar</h1>
           <p class="lead" data-i18n="heroLead">
-            Free community movement, self-defence starting at 18:00, and monthly LGBT Channel agenda items at Buurtkamer Kostelijk in Amsterdam West. After our December 2026 break, regular Sunday sessions run from 18:00 to 21:30.
+            Free community movement, Self-Defence with Amara (Kenpo) starting at 18:00, Dance &amp; Choreography with Fernando at 19:20, and monthly LGBT Channel agenda items at Buurtkamer Kostelijk in Amsterdam West. After our December 2026 break, sessions begin on the second Sunday of January (Jan 10, 2027).
           </p>
           <div class="cta-group">
             <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="btnSignUp">
@@ -1051,7 +1147,7 @@
             </a>
           </div>
           <div class="notice-banner" data-i18n="decPause">
-            December 2026 Break: GroovePark pauses during December 2026 and relaunches on Sundays (18:00–21:30) starting January 2027.
+            December 2026 Break: GroovePark pauses during December 2026 and launches its 2027 season on the second Sunday of January (Sunday, January 10, 2027 · 18:00–21:30).
           </div>
         </div>
 
@@ -1059,7 +1155,7 @@
           <div class="side-title" data-i18n="sideTitle">2027 Session Snapshot</div>
           <div class="side-box">
             <strong data-i18n="sideTimeTitle">Sundays · 18:00–21:30</strong>
-            <span data-i18n="sideTimeDesc">Starts with Self-Defence at 18:00; January 2027 relaunch</span>
+            <span data-i18n="sideTimeDesc">Starts Sunday, Jan 10, 2027 · 18:00 Self-Defence (Amara) · 19:20 Dance (Fernando)</span>
           </div>
           <div class="side-box">
             <strong data-i18n="sidePlaceTitle">Buurtkamer Kostelijk</strong>
@@ -1079,12 +1175,43 @@
 
       <!-- Main Grid -->
       <div class="grid">
+        <!-- Upcoming Plans / What's in the Works -->
+        <section class="card span-12" id="plans">
+          <div class="card-kicker" data-i18n="plansKicker">Roadmap · Upcoming Plans</div>
+          <h2 data-i18n="plansTitle">What's in the Works for 2027</h2>
+          <p class="desc" data-i18n="plansDesc">
+            Here is what we are preparing during the December break and rolling out from the second Sunday of January 2027 onward.
+          </p>
+
+          <div class="roadmap-grid">
+            <div class="roadmap-card">
+              <span class="roadmap-badge gold" data-i18n="plan1Tag">Dec 2026 · In Progress</span>
+              <strong data-i18n="plan1Title">Winter Break &amp; Schedule Lock-In</strong>
+              <p data-i18n="plan1Body">Finalizing 2027 room dates at Buurtkamer Kostelijk, gathering community polls, and preparing the January relaunch.</p>
+            </div>
+            <div class="roadmap-card">
+              <span class="roadmap-badge" data-i18n="plan2Tag">Jan 10, 2027 · Confirmed</span>
+              <strong data-i18n="plan2Title">2027 Sunday Season Kickoff</strong>
+              <p data-i18n="plan2Body">Launching the second Sunday of January: 18:00 Self-Defence (Kenpo) with Amara and 19:20 Dance &amp; Choreography with Fernando.</p>
+            </div>
+            <div class="roadmap-card">
+              <span class="roadmap-badge" data-i18n="plan3Tag">Spring / Summer 2027 · Open</span>
+              <strong data-i18n="plan3Title">Guest Facilitators &amp; Park Pop-Ups</strong>
+              <p data-i18n="plan3Body">Inviting guest movement facilitators, outdoor Amsterdam West park sessions in warmer months, and joint LGBT Channel gatherings.</p>
+            </div>
+          </div>
+
+          <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="btnSuggestIdea">
+            Suggest a 2027 Theme or Workshop
+          </a>
+        </section>
+
         <!-- Calendar Card -->
         <section class="card span-7" id="calendar">
           <div class="card-kicker" data-i18n="calKicker">LGBT Channel Monthly Calendar · 2027</div>
           <h2 data-i18n="calTitle">2027 Monthly Agenda</h2>
           <p class="desc" data-i18n="calDesc">
-            Select any date to inspect the session window, open a Google Calendar event, or view the community calendar embed.
+            Select any date to inspect the session window (launching Sunday, Jan 10, 2027), open a Google Calendar event, or view the community calendar embed.
           </p>
 
           <div class="cal-bar">
@@ -1128,12 +1255,12 @@
           </div>
         </section>
 
-        <!-- Sunday Schedule with Explicit Times (Starting with Self-Defence at 18:00) -->
+        <!-- Sunday Schedule with Explicit Times (Starting with Self-Defence by Amara at 18:00) -->
         <section class="card span-5" id="schedule">
           <div class="card-kicker" data-i18n="schedKicker">2027 Sunday Order of Sessions</div>
           <h2 data-i18n="schedTitle">Sunday Times (18:00–21:30)</h2>
           <p class="desc" data-i18n="schedDesc">
-            Opening with Self-Defence at 18:00, followed by choreography and facilitator connection.
+            Launching Sunday, January 10, 2027: opening with Self-Defence (Amara) at 18:00, followed by Dance (Fernando) at 19:20.
           </p>
 
           <div id="scheduleList"></div>
@@ -1145,9 +1272,133 @@
             </div>
             <div class="mini-card">
               <strong data-i18n="miniCallTitle">2027 Facilitator Call</strong>
-              <span data-i18n="miniCallDesc">Movement instructors and co-hosts can sign up via the form.</span>
+              <span data-i18n="miniCallDesc">Movement instructors and guest hosts can sign up via the form.</span>
             </div>
           </div>
+        </section>
+
+        <!-- Quick Sunday RSVP / Headcount Counter (Private Sheet Sync Only — No Public CSV Export) -->
+        <section class="card span-6" id="rsvp">
+          <div class="card-kicker" data-i18n="rsvpKicker">Quick Sunday RSVP · Connected to Sign-Up Sheet</div>
+          <h2 data-i18n="rsvpTitle">Sunday Headcount (Starts 18:00)</h2>
+          <p class="desc" data-i18n="rsvpDesc">
+            Tap below to let us know you're coming at 18:00—no long form needed. Syncs directly with your existing Sign-Up Form &amp; private Google Sheet.
+          </p>
+
+          <div class="rsvp-counter-pill" id="rsvpCounterBadge">
+            <span>✓</span>
+            <span id="rsvpCountText">0 people coming on 2027-01-10</span>
+          </div>
+
+          <form id="rsvpForm">
+            <div class="form-row">
+              <div>
+                <label for="rsvpName" data-i18n="lblRsvpName">First Name &amp; Pronouns (Optional)</label>
+                <input id="rsvpName" type="text" placeholder="e.g., Sam (they/them)" />
+              </div>
+              <div>
+                <label for="rsvpSession" data-i18n="lblRsvpSession">Joining From</label>
+                <input id="rsvpSession" type="text" value="18:00 Self-Defence (Amara) + Dance (Fernando)" />
+              </div>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:12px;">
+              <button type="submit" class="btn btn-primary" data-i18n="btnRsvpSubmit">
+                I'm Coming This Sunday (18:00)
+              </button>
+              <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="btnFullSheetForm">
+                Open Full Sign-Up Form
+              </a>
+            </div>
+            <div id="rsvpMsg" class="msg-ok" style="margin-bottom:10px;"></div>
+          </form>
+
+          <details style="margin-top:8px;">
+            <summary style="cursor:pointer; font-size:0.8rem; font-weight:700; color:var(--muted);" data-i18n="sheetSyncSummary">
+              Google Sheet Auto-Sync URL (Same Sheet as Sign-Up Form)
+            </summary>
+            <div style="margin-top:8px;">
+              <label for="sheetWebhookInput" data-i18n="lblWebhook">Google Apps Script Web App URL</label>
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <input id="sheetWebhookInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" style="flex:1; min-width:200px;" />
+                <button type="button" class="btn btn-secondary" id="saveWebhookBtn" data-i18n="btnSaveWebhook">Save Link</button>
+              </div>
+            </div>
+          </details>
+
+          <div id="rsvpList" style="margin-top:12px;"></div>
+        </section>
+
+        <!-- Community Polls & Quick Feedback -->
+        <section class="card span-6" id="polls">
+          <div class="card-kicker" data-i18n="pollsKicker">Community Polls &amp; Quick Feedback</div>
+          <h2 data-i18n="pollsTitle">Vote &amp; Post Quick Questions</h2>
+          <p class="desc" data-i18n="pollsDesc">
+            Vote on upcoming Sunday themes or publish a new poll anytime and copy it straight to your WhatsApp Channel.
+          </p>
+
+          <div id="pollsList" style="margin-bottom:16px;"></div>
+
+          <details>
+            <summary style="cursor:pointer; font-size:0.84rem; font-weight:800; color:#5EEAD4; margin-bottom:10px;" data-i18n="newPollSummary">
+              + Create &amp; Publish a New Poll
+            </summary>
+            <form id="pollCreateForm" style="margin-top:10px;">
+              <div class="form-row">
+                <div>
+                  <label for="pollQuestion" data-i18n="lblPollQ">Poll Question</label>
+                  <input id="pollQuestion" type="text" placeholder="e.g., Which dance style should Fernando feature next Sunday?" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label for="pollOpt1">Option 1</label>
+                  <input id="pollOpt1" type="text" placeholder="Afro & Amapiano Groove" />
+                </div>
+                <div>
+                  <label for="pollOpt2">Option 2</label>
+                  <input id="pollOpt2" type="text" placeholder="Vogue Femme & Runway" />
+                </div>
+                <div>
+                  <label for="pollOpt3">Option 3 (Optional)</label>
+                  <input id="pollOpt3" type="text" placeholder="House & Club Footwork" />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" data-i18n="btnPublishPoll">Publish Poll</button>
+            </form>
+          </details>
+        </section>
+
+        <!-- 2027 Instructors & Guest-Host Spotlight -->
+        <section class="card span-5" id="spotlight">
+          <div class="card-kicker" data-i18n="spotKicker">2027 Session Leaders &amp; Guest Spotlight</div>
+          <h2 data-i18n="spotTitle">Your Sunday Instructors</h2>
+          <p class="desc" data-i18n="spotDesc">
+            Led each Sunday from January 10, 2027 by Amara and Fernando, alongside open guest workshop slots.
+          </p>
+
+          <div class="spotlight-slot">
+            <strong data-i18n="spotSdTitle">18:00–19:15 · Self-Defence with Amara (Kenpo)</strong>
+            <span data-i18n="spotSdDesc">Taught by Amara, drawing on a background in Kenpo to build practical awareness, boundary setting, and personal confidence.</span>
+          </div>
+          <div class="spotlight-slot">
+            <strong data-i18n="spotDanceTitle">19:20–20:45 · Dance &amp; Choreography with Fernando</strong>
+            <span data-i18n="spotDanceDesc">Led by Fernando (@iamnandov), combining expressive choreography, rhythm, and inclusive community movement for all levels.</span>
+          </div>
+
+          <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="btnPitch">
+            Pitch a 45-min Guest Workshop
+          </a>
+        </section>
+
+        <!-- Community Guidelines & Safer-Space Charter -->
+        <section class="card span-7" id="charter">
+          <div class="card-kicker" data-i18n="charterKicker">Community Guidelines &amp; Safer-Space Charter</div>
+          <h2 data-i18n="charterTitle">Our 4-Point Safer-Space Agreement</h2>
+          <p class="desc" data-i18n="charterDesc">
+            Shared commitments to keep GroovePark welcoming, affirming, and safe for LGBTQ+ folks and allies in Amsterdam West.
+          </p>
+
+          <div class="charter-grid" id="charterGrid"></div>
         </section>
 
         <!-- Location & Offline Map -->
@@ -1155,7 +1406,7 @@
           <div class="card-kicker" data-i18n="locKicker">Venue &amp; Offline Map</div>
           <h2 data-i18n="locTitle">Buurtkamer Kostelijk</h2>
           <p class="desc" data-i18n="locDesc">
-            Tweede Kostverlorenkade 15, 1052RL Amsterdam West — offline diagram and directions included.
+            Tweede Kostverlorenkade 15, 1052RL Amsterdam West — offline diagram and transit quick-check included.
           </p>
 
           <div class="map-box">
@@ -1197,147 +1448,35 @@
           </a>
         </section>
 
-        <!-- Preparation & Disclaimers -->
+        <!-- Preparation, Disclaimers & First-Timer FAQ -->
         <section class="card span-6" id="disclaimers">
-          <div class="card-kicker" data-i18n="prepKicker">Preparation &amp; Disclaimers</div>
-          <h2 data-i18n="prepTitle">What to Bring &amp; Important Notes</h2>
+          <div class="card-kicker" data-i18n="prepKicker">Preparation, Disclaimers &amp; FAQ</div>
+          <h2 data-i18n="prepTitle">What to Bring &amp; First-Timer FAQ</h2>
           <p class="desc" data-i18n="prepDesc">
-            Bring movement essentials and review venue and calendar notices ahead of time.
+            Bring movement essentials, review venue notices, and check common questions before your first Sunday.
           </p>
 
           <ul class="info-list" id="prepList"></ul>
 
-          <div class="warn-panel">
-            <strong data-i18n="warnTitle">Important Venue, Schedule &amp; Calendar Disclaimers</strong>
+          <div class="warn-panel" style="margin-bottom:14px;">
+            <strong data-i18n="warnTitle">Important Venue &amp; Schedule Disclaimers</strong>
             <ul id="warnList"></ul>
           </div>
-        </section>
 
-        <!-- Community Guidelines & Safer-Space Charter -->
-        <section class="card span-7" id="charter">
-          <div class="card-kicker" data-i18n="charterKicker">Community Guidelines &amp; Safer-Space Charter</div>
-          <h2 data-i18n="charterTitle">Our 4-Point Safer-Space Agreement</h2>
-          <p class="desc" data-i18n="charterDesc">
-            Shared commitments to keep GroovePark welcoming, affirming, and safe for LGBTQ+ folks and allies in Amsterdam West.
-          </p>
-
-          <div class="charter-grid" id="charterGrid"></div>
-        </section>
-
-        <!-- 2027 Facilitator & Guest-Host Spotlight -->
-        <section class="card span-5" id="spotlight">
-          <div class="card-kicker" data-i18n="spotKicker">2027 Facilitator &amp; Guest-Host Spotlight</div>
-          <h2 data-i18n="spotTitle">Monthly Guest Instructors</h2>
-          <p class="desc" data-i18n="spotDesc">
-            Rotating Amsterdam West facilitators leading our 18:00 Self-Defence and 19:20 Dance &amp; Choreography blocks.
-          </p>
-
-          <div class="spotlight-slot">
-            <strong data-i18n="spotSdTitle">18:00–19:15 · Self-Defence Guest Host</strong>
-            <span data-i18n="spotSdDesc">Practical boundary setting, de-escalation, and situational confidence led by rotating community trainers.</span>
+          <div id="faq">
+            <details class="faq-item">
+              <summary data-i18n="faq1Q">Do I need prior Kenpo, martial arts, or dance experience?</summary>
+              <p data-i18n="faq1A">Not at all. Both Amara's 18:00 Self-Defence class and Fernando's 19:20 Dance session are taught step-by-step for complete beginners and experienced movers alike.</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq2Q">Can I come by myself or join only one of the two blocks?</summary>
+              <p data-i18n="faq2A">Yes! Many participants come solo and quickly feel at home. You are welcome for the full evening (18:00–21:30) or for either Self-Defence (18:00) or Dance (19:20).</p>
+            </details>
+            <details class="faq-item">
+              <summary data-i18n="faq3Q">Is GroovePark really 100% free?</summary>
+              <p data-i18n="faq3A">Yes—sessions are completely free community gatherings hosted in Amsterdam West in connection with De Regenboog Groep.</p>
+            </details>
           </div>
-          <div class="spotlight-slot">
-            <strong data-i18n="spotDanceTitle">19:20–20:45 · Dance &amp; Choreography Guest Host</strong>
-            <span data-i18n="spotDanceDesc">Guest choreographers bringing Afro, Vogue, House, Latin, and contemporary groove sessions each month.</span>
-          </div>
-
-          <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="btnPitch">
-            Pitch a 45-min Workshop
-          </a>
-        </section>
-
-        <!-- Quick Sunday RSVP / Headcount Counter (Connected to Sign-Up Form & Sheet) -->
-        <section class="card span-6" id="rsvp">
-          <div class="card-kicker" data-i18n="rsvpKicker">Quick Sunday RSVP · Connected to Sign-Up Sheet</div>
-          <h2 data-i18n="rsvpTitle">Sunday Headcount (Starts 18:00)</h2>
-          <p class="desc" data-i18n="rsvpDesc">
-            Tap below to let us know you're coming this Sunday at 18:00—no long form needed. Syncs with your existing Sign-Up Form &amp; Excel/Google Sheet.
-          </p>
-
-          <div class="rsvp-counter-pill" id="rsvpCounterBadge">
-            <span>✓</span>
-            <span id="rsvpCountText">0 people coming for selected Sunday</span>
-          </div>
-
-          <form id="rsvpForm">
-            <div class="form-row">
-              <div>
-                <label for="rsvpName" data-i18n="lblRsvpName">First Name &amp; Pronouns (Optional)</label>
-                <input id="rsvpName" type="text" placeholder="e.g., Sam (they/them)" />
-              </div>
-              <div>
-                <label for="rsvpSession" data-i18n="lblRsvpSession">Joining From</label>
-                <input id="rsvpSession" type="text" value="18:00 Self-Defence + Dance" />
-              </div>
-            </div>
-            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:12px;">
-              <button type="submit" class="btn btn-primary" data-i18n="btnRsvpSubmit">
-                I'm Coming This Sunday (18:00)
-              </button>
-              <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="btnFullSheetForm">
-                Open Full Sign-Up Form
-              </a>
-              <button type="button" class="btn btn-secondary" id="exportCsvBtn" data-i18n="btnExportCsv">
-                Export Excel (.csv)
-              </button>
-            </div>
-            <div id="rsvpMsg" class="msg-ok" style="margin-bottom:10px;"></div>
-          </form>
-
-          <details style="margin-top:8px;">
-            <summary style="cursor:pointer; font-size:0.8rem; font-weight:700; color:var(--muted);" data-i18n="sheetSyncSummary">
-              Google Sheet Auto-Sync URL (Same Sheet as Sign-Up Form)
-            </summary>
-            <div style="margin-top:8px;">
-              <label for="sheetWebhookInput" data-i18n="lblWebhook">Google Apps Script Web App URL</label>
-              <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                <input id="sheetWebhookInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" style="flex:1; min-width:200px;" />
-                <button type="button" class="btn btn-secondary" id="saveWebhookBtn" data-i18n="btnSaveWebhook">Save Link</button>
-              </div>
-            </div>
-          </details>
-
-          <div id="rsvpList" style="margin-top:12px;"></div>
-        </section>
-
-        <!-- Community Polls & Quick Feedback -->
-        <section class="card span-6" id="polls">
-          <div class="card-kicker" data-i18n="pollsKicker">Community Polls &amp; Quick Feedback</div>
-          <h2 data-i18n="pollsTitle">Vote &amp; Post Quick Questions</h2>
-          <p class="desc" data-i18n="pollsDesc">
-            Vote on upcoming Sunday themes or publish a new poll anytime and copy it straight to your WhatsApp Channel.
-          </p>
-
-          <div id="pollsList" style="margin-bottom:16px;"></div>
-
-          <details>
-            <summary style="cursor:pointer; font-size:0.84rem; font-weight:800; color:#5EEAD4; margin-bottom:10px;" data-i18n="newPollSummary">
-              + Create &amp; Publish a New Poll
-            </summary>
-            <form id="pollCreateForm" style="margin-top:10px;">
-              <div class="form-row">
-                <div>
-                  <label for="pollQuestion" data-i18n="lblPollQ">Poll Question</label>
-                  <input id="pollQuestion" type="text" placeholder="e.g., Which dance style should we feature next Sunday?" />
-                </div>
-              </div>
-              <div class="form-row">
-                <div>
-                  <label for="pollOpt1">Option 1</label>
-                  <input id="pollOpt1" type="text" placeholder="Afro & Amapiano Groove" />
-                </div>
-                <div>
-                  <label for="pollOpt2">Option 2</label>
-                  <input id="pollOpt2" type="text" placeholder="Vogue Femme & Runway" />
-                </div>
-                <div>
-                  <label for="pollOpt3">Option 3 (Optional)</label>
-                  <input id="pollOpt3" type="text" placeholder="House & Footwork" />
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary" data-i18n="btnPublishPoll">Publish Poll</button>
-            </form>
-          </details>
         </section>
 
         <!-- Host & De Regenboog Groep -->
@@ -1345,7 +1484,7 @@
           <div class="card-kicker" data-i18n="hostKicker">Community Leadership &amp; Representation</div>
           <h2 data-i18n="hostTitle">Fernando (@iamnandov)</h2>
           <p class="desc" data-i18n="hostDesc">
-            Initiating &amp; hosting GroovePark in Amsterdam West.
+            Initiating, teaching dance, and hosting GroovePark in Amsterdam West.
           </p>
 
           <div class="regenboog-box">
@@ -1381,6 +1520,7 @@
     const WA_URL = "https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y";
     const CV_URL = "https://kmentindustry.github.io/FFVDK/";
     const COMMUNITY_CALENDAR_URL = "https://calendar.google.com/calendar/embed?src=e5660302e543fb0aef8f5e7fe118d36ddf3a96ce2131aec9c33c096f646b9d9c%40group.calendar.google.com&ctz=UTC";
+    const LAUNCH_ISO = "2027-01-10"; // Second Sunday of January 2027
     const RSVP_KEY = "groovepark_2027_rsvps_v1";
     const POLLS_KEY = "groovepark_2027_polls_v1";
     const WEBHOOK_KEY = "groovepark_2027_sheet_webhook_v1";
@@ -1410,25 +1550,28 @@
         cvLink: "CV Landing Page",
         waLink: "WhatsApp Channel",
         navJoin: "Join & Channel",
+        navPlans: "What's in the Works",
         navRsvp: "Sunday RSVP",
         navPolls: "Community Polls",
         navCal: "2027 Calendar",
         navSchedule: "Sunday Times",
-        navSpotlight: "2027 Facilitators",
+        navSpotlight: "Instructors",
         navCharter: "Safer-Space Charter",
+        navFaq: "First-Timer FAQ",
         navLocation: "Location & Transit",
         navPrep: "Prep & Disclaimers",
         navHost: "De Regenboog Groep",
-        heroKicker: "2027 Sunday Relaunch · 18:00–21:30",
+        heroKicker: "2027 Relaunch · Sunday, Jan 10 · 18:00–21:30",
+        liveStatus: "Status: Preparing for Dec 2026 Break → Relaunching Jan 10, 2027 (18:00)",
         heroTitle: "GroovePark & LGBT Channel Monthly Calendar",
-        heroLead: "Free community movement, self-defence starting at 18:00, and monthly LGBT Channel agenda items at Buurtkamer Kostelijk in Amsterdam West. After our December 2026 break, regular Sunday sessions run from 18:00 to 21:30.",
+        heroLead: "Free community movement, Self-Defence with Amara (Kenpo) starting at 18:00, Dance & Choreography with Fernando at 19:20, and monthly LGBT Channel agenda items at Buurtkamer Kostelijk in Amsterdam West. After our December 2026 break, sessions begin on the second Sunday of January (Jan 10, 2027).",
         btnSignUp: "Sign In / Sign Up & Instructors",
         btnQuickRsvp: "Quick Sunday RSVP (18:00)",
         btnWa: "Weekly WhatsApp Channel",
-        decPause: "December 2026 Break: GroovePark pauses during December 2026 and relaunches on Sundays (18:00–21:30) starting January 2027.",
+        decPause: "December 2026 Break: GroovePark pauses during December 2026 and launches its 2027 season on the second Sunday of January (Sunday, January 10, 2027 · 18:00–21:30).",
         sideTitle: "2027 Session Snapshot",
         sideTimeTitle: "Sundays · 18:00–21:30",
-        sideTimeDesc: "Starts with Self-Defence at 18:00; January 2027 relaunch",
+        sideTimeDesc: "Starts Sunday, Jan 10, 2027 · 18:00 Self-Defence (Amara) · 19:20 Dance (Fernando)",
         sidePlaceTitle: "Buurtkamer Kostelijk",
         sidePlaceDesc: "Tweede Kostverlorenkade 15, 1052RL Amsterdam West",
         sideSyncTitle: "Monthly Site · Weekly Channel",
@@ -1436,45 +1579,64 @@
         tagFree: "Free Entry",
         tagInclusive: "All Bodies Welcome",
         tagOffline: "Offline Ready",
+        plansKicker: "Roadmap · Upcoming Plans",
+        plansTitle: "What's in the Works for 2027",
+        plansDesc: "Here is what we are preparing during the December break and rolling out from the second Sunday of January 2027 onward.",
+        plan1Tag: "Dec 2026 · In Progress",
+        plan1Title: "Winter Break & Schedule Lock-In",
+        plan1Body: "Finalizing 2027 room dates at Buurtkamer Kostelijk, gathering community polls, and preparing the January relaunch.",
+        plan2Tag: "Jan 10, 2027 · Confirmed",
+        plan2Title: "2027 Sunday Season Kickoff",
+        plan2Body: "Launching the second Sunday of January: 18:00 Self-Defence (Kenpo) with Amara and 19:20 Dance & Choreography with Fernando.",
+        plan3Tag: "Spring / Summer 2027 · Open",
+        plan3Title: "Guest Facilitators & Park Pop-Ups",
+        plan3Body: "Inviting guest movement facilitators, outdoor Amsterdam West park sessions in warmer months, and joint LGBT Channel gatherings.",
+        btnSuggestIdea: "Suggest a 2027 Theme or Workshop",
         calKicker: "LGBT Channel Monthly Calendar · 2027",
         calTitle: "2027 Monthly Agenda",
-        calDesc: "Select any date to inspect the session window, open a Google Calendar event, or view the community calendar embed.",
+        calDesc: "Select any date to inspect the session window (launching Sunday, Jan 10, 2027), open a Google Calendar event, or view the community calendar embed.",
         btnEmbedToggle: "Community Calendar Embed",
         embedHeading: "LGBT Channel Community Calendar (UTC)",
         schedKicker: "2027 Sunday Order of Sessions",
         schedTitle: "Sunday Times (18:00–21:30)",
-        schedDesc: "Opening with Self-Defence at 18:00, followed by choreography and facilitator connection.",
+        schedDesc: "Launching Sunday, January 10, 2027: opening with Self-Defence (Amara) at 18:00, followed by Dance (Fernando) at 19:20.",
         schedule: [
-          ["18:00–19:15", "Self-Defence", "Opens at 18:00 with practical personal safety, awareness, and boundary skills."],
-          ["19:20–20:45", "Dance & Choreography", "Expressive movement and routines welcoming all bodies and experience levels."],
-          ["20:45–21:30", "Open Facilitator Call & Community Wrap", "Space to connect with hosts, share 2027 instructor ideas, and wind down."]
+          ["18:00–19:15", "Self-Defence · Taught by Amara (Kenpo)", "Opens at 18:00 with practical personal safety, awareness, and boundary skills led by Amara."],
+          ["19:20–20:45", "Dance & Choreography · Taught by Fernando", "Expressive movement and choreography led by Fernando, welcoming all bodies and levels."],
+          ["20:45–21:30", "Open Facilitator Call & Community Wrap", "Space to connect with hosts, share 2027 guest-workshop ideas, and wind down."]
         ],
         miniCommTitle: "LGBTQ+ & Allies",
         miniCommDesc: "No prior experience required; welcoming space in Amsterdam West.",
         miniCallTitle: "2027 Facilitator Call",
-        miniCallDesc: "Movement instructors and co-hosts can sign up via the form.",
+        miniCallDesc: "Guest movement instructors can sign up via the official form.",
         locKicker: "Venue & Offline Map",
         locTitle: "Buurtkamer Kostelijk",
-        locDesc: "Tweede Kostverlorenkade 15, 1052RL Amsterdam West — offline diagram and directions included.",
+        locDesc: "Tweede Kostverlorenkade 15, 1052RL Amsterdam West — offline diagram and transit quick-check included.",
         directions: [
           ["Address:", "Buurtkamer Kostelijk, Tweede Kostverlorenkade 15, 1052RL Amsterdam"],
           ["Public Transit:", "Take Tram 7 or 13 toward Amsterdam West and walk to the canal path."],
           ["Arrival Cue:", "Along Tweede Kostverlorenkade; look for venue signage at the entrance."]
         ],
         btnMaps: "Open in Google Maps",
-        prepKicker: "Preparation & Disclaimers",
-        prepTitle: "What to Bring & Important Notes",
-        prepDesc: "Bring movement essentials and review venue and calendar notices ahead of time.",
+        prepKicker: "Preparation, Disclaimers & FAQ",
+        prepTitle: "What to Bring & First-Timer FAQ",
+        prepDesc: "Bring movement essentials, review venue notices, and check common questions before your first Sunday.",
         prepItems: [
           ["Water Bottle:", "Bring your own reusable water bottle to stay hydrated."],
           ["Indoor Shoes:", "Bring clean extra indoor shoes for the movement floor."],
           ["Change of Clothes:", "Bring a fresh top or change of clothes for comfort afterward."]
         ],
-        warnTitle: "Important Venue, Schedule & Calendar Disclaimers",
+        warnTitle: "Important Venue & Schedule Disclaimers",
         warnings: [
           "There are no shower facilities available at Buurtkamer Kostelijk.",
-          "GroovePark pauses in December 2026 and targets a Sunday (18:00–21:30) relaunch in January 2027, subject to venue and scheduling confirmation."
+          "GroovePark pauses in December 2026 and launches its 2027 Sunday sessions (18:00–21:30) on the second Sunday of January (January 10, 2027), subject to venue confirmation."
         ],
+        faq1Q: "Do I need prior Kenpo, martial arts, or dance experience?",
+        faq1A: "Not at all. Both Amara's 18:00 Self-Defence class and Fernando's 19:20 Dance session are taught step-by-step for complete beginners and experienced movers alike.",
+        faq2Q: "Can I come by myself or join only one of the two blocks?",
+        faq2A: "Yes! Many participants come solo and quickly feel at home. You are welcome for the full evening (18:00–21:30) or for either Self-Defence (18:00) or Dance (19:20).",
+        faq3Q: "Is GroovePark really 100% free?",
+        faq3A: "Yes—sessions are completely free community gatherings hosted in Amsterdam West in connection with De Regenboog Groep.",
         accStepTitle: "Step-Free Access",
         accStepDesc: "Ground-floor level entrance at Buurtkamer Kostelijk.",
         accBikeTitle: "Bike Parking",
@@ -1490,22 +1652,21 @@
           ["3. Accessible Pacing for All Bodies", "Move at your own energy level—chairs, breaks, and low-impact options are always welcome."],
           ["4. Strict Photo & Video Consent", "Never film or photograph other participants without explicit verbal permission first."]
         ],
-        spotKicker: "2027 Facilitator & Guest-Host Spotlight",
-        spotTitle: "Monthly Guest Instructors",
-        spotDesc: "Rotating Amsterdam West facilitators leading our 18:00 Self-Defence and 19:20 Dance & Choreography blocks.",
-        spotSdTitle: "18:00–19:15 · Self-Defence Guest Host",
-        spotSdDesc: "Practical boundary setting, de-escalation, and situational confidence led by rotating community trainers.",
-        spotDanceTitle: "19:20–20:45 · Dance & Choreography Guest Host",
-        spotDanceDesc: "Guest choreographers bringing Afro, Vogue, House, Latin, and contemporary groove sessions each month.",
-        btnPitch: "Pitch a 45-min Workshop",
+        spotKicker: "2027 Session Leaders & Guest Spotlight",
+        spotTitle: "Your Sunday Instructors",
+        spotDesc: "Led each Sunday from January 10, 2027 by Amara and Fernando, alongside open guest workshop slots.",
+        spotSdTitle: "18:00–19:15 · Self-Defence with Amara (Kenpo)",
+        spotSdDesc: "Taught by Amara, drawing on a background in Kenpo to build practical awareness, boundary setting, and personal confidence.",
+        spotDanceTitle: "19:20–20:45 · Dance & Choreography with Fernando",
+        spotDanceDesc: "Led by Fernando (@iamnandov), combining expressive choreography, rhythm, and inclusive community movement for all levels.",
+        btnPitch: "Pitch a 45-min Guest Workshop",
         rsvpKicker: "Quick Sunday RSVP · Connected to Sign-Up Sheet",
         rsvpTitle: "Sunday Headcount (Starts 18:00)",
-        rsvpDesc: "Tap below to let us know you're coming this Sunday at 18:00—no long form needed. Syncs with your existing Sign-Up Form & Excel/Google Sheet.",
+        rsvpDesc: "Tap below to let us know you're coming at 18:00—no long form needed. Syncs directly with your existing Sign-Up Form & private Google Sheet.",
         lblRsvpName: "First Name & Pronouns (Optional)",
         lblRsvpSession: "Joining From",
         btnRsvpSubmit: "I'm Coming This Sunday (18:00)",
         btnFullSheetForm: "Open Full Sign-Up Form",
-        btnExportCsv: "Export Excel (.csv)",
         sheetSyncSummary: "Google Sheet Auto-Sync URL (Same Sheet as Sign-Up Form)",
         lblWebhook: "Google Apps Script Web App URL",
         btnSaveWebhook: "Save Link",
@@ -1517,7 +1678,7 @@
         btnPublishPoll: "Publish Poll",
         hostKicker: "Community Leadership & Representation",
         hostTitle: "Fernando (@iamnandov)",
-        hostDesc: "Initiating & hosting GroovePark in Amsterdam West.",
+        hostDesc: "Initiating, teaching dance, and hosting GroovePark in Amsterdam West.",
         regenboogRole: "Representative & Spokesperson — De Regenboog Groep",
         regenboogBody: "Fernando (@iamnandov) serves as Community Organizer, Representative, and Spokesperson under De Regenboog Groep, supporting inclusive community connection and representation.",
         btnCv: "Visit CV Landing Page",
@@ -1531,25 +1692,28 @@
         cvLink: "CV Landingspagina",
         waLink: "WhatsApp Kanaal",
         navJoin: "Meedoen & Kanaal",
+        navPlans: "Plannen 2027",
         navRsvp: "Zondag RSVP",
         navPolls: "Polls",
         navCal: "2027 Kalender",
         navSchedule: "Zondagtijden",
-        navSpotlight: "Docenten 2027",
+        navSpotlight: "Docenten",
         navCharter: "Safer-Space Charter",
+        navFaq: "FAQ",
         navLocation: "Locatie & OV",
         navPrep: "Voorbereiding & Info",
         navHost: "De Regenboog Groep",
-        heroKicker: "2027 Zondag Herstart · 18:00–21:30",
+        heroKicker: "2027 Start · Zondag 10 Jan · 18:00–21:30",
+        liveStatus: "Status: Voorbereiding Dec 2026 Pauze → Herstart op Zondag 10 Jan 2027 (18:00)",
         heroTitle: "GroovePark & LGBT Kanaal Maandkalender",
-        heroLead: "Gratis community-beweging, zelfverdediging vanaf 18:00 en maandelijkse agenda-items voor het LGBT Kanaal in Buurtkamer Kostelijk in Amsterdam West. Na de decemberpauze van 2026 draaien we op zondagen van 18:00 tot 21:30.",
+        heroLead: "Gratis community-beweging, Zelfverdediging door Amara (Kenpo) vanaf 18:00, Dans & Choreografie door Fernando om 19:20 en maandelijkse agenda-items voor het LGBT Kanaal in Buurtkamer Kostelijk in Amsterdam West. Na de decemberpauze van 2026 starten we op de tweede zondag van januari (10 januari 2027).",
         btnSignUp: "Aanmelden & Docentenformulier",
         btnQuickRsvp: "Snelle Zondag RSVP (18:00)",
         btnWa: "Wekelijks WhatsApp Kanaal",
-        decPause: "Decemberpauze 2026: GroovePark pauzeert in december 2026 en herstart vanaf januari 2027 op zondagen (18:00–21:30).",
+        decPause: "Decemberpauze 2026: GroovePark pauzeert in december 2026 en start het seizoen van 2027 op de tweede zondag van januari (zondag 10 januari 2027 · 18:00–21:30).",
         sideTitle: "2027 Sessie-Overzicht",
         sideTimeTitle: "Zondagen · 18:00–21:30",
-        sideTimeDesc: "Start om 18:00 met Zelfverdediging; herstart januari 2027",
+        sideTimeDesc: "Start zondag 10 jan 2027 · 18:00 Zelfverdediging (Amara) · 19:20 Dans (Fernando)",
         sidePlaceTitle: "Buurtkamer Kostelijk",
         sidePlaceDesc: "Tweede Kostverlorenkade 15, 1052RL Amsterdam West",
         sideSyncTitle: "Maandsite · Weekkanaal",
@@ -1557,45 +1721,64 @@
         tagFree: "Gratis Toegang",
         tagInclusive: "Iedereen Welkom",
         tagOffline: "Offline Beschikbaar",
+        plansKicker: "Roadmap · Toekomstplannen",
+        plansTitle: "Wat Staat Er Op De Planning Voor 2027",
+        plansDesc: "Dit bereiden we voor tijdens de decemberpauze en starten we vanaf de tweede zondag van januari 2027.",
+        plan1Tag: "Dec 2026 · Bezig",
+        plan1Title: "Winterpauze & Rooster Vastleggen",
+        plan1Body: "Ruimtedata voor 2027 afronden bij Buurtkamer Kostelijk, polls verzamelen en de herstart in januari voorbereiden.",
+        plan2Tag: "10 Jan 2027 · Bevestigd",
+        plan2Title: "Aftrap Zondagseizoen 2027",
+        plan2Body: "Start op de tweede zondag van januari: 18:00 Zelfverdediging (Kenpo) met Amara en 19:20 Dans & Choreografie met Fernando.",
+        plan3Tag: "Lente / Zomer 2027 · Open",
+        plan3Title: "Gastdocenten & Park Pop-Ups",
+        plan3Body: "Gastdocenten uitnodigen, buitensessies in Amsterdam West bij mooi weer en gezamenlijke LGBT Kanaal bijeenkomsten.",
+        btnSuggestIdea: "Stel een 2027 Thema of Workshop Voor",
         calKicker: "LGBT Kanaal Maandkalender · 2027",
         calTitle: "2027 Maandagenda",
-        calDesc: "Kies een datum om het tijdvenster te bekijken, een Google Agenda-event te openen of de communitykalender te bekijken.",
+        calDesc: "Kies een datum om het tijdvenster te bekijken (start zondag 10 jan 2027), een Google Agenda-event te openen of de communitykalender te bekijken.",
         btnEmbedToggle: "Communitykalender Tonen",
         embedHeading: "LGBT Kanaal Communitykalender (UTC)",
         schedKicker: "2027 Zondagvolgorde",
         schedTitle: "Zondagtijden (18:00–21:30)",
-        schedDesc: "We beginnen om 18:00 met Zelfverdediging, gevolgd door choreografie en docentenoproep.",
+        schedDesc: "Start zondag 10 januari 2027: om 18:00 Zelfverdediging met Amara, gevolgd door Dans met Fernando om 19:20.",
         schedule: [
-          ["18:00–19:15", "Zelfverdediging", "Start om 18:00 met praktische weerbaarheid, alertheid en grenzen."],
-          ["19:20–20:45", "Dans & Choreografie", "Expressieve beweging en routines voor alle lichamen en niveaus."],
-          ["20:45–21:30", "Open Docentenoproep & Afsluiting", "Ruimte voor vragen, 2027-ideeën van docenten en rustig afsluiten."]
+          ["18:00–19:15", "Zelfverdediging · Door Amara (Kenpo)", "Start om 18:00 met praktische weerbaarheid, alertheid en grenzen onder begeleiding van Amara."],
+          ["19:20–20:45", "Dans & Choreografie · Door Fernando", "Expressieve beweging en choreografie met Fernando voor alle lichamen en niveaus."],
+          ["20:45–21:30", "Open Docentenoproep & Afsluiting", "Ruimte voor vragen, gastworkshop-ideeën voor 2027 en rustig afsluiten."]
         ],
         miniCommTitle: "LGBTQ+ & Bondgenoten",
         miniCommDesc: "Geen ervaring nodig; open sfeer in Amsterdam West.",
         miniCallTitle: "Docentenoproep 2027",
-        miniCallDesc: "Bewegingsdocenten en hosts kunnen zich via het formulier melden.",
+        miniCallDesc: "Gastdocenten kunnen zich via het officiële formulier melden.",
         locKicker: "Locatie & Offline Kaart",
         locTitle: "Buurtkamer Kostelijk",
-        locDesc: "Tweede Kostverlorenkade 15, 1052RL Amsterdam West — inclusief offline kaart en route.",
+        locDesc: "Tweede Kostverlorenkade 15, 1052RL Amsterdam West — inclusief offline kaart en OV-check.",
         directions: [
           ["Adres:", "Buurtkamer Kostelijk, Tweede Kostverlorenkade 15, 1052RL Amsterdam"],
           ["Openbaar Vervoer:", "Neem Tram 7 of 13 richting Amsterdam West en loop naar het kanaal."],
           ["Herkenningspunt:", "Aan de Tweede Kostverlorenkade; let op de ingang en bewegwijzering."]
         ],
         btnMaps: "Open in Google Maps",
-        prepKicker: "Voorbereiding & Disclaimers",
-        prepTitle: "Wat Neem Je Mee & Belangrijke Info",
-        prepDesc: "Neem spullen voor beweging mee en let op onderstaande locatie- en agendanotities.",
+        prepKicker: "Voorbereiding, Disclaimers & FAQ",
+        prepTitle: "Wat Neem Je Mee & Veelgestelde Vragen",
+        prepDesc: "Neem spullen voor beweging mee, lees de locatienotities en bekijk veelgestelde vragen voor je eerste zondag.",
         prepItems: [
           ["Waterfles:", "Neem je eigen herbruikbare waterfles mee."],
           ["Binnenschoenen:", "Neem schone extra binnenschoenen mee voor de zaal."],
           ["Schone Kleding:", "Neem een setje schone kleding mee om na afloop te wisselen."]
         ],
-        warnTitle: "Belangrijke Locatie-, Rooster- & Kalenderdisclaimers",
+        warnTitle: "Belangrijke Locatie- & Roosterdisclaimers",
         warnings: [
           "Er zijn geen douchefaciliteiten aanwezig in Buurtkamer Kostelijk.",
-          "GroovePark pauzeert in december 2026 en streeft naar een herstart op zondagen (18:00–21:30) in januari 2027, onder voorbehoud van ruimte- en roosteraffstemming."
+          "GroovePark pauzeert in december 2026 en start de zondagsessies van 2027 (18:00–21:30) op de tweede zondag van januari (10 januari 2027), onder voorbehoud van ruimtebevestiging."
         ],
+        faq1Q: "Heb ik ervaring met Kenpo, zelfverdediging of dans nodig?",
+        faq1A: "Helemaal niet. Zowel de les Zelfverdediging van Amara (18:00) als de dansles van Fernando (19:20) wordt stap voor stap opgebouwd voor beginners en gevorderden.",
+        faq2Q: "Kan ik alleen komen of slechts één van de twee blokken meedoen?",
+        faq2A: "Ja! Veel deelnemers komen alleen en voelen zich snel thuis. Je bent welkom voor de hele avond (18:00–21:30) of alleen voor Zelfverdediging (18:00) of Dans (19:20).",
+        faq3Q: "Is GroovePark echt 100% gratis?",
+        faq3A: "Ja, de sessies zijn volledig gratis community-bijeenkomsten in Amsterdam West in verbinding met De Regenboog Groep.",
         accStepTitle: "Drempelvrije Toegang",
         accStepDesc: "Gelijkvloerse ingang bij Buurtkamer Kostelijk.",
         accBikeTitle: "Fietsparkeren",
@@ -1611,22 +1794,21 @@
           ["3. Toegankelijk Tempo voor Iedereen", "Beweeg op je eigen niveau; pauzes en aanpassingen zijn altijd welkom."],
           ["4. Strenge Foto- & Videotoestemming", "Film of fotografeer nooit andere deelnemers zonder uitdrukkelijke toestemming vooraf."]
         ],
-        spotKicker: "2027 Gastdocenten & Hosts",
-        spotTitle: "Maandelijkse Gastdocenten",
-        spotDesc: "Wisselende trainers uit Amsterdam West voor Zelfverdediging (18:00) en Dans & Choreografie (19:20).",
-        spotSdTitle: "18:00–19:15 · Gastdocent Zelfverdediging",
-        spotSdDesc: "Praktische grenzen stellen, de-escalatie en zelfvertrouwen onder begeleiding van trainers.",
-        spotDanceTitle: "19:20–20:45 · Gastdocent Dans & Choreografie",
-        spotDanceDesc: "Gastchoreografen met Afro, Vogue, House, Latin en hedendaagse stijlen.",
-        btnPitch: "Stel een Workshop van 45 min Voor",
+        spotKicker: "2027 Docenten & Gastworkshops",
+        spotTitle: "Jouw Zondagdocenten",
+        spotDesc: "Vanaf zondag 10 januari 2027 verzorgd door Amara en Fernando, met ruimte voor gastworkshops.",
+        spotSdTitle: "18:00–19:15 · Zelfverdediging met Amara (Kenpo)",
+        spotSdDesc: "Gegeven door Amara vanuit een achtergrond in Kenpo, gericht op praktische alertheid, grenzen en zelfvertrouwen.",
+        spotDanceTitle: "19:20–20:45 · Dans & Choreografie met Fernando",
+        spotDanceDesc: "Geleid door Fernando (@iamnandov), met expressieve choreografie, ritme en inclusieve beweging voor elk niveau.",
+        btnPitch: "Stel een Gastworkshop van 45 min Voor",
         rsvpKicker: "Snelle Zondag RSVP · Gekoppeld aan Aanmeldsheet",
         rsvpTitle: "Zondag Aanwezigheid (Start 18:00)",
-        rsvpDesc: "Tik hieronder om door te geven dat je zondag om 18:00 komt. Gekoppeld aan het aanmeldformulier en de Excel/Google Sheet.",
+        rsvpDesc: "Tik hieronder om door te geven dat je om 18:00 komt. Gekoppeld aan het aanmeldformulier en jouw privé Google Sheet.",
         lblRsvpName: "Voornaam & Voornaamwoorden (Optioneel)",
         lblRsvpSession: "Deelname Vanaf",
         btnRsvpSubmit: "Ik Kom Deze Zondag (18:00)",
         btnFullSheetForm: "Open Volledig Aanmeldformulier",
-        btnExportCsv: "Exporteer Excel (.csv)",
         sheetSyncSummary: "Google Sheet Auto-Sync URL (Zelfde Sheet als Formulier)",
         lblWebhook: "Google Apps Script Web App URL",
         btnSaveWebhook: "Link Opslaan",
@@ -1638,7 +1820,7 @@
         btnPublishPoll: "Publiceer Poll",
         hostKicker: "Organisatie & Vertegenwoordiging",
         hostTitle: "Fernando (@iamnandov)",
-        hostDesc: "Initiatiefnemer en host van GroovePark in Amsterdam West.",
+        hostDesc: "Initiatiefnemer, dansdocent en host van GroovePark in Amsterdam West.",
         regenboogRole: "Vertegenwoordiger & Woordvoerder — De Regenboog Groep",
         regenboogBody: "Fernando (@iamnandov) is actief als Community Organizer, Vertegenwoordiger en Woordvoerder onder De Regenboog Groep voor inclusieve verbinding en vertegenwoordiging.",
         btnCv: "Bezoek CV Landingspagina",
@@ -1652,25 +1834,28 @@
         cvLink: "Página de CV",
         waLink: "Canal de WhatsApp",
         navJoin: "Unirse y Canal",
+        navPlans: "Planes 2027",
         navRsvp: "Confirmar Domingo",
         navPolls: "Encuestas",
         navCal: "Calendario 2027",
         navSchedule: "Horarios Domingo",
-        navSpotlight: "Facilitadores 2027",
+        navSpotlight: "Instructores",
         navCharter: "Espacio Seguro",
+        navFaq: "Preguntas",
         navLocation: "Ubicación y Acceso",
         navPrep: "Prep y Avisos",
         navHost: "De Regenboog Groep",
-        heroKicker: "Reinicio Dominical 2027 · 18:00–21:30",
+        heroKicker: "Reinicio 2027 · Domingo 10 Ene · 18:00–21:30",
+        liveStatus: "Estado: Preparando pausa dic 2026 → Regreso el domingo 10 ene 2027 (18:00)",
         heroTitle: "GroovePark y Calendario Mensual del Canal LGBT",
-        heroLead: "Movimiento comunitario gratuito, defensa personal desde las 18:00 y agenda mensual del Canal LGBT en Buurtkamer Kostelijk en Ámsterdam Oeste. Tras la pausa de diciembre de 2026, volvemos los domingos de 18:00 a 21:30.",
+        heroLead: "Movimiento comunitario gratuito, Defensa Personal con Amara (Kenpo) desde las 18:00, Danza y Coreografía con Fernando a las 19:20 y agenda mensual del Canal LGBT en Buurtkamer Kostelijk en Ámsterdam Oeste. Tras la pausa de diciembre 2026, comenzamos el segundo domingo de enero (10 de enero de 2027).",
         btnSignUp: "Registro e Instructores",
         btnQuickRsvp: "RSVP Rápido Domingo (18:00)",
         btnWa: "Canal Semanal de WhatsApp",
-        decPause: "Pausa de diciembre 2026: GroovePark hace pausa en diciembre de 2026 y regresa los domingos (18:00–21:30) desde enero de 2027.",
+        decPause: "Pausa de diciembre 2026: GroovePark hace pausa en diciembre de 2026 y arranca su temporada 2027 el segundo domingo de enero (domingo 10 de enero de 2027 · 18:00–21:30).",
         sideTitle: "Resumen 2027",
         sideTimeTitle: "Domingos · 18:00–21:30",
-        sideTimeDesc: "Inicia con Defensa Personal a las 18:00; regreso en enero 2027",
+        sideTimeDesc: "Inicia el domingo 10 ene 2027 · 18:00 Defensa Personal (Amara) · 19:20 Danza (Fernando)",
         sidePlaceTitle: "Buurtkamer Kostelijk",
         sidePlaceDesc: "Tweede Kostverlorenkade 15, 1052RL Ámsterdam Oeste",
         sideSyncTitle: "Web Mensual · Canal Semanal",
@@ -1678,23 +1863,36 @@
         tagFree: "Entrada Libre",
         tagInclusive: "Todos los Cuerpos",
         tagOffline: "Modo Offline",
+        plansKicker: "Hoja de Ruta · Próximos Planes",
+        plansTitle: "Lo Que Viene para 2027",
+        plansDesc: "Esto es lo que preparamos durante la pausa de diciembre y lanzamos desde el segundo domingo de enero de 2027.",
+        plan1Tag: "Dic 2026 · En Curso",
+        plan1Title: "Pausa Invernal y Confirmación de Fechas",
+        plan1Body: "Cerrando fechas 2027 en Buurtkamer Kostelijk, encuestas comunitarias y preparación del reinicio de enero.",
+        plan2Tag: "10 Ene 2027 · Confirmado",
+        plan2Title: "Inicio de Temporada Dominical 2027",
+        plan2Body: "Comenzamos el segundo domingo de enero: 18:00 Defensa Personal (Kenpo) con Amara y 19:20 Danza con Fernando.",
+        plan3Tag: "Primavera / Verano 2027 · Abierto",
+        plan3Title: "Invitados Especiales y Sesiones al Aire Libre",
+        plan3Body: "Facilitadores invitados, encuentros en parques de Ámsterdam Oeste cuando mejore el clima y actividades del Canal LGBT.",
+        btnSuggestIdea: "Sugerir un Tema o Taller 2027",
         calKicker: "Calendario Mensual Canal LGBT · 2027",
         calTitle: "Agenda Mensual 2027",
-        calDesc: "Selecciona una fecha para ver el horario, abrir un evento en Google Calendar o consultar el calendario comunitario.",
+        calDesc: "Selecciona una fecha para ver el horario (inicio domingo 10 ene 2027), abrir Google Calendar o ver el calendario comunitario.",
         btnEmbedToggle: "Calendario Comunitario",
         embedHeading: "Calendario Comunitario del Canal LGBT (UTC)",
         schedKicker: "Orden Dominical 2027",
         schedTitle: "Horarios de Domingo (18:00–21:30)",
-        schedDesc: "Comenzamos a las 18:00 con Defensa Personal, seguidos de coreografía y convocatoria de facilitadores.",
+        schedDesc: "Iniciamos el domingo 10 de enero de 2027: Defensa Personal con Amara a las 18:00 y Danza con Fernando a las 19:20.",
         schedule: [
-          ["18:00–19:15", "Defensa Personal", "Empieza a las 18:00 con prevención práctica, atención y límites personales."],
-          ["19:20–20:45", "Danza y Coreografía", "Movimiento expresivo y rutinas abiertas a todos los cuerpos y niveles."],
-          ["20:45–21:30", "Convocatoria 2027 y Cierre", "Espacio para conversar, proponer sesiones 2027 y cerrar la tarde."]
+          ["18:00–19:15", "Defensa Personal · Con Amara (Kenpo)", "Empieza a las 18:00 con prevención práctica, atención y límites personales guiados por Amara."],
+          ["19:20–20:45", "Danza y Coreografía · Con Fernando", "Movimiento expresivo y coreografía guiados por Fernando para todos los cuerpos y niveles."],
+          ["20:45–21:30", "Convocatoria 2027 y Cierre", "Espacio para conversar, proponer talleres invitados 2027 y cerrar la tarde."]
         ],
         miniCommTitle: "LGBTQ+ y Aliados",
         miniCommDesc: "Sin experiencia previa; ambiente acogedor en Ámsterdam Oeste.",
         miniCallTitle: "Convocatoria 2027",
-        miniCallDesc: "Instructores y facilitadores pueden anotarse en el formulario.",
+        miniCallDesc: "Instructores invitados pueden anotarse en el formulario.",
         locKicker: "Lugar y Mapa Offline",
         locTitle: "Buurtkamer Kostelijk",
         locDesc: "Tweede Kostverlorenkade 15, 1052RL Ámsterdam Oeste — mapa offline e indicaciones.",
@@ -1704,19 +1902,25 @@
           ["Referencia:", "En Tweede Kostverlorenkade; ubica el acceso señalizado del espacio."]
         ],
         btnMaps: "Abrir en Google Maps",
-        prepKicker: "Preparación y Avisos",
-        prepTitle: "Qué Traer y Notas Importantes",
-        prepDesc: "Trae lo necesario para moverte y revisa los avisos del espacio y horarios.",
+        prepKicker: "Preparación, Avisos y FAQ",
+        prepTitle: "Qué Traer y Preguntas Frecuentes",
+        prepDesc: "Trae lo necesario para moverte, revisa los avisos del espacio y resuelve dudas antes de tu primer domingo.",
         prepItems: [
           ["Botella de Agua:", "Trae tu propia botella reutilizable para hidratarte."],
           ["Calzado Limpio:", "Trae calzado limpio adicional para el salón."],
           ["Cambio de Ropa:", "Trae ropa seca de cambio para después de la sesión."]
         ],
-        warnTitle: "Avisos Importantes de Espacio, Horario y Calendario",
+        warnTitle: "Avisos Importantes de Espacio y Horario",
         warnings: [
           "El espacio no cuenta con duchas.",
-          "GroovePark hace pausa en diciembre de 2026 y prevé volver los domingos (18:00–21:30) en enero de 2027, sujeto a confirmación de sala y agenda."
+          "GroovePark hace pausa en diciembre de 2026 y arranca sus sesiones dominicales de 2027 (18:00–21:30) el segundo domingo de enero (10 de enero de 2027), sujeto a confirmación de sala."
         ],
+        faq1Q: "¿Necesito experiencia previa en Kenpo, artes marciales o danza?",
+        faq1A: "Para nada. Tanto la clase de Defensa Personal de Amara (18:00) como la de Danza de Fernando (19:20) se enseñan paso a paso para principiantes y personas con experiencia.",
+        faq2Q: "¿Puedo ir solo/a o asistir solo a uno de los dos bloques?",
+        faq2A: "¡Sí! Muchas personas vienen solas y se sienten en confianza enseguida. Puedes venir toda la tarde (18:00–21:30) o solo a Defensa Personal (18:00) o Danza (19:20).",
+        faq3Q: "¿GroovePark es realmente 100% gratuito?",
+        faq3A: "Sí, todas las sesiones son encuentros comunitarios gratuitos en Ámsterdam Oeste en conexión con De Regenboog Groep.",
         accStepTitle: "Acceso sin Escalones",
         accStepDesc: "Entrada a nivel de calle en Buurtkamer Kostelijk.",
         accBikeTitle: "Aparcamiento de Bicis",
@@ -1732,22 +1936,21 @@
           ["3. Ritmo Accesible para Todos los Cuerpos", "Muévete a tu ritmo; pausas y variantes suaves siempre son bienvenidas."],
           ["4. Consentimiento Estricto de Fotos y Videos", "Nunca grabes ni fotografíes a otras personas sin su permiso explícito previo."]
         ],
-        spotKicker: "Facilitadores e Invitados 2027",
-        spotTitle: "Instructores Invitados del Mes",
-        spotDesc: "Facilitadores rotativos de Ámsterdam Oeste liderando Defensa Personal (18:00) y Danza (19:20).",
-        spotSdTitle: "18:00–19:15 · Invitado/a de Defensa Personal",
-        spotSdDesc: "Límites prácticos, prevención y confianza personal guiados por instructores comunitarios.",
-        spotDanceTitle: "19:20–20:45 · Invitado/a de Danza y Coreografía",
-        spotDanceDesc: "Coreógrafos invitados compartiendo Afro, Vogue, House, Latin y movimiento contemporáneo.",
-        btnPitch: "Proponer Taller de 45 min",
+        spotKicker: "Instructores 2027 e Invitados",
+        spotTitle: "Tus Instructores de Domingo",
+        spotDesc: "Desde el domingo 10 de enero de 2027 a cargo de Amara y Fernando, junto con talleres invitados.",
+        spotSdTitle: "18:00–19:15 · Defensa Personal con Amara (Kenpo)",
+        spotSdDesc: "Impartido por Amara con formación en Kenpo, enfocado en atención práctica, límites y confianza personal.",
+        spotDanceTitle: "19:20–20:45 · Danza y Coreografía con Fernando",
+        spotDanceDesc: "Dirigido por Fernando (@iamnandov), combinando coreografía expresiva, ritmo y movimiento inclusivo.",
+        btnPitch: "Proponer Taller Invitado de 45 min",
         rsvpKicker: "Confirmación Rápida de Domingo · Conectado a Hoja",
         rsvpTitle: "Asistencia del Domingo (Inicio 18:00)",
-        rsvpDesc: "Pulsa abajo para confirmar que vienes este domingo a las 18:00. Conectado con el formulario y la hoja de Excel/Google.",
+        rsvpDesc: "Pulsa abajo para confirmar que vienes a las 18:00. Conectado con el formulario y tu hoja privada de Google.",
         lblRsvpName: "Nombre y Pronombres (Opcional)",
         lblRsvpSession: "Horario de Llegada",
         btnRsvpSubmit: "Voy Este Domingo (18:00)",
         btnFullSheetForm: "Abrir Formulario Completo",
-        btnExportCsv: "Exportar Excel (.csv)",
         sheetSyncSummary: "URL de Sincronización con Google Sheet",
         lblWebhook: "URL Web App de Google Apps Script",
         btnSaveWebhook: "Guardar Enlace",
@@ -1759,7 +1962,7 @@
         btnPublishPoll: "Publicar Encuesta",
         hostKicker: "Liderazgo y Representación",
         hostTitle: "Fernando (@iamnandov)",
-        hostDesc: "Impulsor y anfitrión de GroovePark en Ámsterdam Oeste.",
+        hostDesc: "Impulsor, profesor de danza y anfitrión de GroovePark en Ámsterdam Oeste.",
         regenboogRole: "Representante y Portavoz — De Regenboog Groep",
         regenboogBody: "Fernando (@iamnandov) ejerce como Organizador Comunitario, Representante y Portavoz bajo De Regenboog Groep, promoviendo conexión inclusiva y representación.",
         btnCv: "Ver Página de CV",
@@ -1772,91 +1975,97 @@
     const EXTRA_LANGS = {
       fr: {
         name: "Français",
-        heroLead: "Mouvement communautaire gratuit, autodéfense à partir de 18h00 et agenda mensuel du Canal LGBT à Buurtkamer Kostelijk (Amsterdam Ouest). Reprise le dimanche de 18h00 à 21h30 après la pause de décembre 2026.",
-        decPause: "Pause décembre 2026 : GroovePark fait une pause en décembre 2026 et reprend le dimanche (18h00–21h30) dès janvier 2027.",
+        heroKicker: "Relance 2027 · Dimanche 10 Jan · 18h00–21h30",
+        heroLead: "Mouvement communautaire gratuit, Autodéfense avec Amara (Kenpo) à 18h00, Danse & Chorégraphie avec Fernando à 19h20 et agenda mensuel du Canal LGBT à Buurtkamer Kostelijk (Amsterdam Ouest). Reprise le deuxième dimanche de janvier (10 janvier 2027).",
+        decPause: "Pause décembre 2026 : GroovePark reprend le deuxième dimanche de janvier (dimanche 10 janvier 2027 · 18h00–21h30).",
         schedule: [
-          ["18:00–19:15", "Autodéfense", "Début à 18h00 avec prévention pratique, repères et limites personnelles."],
-          ["19:20–20:45", "Danse & Chorégraphie", "Mouvement expressif et chorégraphies ouverts à tous les niveaux."],
+          ["18:00–19:15", "Autodéfense · Avec Amara (Kenpo)", "Début à 18h00 avec Amara (Kenpo) : prévention pratique, repères et limites personnelles."],
+          ["19:20–20:45", "Danse & Chorégraphie · Avec Fernando", "Mouvement expressif et chorégraphie animés par Fernando pour tous les niveaux."],
           ["20:45–21:30", "Appel Intervenants 2027 & Clôture", "Échanges avec l'organisation, propositions 2027 et clôture."]
         ],
         warnings: [
           "Il n'y a pas de douches disponibles à Buurtkamer Kostelijk.",
-          "Pause en décembre 2026 et reprise envisagée le dimanche (18h00–21h30) en janvier 2027 selon confirmation."
+          "Pause en décembre 2026 et lancement 2027 le deuxième dimanche de janvier (10 janvier 2027 · 18h00–21h30) selon confirmation."
         ],
         regenboogBody: "Fernando (@iamnandov) est organisateur communautaire, représentant et porte-parole au sein de De Regenboog Groep."
       },
       pt: {
         name: "Português",
-        heroLead: "Movimento comunitário gratuito, defesa pessoal a partir das 18:00 e agenda mensal do Canal LGBT no Buurtkamer Kostelijk em Amesterdão Oeste. Após a pausa de dezembro de 2026, voltamos aos domingos das 18:00 às 21:30.",
-        decPause: "Pausa em dezembro de 2026: o GroovePark faz pausa em dezembro de 2026 e regressa aos domingos (18:00–21:30) em janeiro de 2027.",
+        heroKicker: "Relançamento 2027 · Domingo 10 Jan · 18:00–21:30",
+        heroLead: "Movimento comunitário gratuito, Defesa Pessoal com Amara (Kenpo) às 18:00, Dança & Coreografia com Fernando às 19:20 e agenda mensal do Canal LGBT no Buurtkamer Kostelijk (Amesterdão Oeste). Início no segundo domingo de janeiro (10 de janeiro de 2027).",
+        decPause: "Pausa em dezembro de 2026: o GroovePark regressa no segundo domingo de janeiro (domingo, 10 de janeiro de 2027 · 18:00–21:30).",
         schedule: [
-          ["18:00–19:15", "Defesa Pessoal", "Começa às 18:00 com segurança prática, atenção e limites pessoais."],
-          ["19:20–20:45", "Dança & Coreografia", "Movimento expressivo e rotinas para todos os corpos e níveis."],
-          ["20:45–21:30", "Chamada 2027 & Encerramento", "Conversa com a organização, ideias de facilitadores para 2027 e fecho."]
+          ["18:00–19:15", "Defesa Pessoal · Com Amara (Kenpo)", "Começa às 18:00 com Amara (Kenpo): segurança prática, atenção e limites pessoais."],
+          ["19:20–20:45", "Dança & Coreografia · Com Fernando", "Movimento expressivo e coreografia com Fernando para todos os corpos e níveis."],
+          ["20:45–21:30", "Chamada 2027 & Encerramento", "Conversa com a organização, ideias para 2027 e fecho."]
         ],
         warnings: [
           "Não existem chuveiros disponíveis no local.",
-          "Pausa em dezembro de 2026 e regresso previsto aos domingos (18:00–21:30) em janeiro de 2027."
+          "Pausa em dezembro de 2026 e arranque 2027 no segundo domingo de janeiro (10 de janeiro de 2027 · 18:00–21:30)."
         ],
         regenboogBody: "Fernando (@iamnandov) atua como Organizador Comunitário, Representante e Porta-voz na De Regenboog Groep."
       },
       bg: {
         name: "Български",
-        heroLead: "Безплатни общностни занимания, самоотбрана от 18:00 и месечен календар за LGBT канала в Buurtkamer Kostelijk в Западен Амстердам. След паузата през декември 2026 продължаваме в неделя от 18:00 до 21:30.",
-        decPause: "Пауза през декември 2026: GroovePark почива през декември 2026 и подновява в неделя (18:00–21:30) от януари 2027.",
+        heroKicker: "Старт 2027 · Неделя, 10 Яну · 18:00–21:30",
+        heroLead: "Безплатни общностни занимания, Самоотбрана с Амара (Kenpo) от 18:00, Танц и хореография с Фернандо от 19:20 и месечен календар за LGBT канала в Buurtkamer Kostelijk. Стартираме във втората неделя на януари (10 януари 2027).",
+        decPause: "Пауза през декември 2026: GroovePark започва сезона за 2027 във втората неделя на януари (неделя, 10 януари 2027 · 18:00–21:30).",
         schedule: [
-          ["18:00–19:15", "Самоотбрана", "Започва в 18:00 с практическа самозащита, ориентация и лични граници."],
-          ["19:20–20:45", "Танц & Хореография", "Изразително движение и хореография за всяко ниво."],
-          ["20:45–21:30", "Покана 2027 & Финал", "Разговори с организаторите, идеи за водещи 2027 и завършек."]
+          ["18:00–19:15", "Самоотбрана · С Амара (Kenpo)", "Започва в 18:00 с Амара (Kenpo) — практическа самозащита, ориентация и лични граници."],
+          ["19:20–20:45", "Танц & Хореография · С Фернандо", "Изразително движение и хореография с Фернандо за всяко ниво."],
+          ["20:45–21:30", "Покана 2027 & Финал", "Разговори с организаторите, идеи за 2027 и завършек."]
         ],
         warnings: [
           "На място няма налични душове.",
-          "Пауза през декември 2026 и планирано подновяване в неделя (18:00–21:30) през януари 2027."
+          "Пауза през декември 2026 и старт във втората неделя на януари (10 януари 2027 · 18:00–21:30)."
         ],
         regenboogBody: "Фернандо (@iamnandov) е общностен организатор, представител и говорител към De Regenboog Groep."
       },
       ur: {
         name: "اردو",
-        heroLead: "ایمسٹرڈیم ویسٹ میں Buurtkamer Kostelijk کے مقام پر مفت کمیونٹی موومنٹ، 18:00 بجے سیلف ڈیفنس سے آغاز اور LGBT چینل کا ماہانہ کیلنڈر۔ دسمبر 2026 کے وقفے کے بعد جنوری 2027 سے اتوار کو 18:00 سے 21:30 تک سیشن ہوں گے۔",
-        decPause: "دسمبر 2026 کا وقفہ: GroovePark دسمبر 2026 میں رکا رہے گا اور جنوری 2027 میں اتوار (18:00–21:30) کو دوبارہ شروع ہوگا۔",
+        heroKicker: "آغاز 2027 · اتوار 10 جنوری · 18:00–21:30",
+        heroLead: "ایمسٹرڈیم ویسٹ میں Buurtkamer Kostelijk کے مقام پر 18:00 بجے امارا (Kenpo) کے ساتھ سیلف ڈیفنس، 19:20 بجے فرنینڈو کے ساتھ ڈانس اور کوریوگرافی، اور LGBT چینل کا ماہانہ کیلنڈر۔ جنوری 2027 کے دوسرے اتوار (10 جنوری 2027) سے آغاز ہوگا۔",
+        decPause: "دسمبر 2026 کا وقفہ: GroovePark جنوری 2027 کے دوسرے اتوار (اتوار 10 جنوری 2027 · 18:00–21:30) کو دوبارہ شروع ہوگا۔",
         schedule: [
-          ["18:00–19:15", "خود دفاع", "18:00 بجے عملی سیلف ڈیفنس، آگاہی اور ذاتی حدود کی مشق کے ساتھ آغاز۔"],
-          ["19:20–20:45", "رقص اور کوریوگرافی", "تمام افراد اور سطحوں کے لیے پرجوش حرکت اور کوریوگرافی۔"],
+          ["18:00–19:15", "خود دفاع · امارا (Kenpo) کے ساتھ", "18:00 بجے امارا کے ساتھ عملی سیلف ڈیفنس، آگاہی اور ذاتی حدود کی مشق۔"],
+          ["19:20–20:45", "رقص اور کوریوگرافی · فرنینڈو کے ساتھ", "فرنینڈو کی رہنمائی میں تمام افراد اور سطحوں کے لیے رقص اور کوریوگرافی۔"],
           ["20:45–21:30", "انسٹرکٹرز کی دعوت 2027 اور اختتام", "منتظمین سے بات چیت، 2027 کے آئیڈیاز اور اختتام۔"]
         ],
         warnings: [
           "مقام پر شاور کی سہولت موجود نہیں ہے۔",
-          "دسمبر 2026 میں وقفہ اور جنوری 2027 میں اتوار (18:00–21:30) کو دوبارہ آغاز متوقع ہے۔"
+          "دسمبر 2026 میں وقفہ اور جنوری 2027 کے دوسرے اتوار (10 جنوری 2027 · 18:00–21:30) کو آغاز متوقع ہے۔"
         ],
         regenboogBody: "فرنینڈو (@iamnandov) بطور کمیونٹی آرگنائزر، نمائندہ اور ترجمان De Regenboog Groep کے تحت خدمات انجام دیتے ہیں۔"
       },
       wo: {
         name: "Wolof",
-        heroLead: "Ndawu mbooloo bu amul faye, sàmm bopp ci 18:00 ak arminaatu weer wi bu LGBT Channel ci Buurtkamer Kostelijk ci Amsterdam West. Ginnaaw woppug Desambar 2026, dinañu dellu ay dibéer (18:00–21:30).",
-        decPause: "Woppug Desambar 2026: GroovePark dina noppalu ci Desambar 2026 te dellu ci ay dibéer (18:00–21:30) ci Janvier 2027.",
+        heroKicker: "Tàmbali 2027 · Dibéer 10 Jan · 18:00–21:30",
+        heroLead: "Sàmm bopp ci 18:00 ak Amara (Kenpo), Fàww ak Koreografi ci 19:20 ak Fernando, ak arminaatu LGBT Channel ci Buurtkamer Kostelijk. Dinañu tàmbali ci ñaareelu dibéer bu Janvier (10 Janvier 2027).",
+        decPause: "Woppug Desambar 2026: GroovePark dina dellu ci ñaareelu dibéer bu Janvier (Dibéer 10 Janvier 2027 · 18:00–21:30).",
         schedule: [
-          ["18:00–19:15", "Sàmm Bopp", "Dina tàmbali ci 18:00 ak jàng bu jekk ngir sàmm bopp."],
-          ["19:20–20:45", "Fàww ak Koreografi", "Jàng ak fàww yu yomb ngir ñépp."],
+          ["18:00–19:15", "Sàmm Bopp · Ak Amara (Kenpo)", "Tàmbali ci 18:00 ak Amara (Kenpo) ngir jàng sàmm bopp."],
+          ["19:20–20:45", "Fàww ak Koreografi · Ak Fernando", "Jàng ak fàww ak Fernando ngir ñépp."],
           ["20:45–21:30", "Woote Njangalkat 2027 & Noppi", "Waxtaan ak kilifa yi, xalaati 2027 ak noppi."]
         ],
         warnings: [
           "Amul sangubaay ci barab bi.",
-          "Dina noppalu ci Desambar 2026 te séen dellu ci ay dibéer (18:00–21:30) ci Janvier 2027."
+          "Dina noppalu ci Desambar 2026 te tàmbali ci ñaareelu dibéer bu Janvier (10 Janvier 2027 · 18:00–21:30)."
         ],
         regenboogBody: "Fernando (@iamnandov) moo di kilifa, wonekat ak kàddu-waxtu ci biir De Regenboog Groep."
       },
       lo: {
         name: "ລາວ",
-        heroLead: "ໂຄງການເຄື່ອນໄຫວຊຸມຊົນຟຣີ, ເລີ່ມປ້ອງກັນຕົນເອງເວລາ 18:00 ແລະ ປະຕິທິນລາຍເດືອນ LGBT Channel ທີ່ Buurtkamer Kostelijk ໃນ Amsterdam West. ຫຼັງພັກເດືອນທັນວາ 2026 ຈະກັບມາວັນອາທິດ 18:00–21:30.",
-        decPause: "ພັກເດືອນທັນວາ 2026: GroovePark ພັກໃນເດືອນທັນວາ 2026 ແລະ ກັບມາວັນອາທິດ (18:00–21:30) ຕັ້ງແຕ່ມັງກອນ 2027.",
+        heroKicker: "ເປີດລະດູການ 2027 · ວັນອາທິດ 10 ມັງກອນ · 18:00–21:30",
+        heroLead: "ເລີ່ມ 18:00 ດ້ວຍການປ້ອງກັນຕົນເອງກັບ Amara (Kenpo), 19:20 ເຕັ້ນ ແລະ ອອກແບບທ່າເຕັ້ນກັບ Fernando ທີ່ Buurtkamer Kostelijk. ເລີ່ມວັນອາທິດທີສອງຂອງເດືອນມັງກອນ (10 ມັງກອນ 2027).",
+        decPause: "ພັກເດືອນທັນວາ 2026: GroovePark ຈະເລີ່ມໃນວັນອາທິດທີສອງຂອງເດືອນມັງກອນ (ວັນອາທິດ 10 ມັງກອນ 2027 · 18:00–21:30).",
         schedule: [
-          ["18:00–19:15", "ປ້ອງກັນຕົນເອງ", "ເລີ່ມ 18:00 ດ້ວຍການຝຶກປ້ອງກັນຕົນເອງ ແລະ ຂອບເຂດຄວາມປອດໄພ."],
-          ["19:20–20:45", "ເຕັ້ນ & ອອກແບບທ່າເຕັ້ນ", "ການເຄື່ອນໄຫວສໍາລັບທຸກລະດັບໃນບັນຍາກາດທີ່ອົບອຸ່ນ."],
+          ["18:00–19:15", "ປ້ອງກັນຕົນເອງ · ສອນໂດຍ Amara (Kenpo)", "ເລີ່ມ 18:00 ກັບ Amara (Kenpo) ຝຶກປ້ອງກັນຕົນເອງ ແລະ ຄວາມໝັ້ນໃຈ."],
+          ["19:20–20:45", "ເຕັ້ນ & ອອກແບບທ່າເຕັ້ນ · ສອນໂດຍ Fernando", "ການເຄື່ອນໄຫວ ແລະ ທ່າເຕັ້ນກັບ Fernando ສໍາລັບທຸກລະດັບ."],
           ["20:45–21:30", "ເປີດຮັບຄູສອນ 2027 & ປິດງານ", "ພົບປະຜູ້ຈັດ, ແບ່ງປັນແນວຄວາມຄິດ 2027 ແລະ ປິດກິດຈະກໍາ."]
         ],
         warnings: [
           "ບໍ່ມີຫ້ອງອາບນໍ້າຢູ່ສະຖານທີ່.",
-          "ພັກເດືອນທັນວາ 2026 ແລະ ກັບມາວັນອາທິດ (18:00–21:30) ໃນມັງກອນ 2027 ຕາມການຢືນຢັນ."
+          "ພັກເດືອນທັນວາ 2026 ແລະ ເລີ່ມວັນອາທິດທີສອງຂອງເດືອນມັງກອນ (10 ມັງກອນ 2027 · 18:00–21:30)."
         ],
         regenboogBody: "Fernando (@iamnandov) ເປັນຜູ້ຈັດຕັ້ງຊຸມຊົນ, ຜູ້ຕາງໜ້າ ແລະ ໂຄສົກພາຍໃຕ້ De Regenboog Groep."
       }
@@ -1872,24 +2081,24 @@
 
     let activeLang = "en";
     let activeMonth = 0; // Jan 2027
-    let selectedIso = "2027-01-03";
+    let selectedIso = LAUNCH_ISO; // Second Sunday of January 2027 (2027-01-10)
     let rsvps = [];
     let polls = [];
 
     const DEFAULT_POLLS = [
       {
-        id: "poll-sunday-18",
-        question: "Are you attending this Sunday's 18:00 Self-Defence & Dance session?",
+        id: "poll-jan10-launch",
+        question: "Are you joining our 2027 kickoff on Sunday, Jan 10 (18:00 Self-Defence + 19:20 Dance)?",
         closed: false,
         options: [
-          { label: "Yes, from 18:00 (Self-Defence + Dance)", votes: 6 },
-          { label: "Joining at 19:20 for Dance & Choreography", votes: 4 },
-          { label: "Next Sunday!", votes: 2 }
+          { label: "Yes, from 18:00 (Amara's Self-Defence + Fernando's Dance)", votes: 8 },
+          { label: "Joining at 19:20 for Fernando's Dance session", votes: 4 },
+          { label: "Joining later in January 2027", votes: 2 }
         ]
       },
       {
         id: "poll-dance-style",
-        question: "Which dance style should we feature next Sunday at 19:20?",
+        question: "Which dance vibe should Fernando feature in our January sessions?",
         closed: false,
         options: [
           { label: "Afro & Amapiano Groove", votes: 7 },
@@ -2032,16 +2241,20 @@
       for (let d = 1; d <= totalDays; d++) {
         const iso = isoFromYMD(year, activeMonth, d);
         const sun = isSundayYMD(year, activeMonth, d);
+        const isFirstJanSun = iso === "2027-01-03";
+        const isLaunchSun = iso === LAUNCH_ISO;
+        const isActiveSessionSun = sun && !isFirstJanSun;
         const isSel = iso === selectedIso;
 
         let cls = "day-cell";
-        if (sun) cls += " sunday";
+        if (isLaunchSun) cls += " launch-sunday";
+        else if (isActiveSessionSun) cls += " sunday";
         if (isSel) cls += " selected";
 
         html += `
           <button type="button" class="${cls}" data-iso="${iso}">
             <span>${d}</span>
-            ${sun ? `<span class="day-dot"></span>` : ""}
+            ${isActiveSessionSun ? `<span class="day-dot"></span>` : ""}
           </button>
         `;
       }
@@ -2060,7 +2273,7 @@
 
     function renderInspector() {
       const panel = document.getElementById("dayInspector");
-      const [y, m, d] = (selectedIso || "2027-01-03").split("-").map(Number);
+      const [y, m, d] = (selectedIso || LAUNCH_ISO).split("-").map(Number);
       const dt = new Date(y, m - 1, d);
       const sun = dt.getDay() === 0;
       const label = dt.toLocaleDateString("en-GB", {
@@ -2070,15 +2283,21 @@
         year: "numeric"
       });
 
-      const summary = sun
-        ? "Sunday Session (18:00–21:30): 18:00–19:15 Self-Defence, 19:20–20:45 Dance & Choreography, 20:45–21:30 Open Facilitator Call."
-        : "Non-Sunday date. Regular 2027 sessions run on Sundays (18:00–21:30), starting with Self-Defence at 18:00.";
-      const evTitle = sun
-        ? "GroovePark Sunday Session (18:00 Self-Defence)"
-        : "GroovePark 2027 Info";
-      const notes = sun
-        ? "18:00 Self-Defence · 19:20 Dance & Choreography · 20:45 Open Facilitator Call"
-        : "Buurtkamer Kostelijk, Amsterdam West";
+      let summary = "Non-Sunday date. Regular 2027 sessions run on Sundays (18:00–21:30), launching Sunday, Jan 10, 2027.";
+      let evTitle = "GroovePark 2027 Info";
+      let notes = "Buurtkamer Kostelijk, Amsterdam West";
+
+      if (selectedIso === "2027-01-03") {
+        summary = "First Sunday of January (Holiday Break). GroovePark 2027 officially begins next Sunday, January 10, 2027 at 18:00.";
+      } else if (selectedIso === LAUNCH_ISO) {
+        summary = "2027 Season Launch (Second Sunday of January · 18:00–21:30): 18:00–19:15 Self-Defence with Amara (Kenpo), 19:20–20:45 Dance & Choreography with Fernando.";
+        evTitle = "GroovePark 2027 Kickoff (18:00 Amara · 19:20 Fernando)";
+        notes = "18:00 Self-Defence (Amara - Kenpo) · 19:20 Dance & Choreography (Fernando)";
+      } else if (sun) {
+        summary = "Sunday Session (18:00–21:30): 18:00–19:15 Self-Defence with Amara (Kenpo), 19:20–20:45 Dance & Choreography with Fernando, 20:45–21:30 Community Wrap.";
+        evTitle = "GroovePark Sunday Session (18:00 Amara · 19:20 Fernando)";
+        notes = "18:00 Self-Defence (Amara) · 19:20 Dance & Choreography (Fernando)";
+      }
 
       const gcalUrl = googleCalTemplateUrl(selectedIso, evTitle, "18:00", "21:30", notes);
 
@@ -2220,7 +2439,7 @@
     document.getElementById("rsvpForm").addEventListener("submit", async (e) => {
       e.preventDefault();
       const name = document.getElementById("rsvpName").value.trim() || "Community Member";
-      const session = document.getElementById("rsvpSession").value.trim() || "18:00 Self-Defence + Dance";
+      const session = document.getElementById("rsvpSession").value.trim() || "18:00 Self-Defence (Amara) + Dance (Fernando)";
       const entry = {
         timestamp: new Date().toISOString(),
         date: selectedIso,
@@ -2242,28 +2461,13 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(entry)
           });
-          msgEl.textContent = `RSVP recorded for ${selectedIso} & sent to your Google Sheet!`;
+          msgEl.textContent = `RSVP recorded for ${selectedIso} & sent to your private Google Sheet!`;
         } catch {
-          msgEl.textContent = `RSVP saved locally for ${selectedIso}.`;
+          msgEl.textContent = `RSVP saved for ${selectedIso}.`;
         }
       } else {
         msgEl.textContent = `You're counted in for ${selectedIso} (18:00)!`;
       }
-    });
-
-    document.getElementById("exportCsvBtn").addEventListener("click", () => {
-      const rows = [
-        ["Timestamp", "Sunday Date", "Name & Pronouns", "Session"],
-        ...rsvps.map((r) => [r.timestamp, r.date, r.name, r.session])
-      ];
-      const csv = rows.map((r) => r.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(",")).join("\n");
-      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `groovepark-2027-rsvps-${selectedIso}.csv`;
-      a.click();
-      URL.revokeObjectURL(url);
     });
 
     document.getElementById("pollCreateForm").addEventListener("submit", (e) => {
