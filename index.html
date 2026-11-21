@@ -55,6 +55,28 @@
       color: var(--accent);
     }
 
+    .header-right {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cv-link {
+      text-decoration: none;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .cv-link:hover {
+      border-color: var(--accent);
+    }
+
     .lang-switcher {
       display: flex;
       gap: 6px;
@@ -273,10 +295,13 @@
   <div class="container">
     <header>
       <div class="brand">Groove<span>Park</span> · LGBT Channel</div>
-      <div class="lang-switcher" aria-label="Language switcher">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="nl">NL</button>
-        <button class="lang-btn" data-lang="es">ES</button>
+      <div class="header-right">
+        <a id="cv-btn" class="cv-link" href="https://kmentindustry.github.io/FFVDK/" target="_blank" rel="noopener noreferrer">CV Landing Page</a>
+        <div class="lang-switcher" aria-label="Language switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="nl">NL</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+        </div>
       </div>
     </header>
 
@@ -392,6 +417,7 @@
   <script>
     const translations = {
       en: {
+        cvBtn: "CV Landing Page",
         heroTitle: "GroovePark & LGBT Channel Monthly Calendar",
         heroDesc: "Accessible community movement, safe spaces, and monthly agenda items for the LGBT Channel. Browse the read-only calendar below, stage new events with explicit confirmation before adding, or generate a weekly WhatsApp digest.",
         badge1: "🏳️‍🌈 LGBT Channel Monthly Calendar",
@@ -423,6 +449,7 @@
         stagedMsg: "Staged for review — click Confirm & Add below to approve."
       },
       nl: {
+        cvBtn: "CV Landingspagina",
         heroTitle: "GroovePark & LGBT Kanaal Maandkalender",
         heroDesc: "Toegankelijke community-beweging, veilige plekken en maandelijkse agenda-items voor het LGBT Kanaal. Bekijk de alleen-lezen kalender hieronder, zet nieuwe events eerst klaar ter bevestiging of maak een WhatsApp-samenvatting.",
         badge1: "🏳️‍🌈 LGBT Kanaal Maandkalender",
@@ -454,6 +481,7 @@
         stagedMsg: "Klaargezet ter controle — klik hieronder op Bevestig & Voeg Toe."
       },
       es: {
+        cvBtn: "Página de CV",
         heroTitle: "GroovePark y Calendario Mensual del Canal LGBT",
         heroDesc: "Movimiento comunitario accesible, espacios seguros y agenda mensual del Canal LGBT. Revisa el calendario en modo lectura, prepara eventos con confirmación previa o genera un resumen de WhatsApp.",
         badge1: "🏳️‍🌈 Calendario Mensual Canal LGBT",
@@ -633,6 +661,7 @@
     function applyLanguage(lang) {
       currentLang = lang;
       const t = translations[lang];
+      document.getElementById("cv-btn").textContent = t.cvBtn;
       document.getElementById("hero-title").textContent = t.heroTitle;
       document.getElementById("hero-desc").textContent = t.heroDesc;
       document.getElementById("badge-1").textContent = t.badge1;
