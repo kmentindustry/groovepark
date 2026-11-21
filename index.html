@@ -3,143 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GroovePark Amsterdam · LGBT Channel Monthly Calendar</title>
+<title>GroovePark Amsterdam · 2027</title>
+<meta name="theme-color" content="#0D0D18">
 <style>
   :root {
-    --paper: #FAF6F0;
-    --paper-2: #F2ECE1;
-    --ink: #17131C;
-    --muted: #5A5266;
-    --coral: #FF4D6D;
-    --amber: #FF9E00;
-    --violet: #7209B7;
-    --mint: #0D9488;
-    --whatsapp: #15803D;
-    --border: 2px solid #17131C;
-    --shadow: 5px 5px 0px #17131C;
-    --shadow-sm: 3px 3px 0px #17131C;
-    --radius: 16px;
+    --bg: #0D0D18;
+    --bg-elevated: #141426;
+    --card: rgba(255, 255, 255, 0.045);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --teal: #00897B;
+    --teal-bright: #00BFA5;
+    --teal-soft: rgba(0, 137, 123, 0.16);
+    --whatsapp: #25D366;
+    --amber: #FFD54F;
+    --text: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.72);
+    --text-faint: rgba(255, 255, 255, 0.45);
+    --radius: 14px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html { scroll-behavior: smooth; }
+
   body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
+    background: radial-gradient(circle at top center, #16182e 0%, var(--bg) 55%);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     min-height: 100vh;
+    line-height: 1.55;
   }
 
-  .pride-ribbon {
-    height: 10px;
+  .rainbow-bar {
+    height: 6px;
+    width: 100%;
     background: linear-gradient(90deg,
       #FF0018 0%, #FF0018 11.1%,
       #FF8C00 11.1%, #FF8C00 22.2%,
       #FFD700 22.2%, #FFD700 33.3%,
-      #00A859 33.3%, #00A859 44.4%,
-      #0057E7 44.4%, #0057E7 55.5%,
-      #7209B7 55.5%, #7209B7 66.6%,
+      #00C850 33.3%, #00C850 44.4%,
+      #0060FF 44.4%, #0060FF 55.5%,
+      #8B00FF 55.5%, #8B00FF 66.6%,
       #FF69B4 66.6%, #FF69B4 77.7%,
       #FFFFFF 77.7%, #FFFFFF 88.8%,
-      #8B4513 88.8%, #8B4513 100%
+      #A0522D 88.8%, #A0522D 100%
     );
-    border-bottom: var(--border);
   }
 
-  .wrap {
-    max-width: 920px;
+  .container {
+    max-width: 680px;
     margin: 0 auto;
-    padding: 24px 18px 72px;
+    padding: 0 18px;
   }
 
-  .topbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-
-  .pill-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--amber);
-    color: var(--ink);
-    border: var(--border);
-    box-shadow: var(--shadow-sm);
-    border-radius: 999px;
-    padding: 6px 14px;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .cv-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    background: var(--ink);
-    color: var(--paper);
-    border: var(--border);
-    box-shadow: var(--shadow-sm);
-    border-radius: 999px;
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 700;
-    transition: transform 0.15s ease, background 0.15s ease;
-  }
-
-  .cv-btn:hover {
-    background: var(--coral);
-    color: #fff;
-    transform: translate(-1px, -1px);
-  }
-
+  /* Hero */
   .hero {
-    background: linear-gradient(125deg, #FFE3EC 0%, #FFF1D0 52%, #EDE4FF 100%);
-    border: var(--border);
-    box-shadow: var(--shadow);
-    border-radius: var(--radius);
-    padding: 36px 24px;
     text-align: center;
-    margin-bottom: 28px;
+    padding: 36px 16px 22px;
+  }
+
+  .year-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--teal-soft);
+    border: 1px solid rgba(0, 191, 165, 0.35);
+    color: var(--teal-bright);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
   }
 
   .logo {
-    font-size: clamp(2.4rem, 7vw, 4rem);
-    font-weight: 950;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    color: var(--ink);
+    font-size: clamp(38px, 8vw, 56px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    line-height: 1.05;
   }
 
-  .logo span {
-    color: var(--coral);
-    -webkit-text-stroke: 1px var(--ink);
-  }
+  .logo span { color: var(--teal-bright); }
 
   .tagline {
-    margin-top: 10px;
     font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.2em;
+    letter-spacing: 3.5px;
+    color: var(--text-faint);
     text-transform: uppercase;
-    color: var(--violet);
+    margin-top: 10px;
+  }
+
+  /* Language Selector */
+  .lang-wrap {
+    margin: 26px auto 12px;
+    max-width: 560px;
   }
 
   .lang-label {
-    margin-top: 24px;
-    margin-bottom: 12px;
     font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.14em;
+    letter-spacing: 2.5px;
+    color: var(--text-faint);
     text-transform: uppercase;
-    color: var(--muted);
+    margin-bottom: 12px;
   }
 
   .lang-grid {
@@ -147,1065 +114,1148 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
-    max-width: 660px;
-    margin: 0 auto;
   }
 
   .lang-btn {
-    background: var(--paper);
-    border: var(--border);
-    box-shadow: var(--shadow-sm);
-    color: var(--ink);
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid var(--card-border);
+    color: var(--text);
     padding: 9px 14px;
-    border-radius: 10px;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 13px;
-    font-weight: 700;
-    transition: transform 0.12s ease, background 0.12s ease;
+    font-weight: 500;
+    transition: all 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
 
   .lang-btn:hover {
-    transform: translate(-1px, -1px);
-    background: var(--paper-2);
-  }
-
-  .lang-btn.active {
-    background: var(--ink);
-    color: var(--paper);
-  }
-
-  .info-box {
-    display: none;
-    margin-bottom: 28px;
-  }
-
-  .info-box.visible {
-    display: block;
-  }
-
-  .cta-banner {
-    background: var(--ink);
-    color: var(--paper);
-    border: var(--border);
-    box-shadow: var(--shadow);
-    border-radius: var(--radius);
-    padding: 26px;
-    text-align: center;
-    margin-bottom: 18px;
-  }
-
-  .cta-banner h2 {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
-    color: #fff;
-  }
-
-  .cta-banner p {
-    color: rgba(250, 246, 240, 0.85);
-    font-size: 0.95rem;
-  }
-
-  .form-btn {
-    display: inline-block;
-    background: var(--coral);
-    color: #fff;
-    border: 2px solid #fff;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 14px;
-    padding: 12px 24px;
-    border-radius: 999px;
-    margin-top: 14px;
-    transition: transform 0.15s ease, background 0.15s ease;
-  }
-
-  .form-btn:hover {
-    background: var(--amber);
-    color: var(--ink);
+    border-color: var(--teal-bright);
     transform: translateY(-1px);
   }
 
-  .whatsapp-link {
-    display: inline-block;
-    margin-top: 12px;
-    color: #6EE7B7;
-    font-size: 13px;
+  .lang-btn.active {
+    background: var(--teal);
+    border-color: var(--teal-bright);
     font-weight: 700;
+    box-shadow: 0 6px 20px rgba(0, 137, 123, 0.35);
+  }
+
+  /* Sticky Quick-Access Nav */
+  .quick-nav {
+    position: sticky;
+    top: 10px;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    background: rgba(13, 13, 24, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    padding: 6px;
+    margin: 18px auto 24px;
+    max-width: 540px;
+  }
+
+  .quick-nav a {
+    color: var(--text-muted);
     text-decoration: none;
-  }
-
-  .whatsapp-link:hover {
-    text-decoration: underline;
-  }
-
-  .offline-badge {
-    display: block;
-    margin-top: 10px;
     font-size: 12px;
-    color: rgba(250, 246, 240, 0.65);
+    font-weight: 600;
+    padding: 7px 13px;
+    border-radius: 999px;
+    transition: all 0.15s ease;
   }
 
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
+  .quick-nav a:hover {
+    background: var(--teal-soft);
+    color: var(--teal-bright);
   }
 
-  .info-card {
-    background: #fff;
-    border: var(--border);
-    box-shadow: var(--shadow-sm);
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 22px;
+    margin-bottom: 18px;
+    scroll-margin-top: 72px;
   }
 
-  .info-card.full {
-    grid-column: 1 / -1;
+  .card.accent-card {
+    background: linear-gradient(145deg, rgba(0, 137, 123, 0.18), rgba(20, 20, 38, 0.9));
+    border-color: rgba(0, 191, 165, 0.45);
   }
 
-  .info-card h2 {
-    color: var(--violet);
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.12em;
+  .card-kicker {
+    color: var(--teal-bright);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
-  .info-card p {
-    color: var(--ink);
-    font-size: 15px;
+  .card h2 {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 10px;
   }
 
-  .programme-item {
+  .card p {
+    color: var(--text-muted);
+    font-size: 14.5px;
+  }
+
+  /* CTA Buttons */
+  .cta-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px dashed rgba(23, 19, 28, 0.18);
-    font-size: 14px;
-  }
-
-  .programme-item:last-child {
-    border-bottom: none;
-  }
-
-  .prog-time {
-    background: #FFE3EC;
-    border: 1.5px solid var(--ink);
-    border-radius: 6px;
-    padding: 2px 8px;
-    font-weight: 800;
-    font-size: 12px;
-    color: var(--ink);
-  }
-
-  .prep-note {
-    margin-top: 10px;
-    padding: 10px 12px;
-    background: var(--paper-2);
-    border-left: 4px solid var(--amber);
-    border-radius: 6px;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .map-box {
-    width: 100%;
-    height: 170px;
-    background: var(--paper-2);
-    border: var(--border);
-    border-radius: 10px;
-    margin: 12px 0;
-    overflow: hidden;
-  }
-
-  .map-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .dir-list {
-    margin-top: 8px;
-    padding-left: 18px;
-    font-size: 14px;
-  }
-
-  .dir-list li {
-    margin-bottom: 6px;
-  }
-
-  .ig {
-    color: var(--coral);
-    font-weight: 800;
-  }
-
-  .section-panel {
-    background: #fff;
-    border: var(--border);
-    box-shadow: var(--shadow);
-    border-radius: var(--radius);
-    padding: 24px;
-    margin-bottom: 24px;
-  }
-
-  .section-panel h2 {
-    font-size: 1.25rem;
-    font-weight: 900;
-    margin-bottom: 6px;
-  }
-
-  .section-panel p.sub {
-    color: var(--muted);
-    font-size: 0.92rem;
-    margin-bottom: 16px;
-  }
-
-  .cal-frame-box {
-    position: relative;
-    width: 100%;
-    padding-bottom: 62%;
-    border: var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--paper-2);
-  }
-
-  .cal-frame-box iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-
-  label {
-    display: block;
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 5px;
-    color: var(--ink);
-  }
-
-  input, textarea {
-    width: 100%;
-    background: var(--paper);
-    color: var(--ink);
-    border: var(--border);
-    border-radius: 10px;
-    padding: 10px 12px;
-    font-family: inherit;
-    font-size: 14px;
-  }
-
-  textarea {
-    min-height: 120px;
-    resize: vertical;
+    gap: 10px;
+    margin-top: 16px;
   }
 
   .btn {
-    background: var(--coral);
-    color: #fff;
-    border: var(--border);
-    box-shadow: var(--shadow-sm);
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-weight: 800;
-    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
     cursor: pointer;
-    transition: transform 0.12s ease;
+    border: none;
+    transition: transform 0.15s ease, background 0.15s ease;
   }
 
-  .btn:hover {
-    transform: translate(-1px, -1px);
-  }
+  .btn:hover { transform: translateY(-1px); }
 
-  .btn.alt {
-    background: var(--paper-2);
-    color: var(--ink);
-  }
-
-  .btn.approve {
-    background: var(--whatsapp);
+  .btn-primary {
+    background: var(--teal);
     color: #fff;
   }
+  .btn-primary:hover { background: #00796B; }
 
-  .btn.reject {
-    background: #FEE2E2;
-    color: #991B1B;
+  .btn-whatsapp {
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.45);
+    color: var(--whatsapp);
+  }
+  .btn-whatsapp:hover { background: rgba(37, 211, 102, 0.24); }
+
+  .btn-outline {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    font-size: 13px;
+    padding: 9px 15px;
+  }
+  .btn-outline:hover { border-color: var(--teal-bright); }
+
+  .btn-confirm {
+    background: #15803D;
+    color: #fff;
+    font-size: 12.5px;
+    padding: 7px 14px;
   }
 
-  .btn-row {
+  .btn-discard {
+    background: rgba(244, 63, 94, 0.18);
+    border: 1px solid rgba(244, 63, 94, 0.45);
+    color: #FDA4AF;
+    font-size: 12.5px;
+    padding: 7px 14px;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  /* Monthly 2027 Calendar */
+  .cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 14px 0 12px;
+  }
+
+  .cal-month-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .cal-nav-btns {
+    display: flex;
+    gap: 6px;
+  }
+
+  .cal-nav-btn {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .cal-nav-btn:hover { border-color: var(--teal-bright); color: var(--teal-bright); }
+
+  .cal-weekdays, .cal-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+  }
+
+  .cal-weekdays span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-faint);
+    padding: 4px 0;
+    text-transform: uppercase;
+  }
+
+  .cal-day {
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    position: relative;
+  }
+
+  .cal-day.empty {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .cal-day.has-session {
+    background: var(--teal-soft);
+    border-color: rgba(0, 191, 165, 0.5);
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .cal-day.has-special {
+    background: rgba(255, 193, 7, 0.16);
+    border-color: rgba(255, 193, 7, 0.65);
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .cal-day.selected {
+    outline: 2px solid #fff;
+    transform: scale(1.04);
+  }
+
+  .cal-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--teal-bright);
+    margin-top: 3px;
+  }
+
+  .cal-day.has-special .cal-dot { background: var(--amber); }
+
+  .cal-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+  .selected-day-panel {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(13, 13, 24, 0.75);
+    border: 1px solid rgba(0, 191, 165, 0.35);
+  }
+
+  .selected-day-panel h3 {
+    font-size: 15px;
+    color: var(--teal-bright);
+    margin-bottom: 6px;
+  }
+
+  .sync-bar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--card-border);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  /* Weekly Programme */
+  .programme-item {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 14px;
+  }
+  .programme-item:last-child { border-bottom: none; }
+
+  .prog-time {
+    color: var(--teal-bright);
+    font-weight: 800;
+    min-width: 96px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Offline SVG Map Card */
+  .offline-map {
+    margin: 14px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    background: #131b2e;
+  }
+
+  .dir-list {
+    margin-top: 10px;
+    padding-left: 18px;
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .dir-list li { margin-bottom: 6px; }
+
+  .prep-note {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    color: #FFE082;
+    font-size: 13px;
+  }
+
+  /* Host & CV Card */
+  .host-box {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
   }
 
-  .queue-box {
-    margin-top: 18px;
-    padding: 16px;
-    border-radius: 12px;
-    border: 2px dashed var(--amber);
-    background: #FFFBEB;
-  }
-
-  .queue-title {
-    font-size: 13px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #92400E;
-    margin-bottom: 10px;
-  }
-
-  .event-row {
+  .host-links {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  /* Organizer Mode Drawer */
+  .organizer-toggle-wrap {
+    text-align: center;
+    margin: 24px 0 10px;
+  }
+
+  .organizer-panel {
+    display: none;
+    background: #121324;
+    border: 1px dashed rgba(0, 191, 165, 0.55);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .organizer-panel.open { display: block; }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+
+  @media (max-width: 520px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .field.full { grid-column: 1 / -1; }
+
+  .field label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-faint);
+  }
+
+  .field input, .field select, .field textarea {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #fff;
+    font-size: 13.5px;
+    font-family: inherit;
+  }
+
+  .pending-queue {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px dashed rgba(255, 213, 79, 0.6);
+    background: rgba(255, 213, 79, 0.07);
+  }
+
+  .pending-queue-title {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+  .wa-preview {
+    width: 100%;
+    min-height: 140px;
+    margin-top: 10px;
+    background: #0b0c16;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 12px;
+    color: #d1fae5;
+    font-size: 12.5px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  .custom-event-chip {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    background: #fff;
-    border: var(--border);
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
-  }
-
-  .event-row:last-child {
-    margin-bottom: 0;
-  }
-
-  .event-meta strong {
-    display: block;
-    font-size: 15px;
-  }
-
-  .event-meta span {
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 8px;
     font-size: 13px;
-    color: var(--muted);
   }
 
-  .confirmed-box {
-    margin-top: 18px;
-  }
-
-  .confirmed-box h3 {
-    font-size: 15px;
-    font-weight: 900;
-    margin-bottom: 10px;
-  }
-
-  .msg-ok {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--whatsapp);
-  }
-
-  .msg-err {
-    font-size: 13px;
-    font-weight: 700;
-    color: #B91C1C;
+  .status-note {
+    font-size: 12.5px;
+    color: var(--teal-bright);
+    margin-top: 6px;
   }
 
   .footer-strip {
     text-align: center;
-    padding: 18px;
+    padding: 18px 16px 28px;
+    color: var(--text-faint);
     font-size: 12px;
+  }
+
+  .footer-strip a {
+    color: var(--teal-bright);
+    text-decoration: none;
     font-weight: 700;
-    color: var(--muted);
   }
 </style>
 </head>
 <body>
 
-<div class="pride-ribbon"></div>
+<div class="rainbow-bar"></div>
 
-<div class="wrap">
-  <div class="topbar">
-    <span class="pill-tag">🏳️‍🌈 LGBT Channel Monthly Calendar</span>
-    <a class="cv-btn" href="https://kmentindustry.github.io/FFVDK/" target="_blank" rel="noopener noreferrer">👤 CV Landing Page</a>
-  </div>
-
-  <div class="hero">
+<div class="container">
+  <header class="hero">
+    <div class="year-pill">2027 Season · Amsterdam West</div>
     <div class="logo">GROOVE<span>PARK</span></div>
-    <div class="tagline">Promoting community and recreational growth</div>
-    <div class="lang-label">Choose your language / Kies je taal</div>
-    <div class="lang-grid">
-      <button class="lang-btn" onclick="show('en', this)">🇬🇧 English</button>
-      <button class="lang-btn" onclick="show('nl', this)">🇳🇱 Nederlands</button>
-      <button class="lang-btn" onclick="show('es', this)">🇪🇸 Español</button>
-      <button class="lang-btn" onclick="show('fr', this)">🇫🇷 Français</button>
-      <button class="lang-btn" onclick="show('pt', this)">🇵🇹 Português</button>
-      <button class="lang-btn" onclick="show('bg', this)">🇧🇬 Български</button>
-      <button class="lang-btn" onclick="show('ur', this)">🇵🇰 اردو</button>
-      <button class="lang-btn" onclick="show('wo', this)">🇸🇳 Wolof</button>
-      <button class="lang-btn" onclick="show('lo', this)">🇱🇦 ລາວ</button>
-    </div>
-  </div>
+    <div class="tagline">Community Movement &amp; Skill-Building Hub</div>
 
-  <div class="info-box" id="en">
-    <div class="cta-banner">
-      <h2>Sign In / Sign Up &amp; Teachers</h2>
-      <p>Fill out our official attendee and instructor form below:</p>
-      <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" class="form-btn">📋 Open Sign-In / Sign-Up Form</a><br>
-      <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" class="whatsapp-link">💬 Follow our WhatsApp Channel</a>
-      <span class="offline-badge">⚡ Saved offline on your device</span>
+    <div class="lang-wrap">
+      <div class="lang-label">Choose your language / Kies je taal</div>
+      <div class="lang-grid" id="langGrid"></div>
     </div>
-    <div class="cards-grid">
-      <div class="info-card">
-        <h2>What is GroovePark?</h2>
-        <p>GroovePark is a free weekly community programme for the LGBTQ+ community and allies in Amsterdam. No experience needed. Just show up.</p>
+  </header>
+
+  <nav class="quick-nav" id="quickNav" aria-label="Section navigation">
+    <a href="#join" data-i18n="navJoin">Join</a>
+    <a href="#calendar" data-i18n="navCalendar">2027 Calendar</a>
+    <a href="#programme" data-i18n="navProgramme">Weekly Flow</a>
+    <a href="#location" data-i18n="navLocation">Location</a>
+    <a href="#host" data-i18n="navHost">Host &amp; CV</a>
+  </nav>
+
+  <main id="contentRoot">
+    <!-- Join & Channel CTA -->
+    <section class="card accent-card" id="join">
+      <div class="card-kicker" data-i18n="joinKicker">2027 Community Access</div>
+      <h2 data-i18n="joinTitle">Sign In / Sign Up &amp; Facilitators</h2>
+      <p data-i18n="joinDesc">Free weekly sessions for the LGBTQ+ community and allies in Amsterdam. Check in, sign up to teach or collaborate, and get weekly drops on WhatsApp.</p>
+      <div class="cta-group">
+        <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="btnForm">📋 Open Official Form</a>
+        <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" rel="noopener" class="btn btn-whatsapp" data-i18n="btnWa">💬 Weekly WhatsApp Channel</a>
       </div>
-      <div class="info-card">
-        <h2>Launch &amp; Location</h2>
-        <p>Wednesday 26 August 2026 — every Wednesday thereafter<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amsterdam West</p>
+      <div class="meta-row">
+        <span data-i18n="offlineBadge">⚡ Works offline · Saved on your device</span>
+        <span>·</span>
+        <span data-i18n="freeBadge">Free · All bodies welcome</span>
       </div>
-      <div class="info-card full">
-        <h2>Offline Directions &amp; Location Map</h2>
-        <p><em>(Saved on your phone for offline use if your connection drops)</em></p>
-        <div class="map-box">
-          <img src="https://via.placeholder.com/760x170/F2ECE1/17131C?text=Buurtkamer+Kostelijk+Map+Snapshot" alt="Buurtkamer Kostelijk Map">
+    </section>
+
+    <!-- What is GroovePark -->
+    <section class="card" id="about">
+      <div class="card-kicker" data-i18n="aboutKicker">About the Hub</div>
+      <h2 data-i18n="aboutTitle">What is GroovePark?</h2>
+      <p data-i18n="aboutBody">GroovePark is a free weekly community movement and skill-building programme in Amsterdam for the LGBTQ+ community and allies. Every Wednesday from 18:00 to 20:00 at Buurtkamer Kostelijk—no experience needed, just show up.</p>
+    </section>
+
+    <!-- 2027 Monthly Calendar (Cohesive with Weekly WhatsApp Channel) -->
+    <section class="card" id="calendar">
+      <div class="card-kicker" data-i18n="calKicker">Monthly Overview · 2027</div>
+      <h2 data-i18n="calTitle">2027 Monthly Agenda</h2>
+      <p data-i18n="calDesc">Browse the monthly overview below. Every Wednesday features our core 18:00–20:00 programme, plus special workshops and themes synced with our weekly WhatsApp Channel.</p>
+
+      <div class="cal-header">
+        <div class="cal-month-title" id="calMonthTitle">January 2027</div>
+        <div class="cal-nav-btns">
+          <button class="cal-nav-btn" id="prevMonthBtn" aria-label="Previous month">‹</button>
+          <button class="cal-nav-btn" id="nextMonthBtn" aria-label="Next month">›</button>
         </div>
-        <ul class="dir-list">
-          <li><strong>Address:</strong> Buurtkamer Kostelijk, Amsterdam West</li>
-          <li><strong>Tram/Bus:</strong> Take Tram 7 or 13 to nearest stop in West.</li>
-          <li><strong>Landmarks:</strong> Located near the canal path on Kostverlorenkade. Look for the entrance flags/posters!</li>
-        </ul>
       </div>
-      <div class="info-card">
-        <h2>Programme</h2>
-        <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Dance &amp; Choreography — all levels welcome</span></div>
-        <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness Session — body-positive movement</span></div>
-        <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Self-Defence — safe and supportive</span></div>
-        <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom &amp; Vogue Practice — open floor</span></div>
-      </div>
-      <div class="info-card">
-        <h2>Preparation &amp; Hygiene</h2>
-        <p>Please bring your own water bottle, clean extra shoes, and a change of clothes. Preparation is highly encouraged!</p>
-        <div class="prep-note">⚠️ Note: There are no shower facilities available at the venue.</div>
-        <p style="margin-top: 12px;"><strong>Free · No registration · All bodies welcome</strong> — Follow <span class="ig">@iamnandov</span> for updates</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="info-box" id="nl">
-    <div class="cta-banner">
-      <h2>Inchecken / Aanmelden &amp; Docenten</h2>
-      <p>Vul het officiële deelnemers- en docentenformulier hieronder in:</p>
-      <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" class="form-btn">📋 Open Incheck- / Aanmeldformulier</a><br>
-      <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" class="whatsapp-link">💬 Volg ons WhatsApp-kanaal</a>
-      <span class="offline-badge">⚡ Lokaal opgeslagen op je telefoon</span>
-    </div>
-    <div class="cards-grid">
-      <div class="info-card">
-        <h2>Wat is GroovePark?</h2>
-        <p>GroovePark is een gratis wekelijks gemeenschapsprogramma voor de LGBTQ+ gemeenschap en bondgenoten in Amsterdam. Geen ervaring nodig. Gewoon langskomen.</p>
+      <div class="cal-weekdays" id="calWeekdays"></div>
+      <div class="cal-days" id="calDays"></div>
+
+      <div class="cal-legend">
+        <span class="legend-item"><span class="legend-swatch" style="background: var(--teal-bright);"></span><span data-i18n="legendWeekly">Weekly Wednesday (18:00–20:00)</span></span>
+        <span class="legend-item"><span class="legend-swatch" style="background: var(--amber);"></span><span data-i18n="legendSpecial">Confirmed Special / Guest Session</span></span>
       </div>
-      <div class="info-card">
-        <h2>Locatie &amp; Tijden</h2>
-        <p>Woensdag 26 augustus 2026 — daarna elke woensdag<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amsterdam West</p>
-      </div>
-      <div class="info-card full">
-        <h2>Offline Routebeschrijving &amp; Kaart</h2>
-        <p><em>(Opgeslagen op je telefoon voor offline gebruik als je internet wegvalt)</em></p>
-        <div class="map-box">
-          <img src="https://via.placeholder.com/760x170/F2ECE1/17131C?text=Buurtkamer+Kostelijk+Kaart" alt="Buurtkamer Kostelijk Kaart">
+
+      <div class="selected-day-panel" id="selectedDayPanel"></div>
+
+      <div class="sync-bar">
+        <span id="calSyncStatus">Synced with GroovePark 2027 Calendar</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <a href="https://calendar.google.com/calendar/ical/e5660302e543fb0aef8f5e7fe118d36ddf3a96ce2131aec9c33c096f646b9d9c%40group.calendar.google.com/public/basic.ics" class="btn btn-outline" data-i18n="btnSubscribeCal">📅 Subscribe (.ics)</a>
         </div>
-        <ul class="dir-list">
-          <li><strong>Adres:</strong> Buurtkamer Kostelijk, Amsterdam West</li>
-          <li><strong>OV:</strong> Neem Tram 7 of 13 naar de dichtstbijzijnde halte in West.</li>
-          <li><strong>Herkenningspunten:</strong> Gelegen nabij het kanaal op Kostverlorenkade. Zoek naar de vlaggen/posters bij de ingang!</li>
-        </ul>
       </div>
-      <div class="info-card">
-        <h2>Programma</h2>
-        <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Dans &amp; Choreografie — alle niveaus welkom</span></div>
-        <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — lichaamspositieve beweging</span></div>
-        <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Zelfverdediging — veilig en ondersteunend</span></div>
-        <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom &amp; Vogue — open dansvloer</span></div>
-      </div>
-      <div class="info-card">
-        <h2>Voorbereiding &amp; Hygiëne</h2>
-        <p>Neem je eigen waterfles, schone extra schoenen en een setje droge kleding mee. Goede voorbereiding wordt sterk aanbevolen!</p>
-        <div class="prep-note">⚠️ Let op: Er zijn geen douches aanwezig op de locatie.</div>
-        <p style="margin-top: 12px;"><strong>Gratis · Geen aanmelding · Iedereen welkom</strong> — Volg <span class="ig">@iamnandov</span> voor updates</p>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="info-box" id="es">
-    <div class="cta-banner">
-      <h2>Registro y Profesores</h2>
-      <p>Completa el formulario oficial de inscripción:</p>
-      <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" class="form-btn">📋 Abrir Formulario de Registro</a><br>
-      <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" class="whatsapp-link">💬 Sigue nuestro canal de WhatsApp</a>
-      <span class="offline-badge">⚡ Guardado en tu dispositivo para uso offline</span>
-    </div>
-    <div class="cards-grid">
-      <div class="info-card">
-        <h2>¿Qué es GroovePark?</h2>
-        <p>GroovePark es un programa comunitario semanal y gratuito para la comunidad LGBTQ+ y aliados en Ámsterdam. No se necesita experiencia. Solo ven.</p>
+    <!-- Weekly Core Flow -->
+    <section class="card" id="programme">
+      <div class="card-kicker" data-i18n="progKicker">Every Wednesday · 18:00–20:00</div>
+      <h2 data-i18n="progTitle">Core Weekly Programme</h2>
+      <div id="programmeList"></div>
+    </section>
+
+    <!-- Location & Offline Map -->
+    <section class="card" id="location">
+      <div class="card-kicker" data-i18n="locKicker">Venue &amp; Offline Directions</div>
+      <h2 data-i18n="locTitle">Buurtkamer Kostelijk · Amsterdam West</h2>
+      <p data-i18n="locSub">Wednesdays · 18:00 – 20:00 · Built-in offline map so you can find us even without mobile data.</p>
+
+      <div class="offline-map" role="img" aria-label="Offline map showing Buurtkamer Kostelijk near Kostverlorenkade in Amsterdam West">
+        <svg viewBox="0 0 600 200" width="100%" height="180" preserveAspectRatio="xMidYMid slice">
+          <rect width="600" height="200" fill="#131b2e"/>
+          <path d="M 160 0 L 225 200 L 260 200 L 195 0 Z" fill="#0e3a53"/>
+          <text x="152" y="105" fill="#4dd0e1" font-size="10" font-family="Arial" transform="rotate(72 152 105)">Kostverlorenkade / Canal</text>
+          <line x1="0" y1="68" x2="600" y2="68" stroke="#26324d" stroke-width="8"/>
+          <line x1="0" y1="142" x2="600" y2="142" stroke="#26324d" stroke-width="6"/>
+          <line x1="390" y1="0" x2="390" y2="200" stroke="#26324d" stroke-width="6"/>
+          <text x="20" y="62" fill="#8fa3bf" font-size="11" font-family="Arial">Tram 7 &amp; 13 Route (Amsterdam West)</text>
+          <circle cx="305" cy="96" r="24" fill="rgba(0, 191, 165, 0.22)"/>
+          <circle cx="305" cy="96" r="9" fill="#00BFA5" stroke="#ffffff" stroke-width="2.5"/>
+          <rect x="322" y="76" width="215" height="42" rx="8" fill="#0D0D18" stroke="#00BFA5" stroke-width="1.2"/>
+          <text x="334" y="94" fill="#ffffff" font-size="12" font-weight="bold" font-family="Arial">Buurtkamer Kostelijk</text>
+          <text x="334" y="110" fill="#00BFA5" font-size="10.5" font-family="Arial">Wednesdays 18:00–20:00 · Flags at entrance</text>
+        </svg>
       </div>
-      <div class="info-card">
-        <h2>Ubicación y Horario</h2>
-        <p>Miércoles 26 de agosto de 2026 — todos los miércoles a partir de entonces<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Ámsterdam Oeste</p>
+
+      <ul class="dir-list" id="dirList"></ul>
+      <div style="margin-top:12px;">
+        <a href="https://maps.google.com/?q=Buurtkamer+Kostelijk+Amsterdam" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="btnMaps">📍 Open in Google Maps</a>
       </div>
-      <div class="info-card full">
-        <h2>Indicaciones Offline y Mapa</h2>
-        <p><em>(Guardado en tu teléfono para uso offline si pierdes la conexión)</em></p>
-        <div class="map-box">
-          <img src="https://via.placeholder.com/760x170/F2ECE1/17131C?text=Buurtkamer+Kostelijk+Mapa" alt="Buurtkamer Kostelijk Mapa">
+    </section>
+
+    <!-- Preparation & Hygiene -->
+    <section class="card" id="prep">
+      <div class="card-kicker" data-i18n="prepKicker">Good to Know</div>
+      <h2 data-i18n="prepTitle">Preparation &amp; Hygiene</h2>
+      <p data-i18n="prepBody">Please bring your own water bottle, clean extra indoor shoes, and a change of clothes. Preparation is highly encouraged!</p>
+      <div class="prep-note" data-i18n="prepWarn">⚠️ Note: There are no shower facilities available at the venue.</div>
+    </section>
+
+    <!-- Organizer / Representative & CV Link -->
+    <section class="card" id="host">
+      <div class="card-kicker" data-i18n="hostKicker">Community Leadership &amp; Contact</div>
+      <h2 data-i18n="hostTitle">Hosted by Fernando (@iamnandov)</h2>
+      <div class="host-box">
+        <p data-i18n="hostBody">GroovePark is initiated and hosted by Fernando — Community Organizer, LGBTQ+ Representative &amp; Spokesperson, developing accessible movement and skill-building spaces in Amsterdam under KMENT industry.</p>
+        <div class="host-links">
+          <a href="https://kmentindustry.github.io/FFVDK/" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="btnCv">👤 About Fernando &amp; CV</a>
         </div>
-        <ul class="dir-list">
-          <li><strong>Dirección:</strong> Buurtkamer Kostelijk, Ámsterdam Oeste</li>
-          <li><strong>Tranvía/Autobús:</strong> Tranvía 7 o 13 hasta la parada más cercana.</li>
-          <li><strong>Puntos de referencia:</strong> Cerca del canal en Kostverlorenkade. ¡Busca las banderas/pósters en la entrada!</li>
-        </ul>
       </div>
-      <div class="info-card">
-        <h2>Programa</h2>
-        <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Danza y Coreografía — todos los niveles</span></div>
-        <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — movimiento corporal positivo</span></div>
-        <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Defensa personal — espacio seguro</span></div>
-        <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom &amp; Vogue — pista abierta</span></div>
-      </div>
-      <div class="info-card">
-        <h2>Preparación e Higiene</h2>
-        <p>Trae tu propia botella de agua, zapatos limpios adicionales y ropa de cambio. ¡La preparación previa es muy recomendable!</p>
-        <div class="prep-note">⚠️ Nota: El recinto no dispone de duchas.</div>
-        <p style="margin-top: 12px;"><strong>Gratis · Sin registro · Todos los cuerpos bienvenidos</strong> — Sigue <span class="ig">@iamnandov</span> para actualizaciones</p>
-      </div>
-    </div>
+    </section>
+  </main>
+
+  <!-- Discreet Organizer Mode for Staging & Confirming New Agenda Items -->
+  <div class="organizer-toggle-wrap">
+    <button class="btn btn-outline" id="toggleOrganizerBtn">🛠️ Organizer Tools (2027 Agenda &amp; Weekly Post)</button>
   </div>
 
-  <div class="info-box" id="fr">
-    <div class="cta-banner">
-      <h2>Inscription &amp; Professeurs</h2>
-      <p>Remplissez le formulaire officiel :</p>
-      <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" class="form-btn">📋 Ouvrir le Formulaire GroovePark</a><br>
-      <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" class="whatsapp-link">💬 Suivez notre chaîne WhatsApp</a>
-      <span class="offline-badge">⚡ Enregistré sur votre téléphone</span>
-    </div>
-    <div class="cards-grid">
-      <div class="info-card">
-        <h2>Qu'est-ce que GroovePark?</h2>
-        <p>GroovePark est un programme communautaire hebdomadaire gratuit pour la communauté LGBTQ+ et ses alliés à Amsterdam. Aucune expérience requise. Venez simplement.</p>
-      </div>
-      <div class="info-card">
-        <h2>Lieu et Horaires</h2>
-        <p>Mercredi 26 août 2026 — chaque mercredi ensuite<br>18h00 – 20h00<br>Buurtkamer Kostelijk, Amsterdam Ouest</p>
-      </div>
-      <div class="info-card full">
-        <h2>Itinéraire Hors Ligne &amp; Carte</h2>
-        <p><em>(Enregistré sur votre téléphone si vous perdez la connexion)</em></p>
-        <div class="map-box">
-          <img src="https://via.placeholder.com/760x170/F2ECE1/17131C?text=Buurtkamer+Kostelijk+Carte" alt="Buurtkamer Kostelijk Carte">
-        </div>
-        <ul class="dir-list">
-          <li><strong>Adresse:</strong> Buurtkamer Kostelijk, Amsterdam Ouest</li>
-          <li><strong>Tram/Bus:</strong> Tram 7 ou 13 jusqu'à l'arrêt le plus proche.</li>
-          <li><strong>Repères:</strong> Près du canal sur Kostverlorenkade. Cherchez les drapeaux/affiches à l'entrée!</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h2>Programme</h2>
-        <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Danse &amp; Chorégraphie — tous niveaux</span></div>
-        <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — mouvement bienveillant</span></div>
-        <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Autodéfense — espace sûr</span></div>
-        <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom &amp; Vogue — piste ouverte</span></div>
-      </div>
-      <div class="info-card">
-        <h2>Préparation et Hygiène</h2>
-        <p>Apportez votre propre gourde d'eau, des chaussures propres de rechange et des vêtements de rechange. Une bonne préparation est fortement recommandée!</p>
-        <div class="prep-note">⚠️ Remarque: Le lieu ne dispose pas de douches.</div>
-        <p style="margin-top: 12px;"><strong>Gratuit · Sans inscription · Tous les corps bienvenus</strong> — Suivez <span class="ig">@iamnandov</span> pour les mises à jour</p>
-      </div>
-    </div>
-  </div>
+  <section class="organizer-panel" id="organizerPanel" aria-label="Organizer Agenda Builder">
+    <div class="card-kicker">Organizer Mode · Confirmation Required</div>
+    <h2 style="font-size:17px; margin-bottom:6px;">Stage &amp; Confirm 2027 Monthly Agenda Items</h2>
+    <p style="font-size:13px; color:var(--text-muted);">New events are placed in a <strong>Pending Confirmation</strong> queue first. Nothing shows on the 2027 calendar or generates a Google Calendar add link until you explicitly click <strong>Confirm &amp; Add</strong>.</p>
 
-  <div class="info-box" id="pt">
-    <div class="cta-banner">
-      <h2>Inscrição &amp; Professores</h2>
-      <p>Preencha o formulário oficial abaixo:</p>
-      <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" class="form-btn">📋 Abrir Formulário GroovePark</a><br>
-      <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" class="whatsapp-link">💬 Siga o nosso canal do WhatsApp</a>
-      <span class="offline-badge">⚡ Guardado no seu dispositivo</span>
-    </div>
-    <div class="cards-grid">
-      <div class="info-card">
-        <h2>O que é o GroovePark?</h2>
-        <p>GroovePark é um programa comunitário semanal e gratuito para a comunidade LGBTQ+ e aliados em Amesterdão. Não é necessária experiência. Apareça apenas.</p>
+    <form id="addAgendaForm" class="form-grid">
+      <div class="field">
+        <label for="evDate">Date (2027)</label>
+        <input type="date" id="evDate" value="2027-01-13" min="2027-01-01" max="2027-12-31" required>
       </div>
-      <div class="info-card">
-        <h2>Localização e Horário</h2>
-        <p>Quarta-feira, 26 de agosto de 2026 — todas as quartas-feiras a seguir<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amesterdão Oeste</p>
+      <div class="field">
+        <label for="evTime">Time</label>
+        <input type="text" id="evTime" value="18:00 – 20:00" required>
       </div>
-      <div class="info-card full">
-        <h2>Direções Offline e Mapa</h2>
-        <p><em>(Guardado no seu telemóvel para uso offline)</em></p>
-        <div class="map-box">
-          <img src="https://via.placeholder.com/760x170/F2ECE1/17131C?text=Buurtkamer+Kostelijk+Mapa" alt="Buurtkamer Kostelijk Mapa">
-        </div>
-        <ul class="dir-list">
-          <li><strong>Endereço:</strong> Buurtkamer Kostelijk, Amesterdão Oeste</li>
-          <li><strong>Elétrico/Autocarro:</strong> Elétrico 7 ou 13 até à paragem mais próxima.</li>
-          <li><strong>Pontos de referência:</strong> Perto do canal em Kostverlorenkade. Procure as bandeiras/cartazes na entrada!</li>
-        </ul>
+      <div class="field">
+        <label for="evTitle">Session / Workshop Title</label>
+        <input type="text" id="evTitle" placeholder="e.g., Vogue Femme & Confidence Lab" required>
       </div>
-      <div class="info-card">
-        <h2>Programa</h2>
-        <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Dança &amp; Coreografia — todos os níveis</span></div>
-        <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — movimento corporal positivo</span></div>
-        <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Defesa pessoal — espaço seguro</span></div>
-        <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom &amp; Vogue — pista aberta</span></div>
+      <div class="field">
+        <label for="evHost">Guest Teacher / Focus</label>
+        <input type="text" id="evHost" placeholder="e.g., Hosted with Guest Coach">
       </div>
-      <div class="info-card">
-        <h2>Preparação e Higiene</h2>
-        <p>Traga a sua própria garrafa de água, sapatos limpos extra e uma muda de roupa. Preparação prévia é altamente recomendada!</p>
-        <div class="prep-note">⚠️ Nota: O local não dispõe de chuveiros.</div>
-        <p style="margin-top: 12px;"><strong>Gratuito · Sem inscrição · Todos os corpos bem-vindos</strong> — Siga <span class="ig">@iamnandov</span> para atualizações</p>
+      <div class="field full">
+        <label for="evNotes">Notes / Special Prep</label>
+        <input type="text" id="evNotes" placeholder="e.g., Bring knee pads or extra water">
       </div>
-    </div>
-  </div>
+      <div class="field full" style="flex-direction:row; flex-wrap:wrap; gap:8px; margin-top:4px;">
+        <button type="submit" class="btn btn-primary">Review Before Adding</button>
+        <button type="button" class="btn btn-outline" id="exportJsonBtn">📋 Copy Confirmed Agenda JSON</button>
+      </div>
+    </form>
 
-  <div class="info-box" id="bg">
-    <div class="cta-banner">
-      <h2>Регистрация и Преподаватели</h2>
-      <p>Попълнете официалната форма:</p>
-      <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" class="form-btn">📋 Отвори Формата за Регистрация</a><br>
-      <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" class="whatsapp-link">💬 Последвайте нашия WhatsApp канал</a>
-      <span class="offline-badge">⚡ Запазено офлайн на телефона</span>
-    </div>
-    <div class="cards-grid">
-      <div class="info-card">
-        <h2>Какво е GroovePark?</h2>
-        <p>GroovePark е безплатна седмична общностна програма за ЛГБТК+ общността и съюзниците в Амстердам. Не е нужен опит. Просто елате.</p>
-      </div>
-      <div class="info-card">
-        <h2>Място и Час</h2>
-        <p>Сряда, 26 август 2026 г. — всяка следваща сряда<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Амстердам Запад</p>
-      </div>
-      <div class="info-card full">
-        <h2>Офлайн упътвания и карта</h2>
-        <p><em>(Запазено на телефона за офлайн употреба)</em></p>
-        <div class="map-box">
-          <img src="https://via.placeholder.com/760x170/F2ECE1/17131C?text=Buurtkamer+Kostelijk+Карта" alt="Buurtkamer Kostelijk Карта">
-        </div>
-        <ul class="dir-list">
-          <li><strong>Адрес:</strong> Buurtkamer Kostelijk, Амстердам Запад</li>
-          <li><strong>Трамвай/Автобус:</strong> Трамвай 7 или 13 до най-близката спирка.</li>
-          <li><strong>Ориентири:</strong> До канала на Kostverlorenkade. Търсете знамената/плакатите на входа!</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h2>Програма</h2>
-        <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Танц &amp; Хореография — всички нива</span></div>
-        <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Фитнес — позитивно движение</span></div>
-        <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Самоотбрана — безопасно пространство</span></div>
-        <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom &amp; Vogue — открит танцов под</span></div>
-      </div>
-      <div class="info-card">
-        <h2>Подготовка и Хигиена</h2>
-        <p>Моля, носете си бутилка за вода, чисти резервни обувки и дрехи за преобличане. Подготовката е силно препоръчителна!</p>
-        <div class="prep-note">⚠️ Забележка: В обекта няма душове.</div>
-        <p style="margin-top: 12px;"><strong>Безплатно · Без регистрация · Всички тела добре дошли</strong> — Следвайте <span class="ig">@iamnandov</span> за актуализации</p>
-      </div>
-    </div>
-  </div>
+    <div id="stageStatus" class="status-note"></div>
 
-  <div class="info-box" id="ur" dir="rtl">
-    <div class="cta-banner">
-      <h2>رجسٹریشن، سائن ان اور اساتذہ</h2>
-      <p>نیچے دیے گئے آفیشل فارم کو پر کریں:</p>
-      <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" class="form-btn">📋 فارم کھولیں</a><br>
-      <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" class="whatsapp-link">💬 ہمارے واٹس ایپ چینل کو فالو کریں</a>
-      <span class="offline-badge">⚡ آپ کے آلے پر محفوظ ہے</span>
-    </div>
-    <div class="cards-grid">
-      <div class="info-card">
-        <h2>GroovePark کیا ہے؟</h2>
-        <p>GroovePark ایمسٹرڈیم میں LGBTQ+ کمیونٹی اور اتحادیوں کے لیے ایک مفت ہفتہ وار کمیونٹی پروگرام ہے۔ کوئی تجربہ ضروری نہیں۔ بس آ جائیں۔</p>
-      </div>
-      <div class="info-card">
-        <h2>مقام اور وقت</h2>
-        <p>بدھ، 26 اگست 2026 — اس کے بعد ہر بدھ<br>18:00 – 20:00<br>Buurtkamer Kostelijk، ایمسٹرڈیم ویسٹ</p>
-      </div>
-      <div class="info-card full">
-        <h2>آف لائن راستے اور نقشہ</h2>
-        <p><em>(انٹرنیٹ نہ ہونے کی صورت کے لیے آپ کے فون پر محفوظ)</em></p>
-        <div class="map-box">
-          <img src="https://via.placeholder.com/760x170/F2ECE1/17131C?text=Buurtkamer+Kostelijk+نقشہ" alt="Buurtkamer Kostelijk نقشہ">
-        </div>
-        <ul class="dir-list">
-          <li><strong>پتہ:</strong> Buurtkamer Kostelijk، ایمسٹرڈیم ویسٹ</li>
-          <li><strong>ٹرام / بس:</strong> ٹرام 7 یا 13 کے ذریعے قریبی اسٹاپ پر اتریں۔</li>
-          <li><strong>نشانی:</strong> Kostverlorenkade نہر کے قریب۔ داخلے پر جھنڈے یا پوسٹر دیکھیں۔</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h2>پروگرام</h2>
-        <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>رقص اور کوریوگرافی — تمام سطحیں</span></div>
-        <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>فٹنس — جسم کی مثبت حرکت</span></div>
-        <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>خود دفاع — محفوظ جگہ</span></div>
-        <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom &amp; Vogue — کھلا فلور</span></div>
-      </div>
-      <div class="info-card">
-        <h2>تیاری اور صفائی</h2>
-        <p>برائے مہربانی اپنی پانی کی بوتل، اضافی صاف جوتے اور تبدیل کرنے کے لیے کپڑے ساتھ لائیں۔ تیاری کی انتہائی سفارش کی جاتی ہے!</p>
-        <div class="prep-note">⚠️ نوٹ: جگہ پر شاور کی سہولت موجود نہیں ہے۔</div>
-        <p style="margin-top: 12px;"><strong>مفت · کوئی رجسٹریشن نہیں · سب کا خیرمقدم</strong> — اپڈیٹ کے لیے <span class="ig">@iamnandov</span> کو فالو کریں</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-box" id="wo">
-    <div class="cta-banner">
-      <h2>Mbindu ak Njàngalkat</h2>
-      <p>Bindal ci mbindu GroovePark bi ci suuf:</p>
-      <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" class="form-btn">📋 Ubbi Mbindu Bi</a><br>
-      <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" class="whatsapp-link">💬 Topal sunu kanal WhatsApp</a>
-      <span class="offline-badge">⚡ Dafa dencu ci sa telefon</span>
-    </div>
-    <div class="cards-grid">
-      <div class="info-card">
-        <h2>Lan la GroovePark?</h2>
-        <p>GroovePark dafa am xam-xam bu dëkk bi LGBTQ+ ak xarit yi ci Amsterdam. Amul laaj ci kanam. Kaay rekk.</p>
-      </div>
-      <div class="info-card">
-        <h2>Bés ak Barab</h2>
-        <p>Àllarba, 26 Ut 2026 — àllarba bés bu nekk ci kanam<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amsterdam West</p>
-      </div>
-      <div class="info-card full">
-        <h2>Yoon ak Nataal bu Barab bi</h2>
-        <div class="map-box">
-          <img src="https://via.placeholder.com/760x170/F2ECE1/17131C?text=Buurtkamer+Kostelijk+Map" alt="Buurtkamer Kostelijk Map">
-        </div>
-        <ul class="dir-list">
-          <li><strong>Barab:</strong> Buurtkamer Kostelijk, Amsterdam West</li>
-          <li><strong>Tram:</strong> Jël Tram 7 walla 13 ba ci wàllu West.</li>
-          <li><strong>Mandarga:</strong> Mu ngi nekk ci wetu Kostverlorenkade. Xoolal raaya walla poster yi ci bunt bi!</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h2>Programa bi</h2>
-        <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>Fàww ak Koreografi — dëkk yëp</span></div>
-        <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>Fitness — yëgël bu baax</span></div>
-        <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>Sëriñ bopp — dëkk bu jekk</span></div>
-        <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom &amp; Vogue — piste bu tam</span></div>
-      </div>
-      <div class="info-card">
-        <h2>Toggal ak Set</h2>
-        <p>Indil sa ndoxu bopp, dollik dali set ak yere yu bes. Toggal bu baax dafa am solo!</p>
-        <div class="prep-note">⚠️ Xamle: Amul sangubaay ci barab bi.</div>
-        <p style="margin-top: 12px;"><strong>Dafa sore · Amul laaj · Dëkk yëp nekk</strong> — Xool <span class="ig">@iamnandov</span> ci Instagram</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="info-box" id="lo">
-    <div class="cta-banner">
-      <h2>ລົງທະບຽນ &amp; ຄູສອນ</h2>
-      <p>ກະລຸນາປອກຟອມລົງທະບຽນທາງການຢູ່ດ້ານລຸ່ມ:</p>
-      <a href="https://forms.gle/DFJbktia8MkP6tSa9" target="_blank" class="form-btn">📋 ເປີດຟອມລົງທະບຽນ GroovePark</a><br>
-      <a href="https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y" target="_blank" class="whatsapp-link">💬 ติดตามช่อง WhatsApp ของเรา</a>
-      <span class="offline-badge">⚡ ບັນທຶກໄວ້ໃນອຸປະກອນຂອງທ່ານແລ້ວ</span>
-    </div>
-    <div class="cards-grid">
-      <div class="info-card">
-        <h2>GroovePark ແມ່ນຫຍັງ?</h2>
-        <p>GroovePark ແມ່ນໂຄງການຊຸມຊົນປະຈຳອາທິດຟຣີສຳລັບກຸ່ມ LGBTQ+ ແລະ ພວກພ້ອງໃນ Amsterdam. ບໍ່ຕ້ອງການປະສົບການ. ແຄ່ມາຮ່ວມ.</p>
-      </div>
-      <div class="info-card">
-        <h2>ສະຖານທີ່ ແລະ ເວລາ</h2>
-        <p>ວັນພຸດ 26 ສິງຫາ 2026 — ທຸກໆວັນພຸດຕໍ່ໄປ<br>18:00 – 20:00<br>Buurtkamer Kostelijk, Amsterdam West</p>
-      </div>
-      <div class="info-card full">
-        <h2>ເສັ້ນທາງ ອອບໄລນ໌ ແລະ ແຜນທີ່</h2>
-        <div class="map-box">
-          <img src="https://via.placeholder.com/760x170/F2ECE1/17131C?text=Buurtkamer+Kostelijk+Map" alt="Buurtkamer Kostelijk Map">
-        </div>
-        <ul class="dir-list">
-          <li><strong>ທີ່ຢູ່:</strong> Buurtkamer Kostelijk, Amsterdam West</li>
-          <li><strong>ລົດຮາມ/ລົດເມ:</strong> ຂີ່ Tram 7 ຫຼື 13 ມາສະຖານີໃກ້ສຸດ.</li>
-          <li><strong>ຈຸດສັງເກດ:</strong> ຢູ່ໃກ້ຄອງ Kostverlorenkade. ສັງເກດເບິ່ງທຸງ/ໂປສເຕີຢູ່ທາງເຂົ້າ!</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h2>ໂຄງການ</h2>
-        <div class="programme-item"><span class="prog-time">18:00–18:30</span><span>ເຕັ້ນ &amp; ເຄື່ອນໄຫວ — ທຸກລະດັບ</span></div>
-        <div class="programme-item"><span class="prog-time">18:30–19:00</span><span>ອອກກຳລັງກາຍ — ທາງບວກ</span></div>
-        <div class="programme-item"><span class="prog-time">19:00–19:30</span><span>ປ້ອງກັນຕົນເອງ — ພື້ນທີ່ປອດໄພ</span></div>
-        <div class="programme-item"><span class="prog-time">19:30–20:00</span><span>Ballroom &amp; Vogue — ເວທີເປີດ</span></div>
-      </div>
-      <div class="info-card">
-        <h2>ການກຽມຕົວ ແລະ ສຸຂະອະນາໄມ</h2>
-        <p>ກະລຸນານຳເອົານ້ຳດື່ມ, ເກີບສະອາດສຳຮອງ ແລະ ເຊື້ອຜ້າປ່ຽນມາເອງ. ແນະນຳໃຫ້ກຽມຕົວມາເປັນຢ່າງດີ!</p>
-        <div class="prep-note">⚠️ ໝາຍເຫດ: ບໍ່ມີຫ້ອງອາບນ້ຳຢູ່ສະຖານທີ່.</div>
-        <p style="margin-top: 12px;"><strong>ຟຣີ · ບໍ່ຕ້ອງລົງທະບຽນ · ທຸກຄົນຍິນດີຕ້ອນຮັບ</strong> — ຕິດຕາມ <span class="ig">@iamnandov</span> ສຳລັບຂ່າວສານ</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-panel">
-    <h2>LGBT Channel Monthly Calendar (Read-Only View)</h2>
-    <p class="sub">Paste your published Google Calendar embed URL into the iframe <code>src</code> below to display the read-only monthly agenda.</p>
-    <div class="cal-frame-box">
-      <iframe
-        src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID_HERE&ctz=Europe%2FAmsterdam"
-        title="LGBT Channel Monthly Calendar">
-      </iframe>
-    </div>
-  </div>
-
-  <div class="section-panel">
-    <h2>Stage New Event (Requires Your Confirmation)</h2>
-    <p class="sub">Events are held in a pending review box first. Nothing moves to Confirmed Events or <code>.ics</code> download until you click <strong>Confirm &amp; Add</strong>.</p>
-
-    <div class="form-grid">
-      <div>
-        <label for="ev-title">Event Title</label>
-        <input id="ev-title" type="text" placeholder="e.g., LGBT Channel Monthly Check-In">
-      </div>
-      <div>
-        <label for="ev-date">Date</label>
-        <input id="ev-date" type="date">
-      </div>
-      <div>
-        <label for="ev-start">Start Time</label>
-        <input id="ev-start" type="time" value="18:00">
-      </div>
-      <div>
-        <label for="ev-end">End Time</label>
-        <input id="ev-end" type="time" value="20:00">
-      </div>
+    <div class="pending-queue" id="pendingQueueBox" style="display:none;">
+      <div class="pending-queue-title">Pending Confirmation — Click Confirm &amp; Add to show on calendar</div>
+      <div id="pendingEventsList"></div>
     </div>
 
-    <div class="form-grid">
-      <div>
-        <label for="ev-loc">Location / Notes</label>
-        <input id="ev-loc" type="text" placeholder="e.g., Buurtkamer Kostelijk, Amsterdam West">
+    <div id="customEventsList"></div>
+
+    <div style="margin-top:16px;">
+      <div class="card-kicker">Cohesive Weekly WhatsApp Channel Digest</div>
+      <p style="font-size:12.5px; color:var(--text-muted);">Auto-generated from whichever date you click on the 2027 monthly calendar above:</p>
+      <textarea class="wa-preview" id="waDigestBox" readonly></textarea>
+      <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+        <button type="button" class="btn btn-whatsapp" id="copyWaBtn">📋 Copy for WhatsApp Channel</button>
       </div>
     </div>
+  </section>
 
-    <div class="btn-row">
-      <button class="btn" id="stage-btn">Stage for Confirmation</button>
-      <span id="stage-msg"></span>
-    </div>
-
-    <div class="queue-box" id="pending-box" style="display: none;">
-      <div class="queue-title">Pending Confirmation — Review before adding</div>
-      <div id="pending-list"></div>
-    </div>
-
-    <div class="confirmed-box" id="confirmed-box" style="display: none;">
-      <h3>Confirmed Events</h3>
-      <div id="confirmed-list"></div>
-    </div>
-  </div>
-
-  <div class="section-panel">
-    <h2>Weekly WhatsApp Channel Digest</h2>
-    <p class="sub">Generate a formatted weekly update for your WhatsApp Channel.</p>
-    <div class="form-grid">
-      <div>
-        <label for="dig-week">Week / Focus</label>
-        <input id="dig-week" type="text" value="LGBT Channel Monthly Calendar Highlight">
-      </div>
-      <div>
-        <label for="dig-event">Session / Event</label>
-        <input id="dig-event" type="text" value="GroovePark Community Session (18:00–20:00)">
-      </div>
-      <div>
-        <label for="dig-loc">Location / Info</label>
-        <input id="dig-loc" type="text" value="Buurtkamer Kostelijk, Amsterdam West">
-      </div>
-    </div>
-    <div class="btn-row" style="margin-bottom: 12px;">
-      <button class="btn" id="gen-digest-btn">Generate Digest</button>
-      <button class="btn alt" id="copy-digest-btn">Copy Text</button>
-      <span id="copy-msg" class="msg-ok"></span>
-    </div>
-    <textarea id="digest-out"></textarea>
-  </div>
-
-  <div class="footer-strip">
-    GroovePark · Buurtkamer Kostelijk Amsterdam West · @iamnandov · Free · Weekly
-  </div>
+  <footer class="footer-strip">
+    GroovePark Amsterdam · 2027 · Buurtkamer Kostelijk · Hosted by <a href="https://kmentindustry.github.io/FFVDK/" target="_blank" rel="noopener">Fernando (@iamnandov)</a> · KMENT industry
+  </footer>
 </div>
 
-<div class="pride-ribbon"></div>
+<div class="rainbow-bar"></div>
 
 <script>
-function show(lang, btnEl) {
-  document.querySelectorAll('.info-box').forEach(b => b.classList.remove('visible'));
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  const targetBox = document.getElementById(lang);
-  if (targetBox) {
-    targetBox.classList.add('visible');
-    if (btnEl) btnEl.classList.add('active');
-    targetBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+const FORM_URL = "https://forms.gle/DFJbktia8MkP6tSa9";
+const WA_CHANNEL_URL = "https://whatsapp.com/channel/0029VbDeeuOK5cDNxqYGi30Y";
+const CV_URL = "https://kmentindustry.github.io/FFVDK/";
+const STORAGE_KEY = "groovepark_2027_confirmed_events";
+
+const LANGUAGES = [
+  { code: "en", label: "🇬🇧 English", dir: "ltr" },
+  { code: "nl", label: "🇳🇱 Nederlands", dir: "ltr" },
+  { code: "es", label: "🇪🇸 Español", dir: "ltr" },
+  { code: "fr", label: "🇫🇷 Français", dir: "ltr" },
+  { code: "pt", label: "🇵🇹 Português", dir: "ltr" },
+  { code: "bg", label: "🇧🇬 Български", dir: "ltr" },
+  { code: "ur", label: "🇵🇰 اردو", dir: "rtl" },
+  { code: "wo", label: "🇸🇳 Wolof", dir: "ltr" },
+  { code: "lo", label: "🇱🇦 ລາວ", dir: "ltr" }
+];
+
+const MONTHS_EN = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const WEEKDAYS_EN = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+
+const I18N = {
+  en: {
+    navJoin: "Join", navCalendar: "2027 Calendar", navProgramme: "Weekly Flow", navLocation: "Location", navHost: "Host & CV",
+    joinKicker: "2027 Community Access",
+    joinTitle: "Sign In / Sign Up & Facilitators",
+    joinDesc: "Free weekly sessions for the LGBTQ+ community and allies in Amsterdam. Check in, sign up to teach or collaborate, and get weekly drops on WhatsApp.",
+    btnForm: "📋 Open Official Form",
+    btnWa: "💬 Weekly WhatsApp Channel",
+    offlineBadge: "⚡ Works offline · Saved on your device",
+    freeBadge: "Free · All bodies welcome",
+    aboutKicker: "About the Hub",
+    aboutTitle: "What is GroovePark?",
+    aboutBody: "GroovePark is a free weekly community movement and skill-building programme in Amsterdam for the LGBTQ+ community and allies. Every Wednesday from 18:00 to 20:00 at Buurtkamer Kostelijk—no experience needed, just show up.",
+    calKicker: "Monthly Overview · 2027",
+    calTitle: "2027 Monthly Agenda",
+    calDesc: "Browse the monthly overview below. Every Wednesday features our core 18:00–20:00 programme, plus confirmed workshops and themes synced with our weekly WhatsApp Channel.",
+    legendWeekly: "Weekly Wednesday (18:00–20:00)",
+    legendSpecial: "Confirmed Special / Guest Session",
+    btnSubscribeCal: "📅 Subscribe (.ics)",
+    btnAddGcal: "+ Add to Google Calendar",
+    progKicker: "Every Wednesday · 18:00–20:00",
+    progTitle: "Core Weekly Programme",
+    programme: [
+      ["18:00–18:30", "Dance & Choreography — all levels welcome"],
+      ["18:30–19:00", "Fitness Session — body-positive movement"],
+      ["19:00–19:30", "Self-Defence — safe and supportive"],
+      ["19:30–20:00", "Ballroom & Vogue Practice — open floor"]
+    ],
+    locKicker: "Venue & Offline Directions",
+    locTitle: "Buurtkamer Kostelijk · Amsterdam West",
+    locSub: "Wednesdays · 18:00 – 20:00 · Built-in offline map so you can find us even without mobile data.",
+    directions: [
+      "Address: Buurtkamer Kostelijk, Amsterdam West",
+      "Tram / Bus: Take Tram 7 or 13 to the nearest stop in Amsterdam West.",
+      "Landmarks: Located near the canal path on Kostverlorenkade. Look for the entrance flags & posters!"
+    ],
+    btnMaps: "📍 Open in Google Maps",
+    prepKicker: "Good to Know",
+    prepTitle: "Preparation & Hygiene",
+    prepBody: "Please bring your own water bottle, clean extra indoor shoes, and a change of clothes. Preparation is highly encouraged!",
+    prepWarn: "⚠️ Note: There are no shower facilities available at the venue.",
+    hostKicker: "Community Leadership & Contact",
+    hostTitle: "Hosted by Fernando (@iamnandov)",
+    hostBody: "GroovePark is initiated and hosted by Fernando — Community Organizer, LGBTQ+ Representative & Spokesperson, developing accessible movement and skill-building spaces in Amsterdam under KMENT industry.",
+    btnCv: "👤 About Fernando & CV"
+  },
+  nl: {
+    navJoin: "Meedoen", navCalendar: "2027 Kalender", navProgramme: "Programma", navLocation: "Locatie", navHost: "Host & CV",
+    joinKicker: "2027 Community Toegang",
+    joinTitle: "Inchecken / Aanmelden & Docenten",
+    joinDesc: "Gratis wekelijkse sessies voor de LGBTQ+ gemeenschap en bondgenoten in Amsterdam. Check in, meld je aan om les te geven en volg de wekelijkse updates op WhatsApp.",
+    btnForm: "📋 Open Officieel Formulier",
+    btnWa: "💬 Wekelijks WhatsApp-kanaal",
+    offlineBadge: "⚡ Werkt offline · Lokaal opgeslagen",
+    freeBadge: "Gratis · Iedereen welkom",
+    aboutKicker: "Over de Hub",
+    aboutTitle: "Wat is GroovePark?",
+    aboutBody: "GroovePark is een gratis wekelijks bewegings- en ontwikkelingsprogramma in Amsterdam voor de LGBTQ+ gemeenschap en bondgenoten. Elke woensdag van 18:00 tot 20:00 in Buurtkamer Kostelijk — geen ervaring nodig.",
+    calKicker: "Maandoverzicht · 2027",
+    calTitle: "2027 Maandagenda",
+    calDesc: "Bekijk het maandoverzicht hieronder. Elke woensdag bieden we ons vaste programma van 18:00–20:00, aangevuld met bevestigde workshops uit ons wekelijkse WhatsApp-kanaal.",
+    legendWeekly: "Wekelijkse Woensdag (18:00–20:00)",
+    legendSpecial: "Bevestigde Speciale / Gastsessie",
+    btnSubscribeCal: "📅 Abonneer (.ics)",
+    btnAddGcal: "+ Zet in Google Agenda",
+    progKicker: "Elke Woensdag · 18:00–20:00",
+    progTitle: "Vast Wekelijks Programma",
+    programme: [
+      ["18:00–18:30", "Dans & Choreografie — alle niveaus welkom"],
+      ["18:30–19:00", "Fitness — lichaamspositieve beweging"],
+      ["19:00–19:30", "Zelfverdediging — veilig en ondersteunend"],
+      ["19:30–20:00", "Ballroom & Vogue — open dansvloer"]
+    ],
+    locKicker: "Locatie & Offline Route",
+    locTitle: "Buurtkamer Kostelijk · Amsterdam West",
+    locSub: "Woensdagen · 18:00 – 20:00 · Ingebouwde offline kaart zodat je ons ook zonder internet vindt.",
+    directions: [
+      "Adres: Buurtkamer Kostelijk, Amsterdam West",
+      "OV: Neem Tram 7 of 13 naar de dichtstbijzijnde halte in West.",
+      "Herkenningspunten: Nabij het kanaal aan de Kostverlorenkade. Zoek naar de vlaggen en posters bij de ingang!"
+    ],
+    btnMaps: "📍 Open in Google Maps",
+    prepKicker: "Handig om te weten",
+    prepTitle: "Voorbereiding & Hygiëne",
+    prepBody: "Neem je eigen waterfles, schone extra binnenschoenen en droge kleding mee. Goede voorbereiding wordt sterk aanbevolen!",
+    prepWarn: "⚠️ Let op: Er zijn geen douches aanwezig op de locatie.",
+    hostKicker: "Organisatie & Vertegenwoordiging",
+    hostTitle: "Georganiseerd door Fernando (@iamnandov)",
+    hostBody: "GroovePark is opgezet en wordt gehost door Fernando — Community Organizer, LGBTQ+ Vertegenwoordiger & Woordvoerder, actief voor toegankelijke beweging en skill-building in Amsterdam onder KMENT industry.",
+    btnCv: "👤 Over Fernando & CV"
+  },
+  es: {
+    navJoin: "Unirse", navCalendar: "Calendario 2027", navProgramme: "Programa", navLocation: "Ubicación", navHost: "Anfitrión y CV",
+    joinKicker: "Acceso Comunitario 2027",
+    joinTitle: "Registro y Facilitadores",
+    joinDesc: "Sesiones semanales gratuitas para la comunidad LGBTQ+ y aliados en Ámsterdam. Regístrate, propón talleres y sigue las novedades semanales en WhatsApp.",
+    btnForm: "📋 Abrir Formulario Oficial",
+    btnWa: "💬 Canal Semanal de WhatsApp",
+    offlineBadge: "⚡ Funciona sin conexión · Guardado en tu teléfono",
+    freeBadge: "Gratis · Todos los cuerpos bienvenidos",
+    aboutKicker: "Sobre el Espacio",
+    aboutTitle: "¿Qué es GroovePark?",
+    aboutBody: "GroovePark es un programa comunitario semanal y gratuito de movimiento y aprendizaje en Ámsterdam para la comunidad LGBTQ+ y aliados. Todos los miércoles de 18:00 a 20:00 en Buurtkamer Kostelijk.",
+    calKicker: "Vista Mensual · 2027",
+    calTitle: "Agenda Mensual 2027",
+    calDesc: "Explora el calendario mensual. Cada miércoles tiene nuestro programa base de 18:00 a 20:00, además de talleres confirmados sincronizados con nuestro canal semanal de WhatsApp.",
+    legendWeekly: "Miércoles Semanal (18:00–20:00)",
+    legendSpecial: "Sesión Especial Confirmada",
+    btnSubscribeCal: "📅 Suscribirse (.ics)",
+    btnAddGcal: "+ Añadir a Google Calendar",
+    progKicker: "Todos los Miércoles · 18:00–20:00",
+    progTitle: "Programa Semanal Base",
+    programme: [
+      ["18:00–18:30", "Danza y Coreografía — todos los niveles"],
+      ["18:30–19:00", "Fitness — movimiento corporal positivo"],
+      ["19:00–19:30", "Defensa personal — espacio seguro"],
+      ["19:30–20:00", "Ballroom & Vogue — pista abierta"]
+    ],
+    locKicker: "Lugar e Indicaciones Offline",
+    locTitle: "Buurtkamer Kostelijk · Ámsterdam Oeste",
+    locSub: "Miércoles · 18:00 – 20:00 · Mapa offline integrado para llegar incluso sin datos móviles.",
+    directions: [
+      "Dirección: Buurtkamer Kostelijk, Ámsterdam Oeste",
+      "Tranvía/Autobús: Tranvía 7 o 13 hasta la parada más cercana.",
+      "Puntos de referencia: Cerca del canal en Kostverlorenkade. ¡Busca las banderas y pósters en la entrada!"
+    ],
+    btnMaps: "📍 Abrir en Google Maps",
+    prepKicker: "Para Tener en Cuenta",
+    prepTitle: "Preparación e Higiene",
+    prepBody: "Trae tu propia botella de agua, zapatos limpios adicionales y ropa de cambio. ¡La preparación previa es muy recomendable!",
+    prepWarn: "⚠️ Nota: El recinto no dispone de duchas.",
+    hostKicker: "Liderazgo Comunitario y Contacto",
+    hostTitle: "Organizado por Fernando (@iamnandov)",
+    hostBody: "GroovePark es impulsado y conducido por Fernando — Organizador Comunitario, Representante y Portavoz LGBTQ+, creando espacios de movimiento y aprendizaje en Ámsterdam bajo KMENT industry.",
+    btnCv: "👤 Sobre Fernando y CV"
   }
+};
+
+// Fallback to English for additional supported language buttons
+LANGUAGES.forEach(l => {
+  if (!I18N[l.code]) I18N[l.code] = I18N.en;
+});
+
+let currentLang = "en";
+let currentMonth = 0; // Jan 2027
+let selectedDateStr = "2027-01-06";
+let pendingEvents = [];
+let confirmedEvents = [];
+
+try {
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  if (Array.isArray(saved)) confirmedEvents = saved;
+} catch {}
+
+function saveConfirmed() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(confirmedEvents)); } catch {}
 }
 
-const pendingQueue = [];
-const confirmedQueue = [];
-
 function esc(s) {
-  return String(s).replace(/[&<>"']/g, c => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  return String(s || "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   }[c]));
 }
 
-function downloadIcs(ev) {
-  const d = ev.date.replace(/-/g, '');
-  const s = ev.start.replace(':', '') + '00';
-  const e = ev.end.replace(':', '') + '00';
-  const uid = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}@groovepark.local`;
-  const ics = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//GroovePark//LGBT Channel Monthly Calendar//EN',
-    'BEGIN:VEVENT',
-    `UID:${uid}`,
-    `DTSTART:${d}T${s}`,
-    `DTEND:${d}T${e}`,
-    `SUMMARY:${ev.title}`,
-    `LOCATION:${ev.location || ''}`,
-    'END:VEVENT',
-    'END:VCALENDAR'
-  ].join('\r\n');
+function pad2(n) { return String(n).padStart(2, "0"); }
 
-  const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `${(ev.title || 'event').toLowerCase().replace(/[^a-z0-9]+/g, '-')}.ics`;
-  a.click();
-  URL.revokeObjectURL(url);
+function formatDateKey(y, m, d) {
+  return `${y}-${pad2(m + 1)}-${pad2(d)}`;
 }
 
-function renderLists() {
-  const pBox = document.getElementById('pending-box');
-  const pList = document.getElementById('pending-list');
-  const cBox = document.getElementById('confirmed-box');
-  const cList = document.getElementById('confirmed-list');
+function isWednesday(y, m, d) {
+  return new Date(y, m, d).getDay() === 3;
+}
 
-  if (!pendingQueue.length) {
-    pBox.style.display = 'none';
-    pList.innerHTML = '';
-  } else {
-    pBox.style.display = 'block';
-    pList.innerHTML = pendingQueue.map((ev, i) => `
-      <div class="event-row">
-        <div class="event-meta">
-          <strong>${esc(ev.title)}</strong>
-          <span>${esc(ev.date)} · ${esc(ev.start)}–${esc(ev.end)}${ev.location ? ' · ' + esc(ev.location) : ''}</span>
-        </div>
-        <div class="btn-row">
-          <button class="btn approve" onclick="approveEvent(${i})">Confirm &amp; Add</button>
-          <button class="btn reject" onclick="rejectEvent(${i})">Discard</button>
-        </div>
-      </div>
-    `).join('');
+function getConfirmedForDate(dateStr) {
+  return confirmedEvents.filter(e => e.date === dateStr);
+}
+
+function buildGoogleCalUrl(dateStr, title, details) {
+  const clean = dateStr.replace(/-/g, "");
+  const start = `${clean}T180000`;
+  const end = `${clean}T200000`;
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: title,
+    dates: `${start}/${end}`,
+    details: `${details || ""}\nSign-in form: ${FORM_URL}\nWhatsApp Channel: ${WA_CHANNEL_URL}`,
+    location: "Buurtkamer Kostelijk, Amsterdam West",
+    ctz: "Europe/Amsterdam"
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+function renderLangButtons() {
+  const grid = document.getElementById("langGrid");
+  grid.innerHTML = LANGUAGES.map(l => `
+    <button class="lang-btn ${l.code === currentLang ? "active" : ""}" data-lang="${l.code}">${l.label}</button>
+  `).join("");
+  grid.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+  });
+}
+
+function applyLang(lang) {
+  currentLang = lang;
+  const meta = LANGUAGES.find(l => l.code === lang) || LANGUAGES[0];
+  document.getElementById("contentRoot").dir = meta.dir;
+  const t = I18N[lang];
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (t[key]) el.textContent = t[key];
+  });
+
+  document.getElementById("programmeList").innerHTML = t.programme.map(([time, desc]) => `
+    <div class="programme-item"><span class="prog-time">${esc(time)}</span><span>${esc(desc)}</span></div>
+  `).join("");
+
+  document.getElementById("dirList").innerHTML = t.directions.map(item => `<li>${esc(item)}</li>`).join("");
+
+  renderLangButtons();
+  renderCalendar();
+  renderSelectedDay();
+}
+
+function renderCalendar() {
+  const year = 2027;
+  document.getElementById("calMonthTitle").textContent = `${MONTHS_EN[currentMonth]} ${year}`;
+  document.getElementById("calWeekdays").innerHTML = WEEKDAYS_EN.map(d => `<span>${d}</span>`).join("");
+
+  const firstDayJs = new Date(year, currentMonth, 1).getDay(); // 0=Sun
+  const leadingBlanks = (firstDayJs + 6) % 7; // Mon=0
+  const daysInMonth = new Date(year, currentMonth + 1, 0).getDate();
+
+  let html = "";
+  for (let i = 0; i < leadingBlanks; i++) {
+    html += `<div class="cal-day empty"></div>`;
   }
 
-  if (!confirmedQueue.length) {
-    cBox.style.display = 'none';
-    cList.innerHTML = '';
+  for (let d = 1; d <= daysInMonth; d++) {
+    const key = formatDateKey(year, currentMonth, d);
+    const wed = isWednesday(year, currentMonth, d);
+    const specials = getConfirmedForDate(key);
+    const isSelected = key === selectedDateStr;
+
+    let cls = "cal-day";
+    let dot = "";
+    if (specials.length > 0) {
+      cls += " has-special";
+      dot = `<span class="cal-dot"></span>`;
+    } else if (wed) {
+      cls += " has-session";
+      dot = `<span class="cal-dot"></span>`;
+    }
+    if (isSelected) cls += " selected";
+
+    html += `<div class="${cls}" data-date="${key}">${d}${dot}</div>`;
+  }
+
+  document.getElementById("calDays").innerHTML = html;
+  document.querySelectorAll(".cal-day[data-date]").forEach(cell => {
+    cell.addEventListener("click", () => {
+      selectedDateStr = cell.dataset.date;
+      renderCalendar();
+      renderSelectedDay();
+    });
+  });
+}
+
+function renderSelectedDay() {
+  const t = I18N[currentLang];
+  const panel = document.getElementById("selectedDayPanel");
+  const [y, m, d] = selectedDateStr.split("-").map(Number);
+  const dateObj = new Date(y, m - 1, d);
+  const wed = dateObj.getDay() === 3;
+  const specials = getConfirmedForDate(selectedDateStr);
+
+  const headingText = `${dateObj.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}`;
+  let bodyHtml = "";
+
+  if (specials.length > 0) {
+    bodyHtml += specials.map(ev => `
+      <p style="color:#fff; font-weight:700; margin-bottom:4px;">⭐ ${esc(ev.title)} (${esc(ev.time)})</p>
+      ${ev.host ? `<p style="font-size:13px;">Facilitator / Focus: ${esc(ev.host)}</p>` : ""}
+      ${ev.notes ? `<p style="font-size:13px;">Notes: ${esc(ev.notes)}</p>` : ""}
+    `).join("");
+  } else if (wed) {
+    bodyHtml += `<p>Weekly GroovePark Session (18:00–20:00) at Buurtkamer Kostelijk — Dance, Fitness, Self-Defence &amp; Ballroom/Vogue.</p>`;
   } else {
-    cBox.style.display = 'block';
-    cList.innerHTML = confirmedQueue.map((ev, i) => `
-      <div class="event-row">
-        <div class="event-meta">
-          <strong>${esc(ev.title)}</strong>
-          <span>${esc(ev.date)} · ${esc(ev.start)}–${esc(ev.end)}${ev.location ? ' · ' + esc(ev.location) : ''}</span>
+    bodyHtml += `<p>No session scheduled on this day. Core sessions run every Wednesday from 18:00 to 20:00.</p>`;
+  }
+
+  const gcalTitle = specials.length > 0 ? specials[0].title : "GroovePark Weekly Session";
+  const gcalDetails = specials.length > 0
+    ? `${specials[0].host || ""} ${specials[0].notes || ""}`.trim()
+    : "Dance, Fitness, Self-Defence & Ballroom/Vogue (18:00–20:00)";
+
+  const gcalUrl = buildGoogleCalUrl(selectedDateStr, gcalTitle, gcalDetails);
+
+  panel.innerHTML = `
+    <h3>${esc(headingText)}</h3>
+    ${bodyHtml}
+    <div class="cta-group" style="margin-top:12px;">
+      <a href="${gcalUrl}" target="_blank" rel="noopener" class="btn btn-outline">${esc(t.btnAddGcal)}</a>
+    </div>
+  `;
+
+  updateWaDigest(headingText, wed, specials);
+}
+
+function updateWaDigest(dateLabel, wed, specials) {
+  const primaryTitle = specials.length > 0
+    ? `${specials[0].title} (${specials[0].time})`
+    : wed
+      ? "GroovePark Weekly Session (18:00–20:00)"
+      : "Weekly Update — GroovePark Amsterdam";
+
+  const extraLine = specials.length > 0 && (specials[0].host || specials[0].notes)
+    ? `✨ ${[specials[0].host, specials[0].notes].filter(Boolean).join(" · ")}\n`
+    : "";
+
+  document.getElementById("waDigestBox").value = [
+    `🏳️‍🌈 *GroovePark Amsterdam · 2027*`,
+    `📅 *${dateLabel}*`,
+    `📌 *Session:* ${primaryTitle}`,
+    extraLine.trimEnd(),
+    `📍 *Where:* Buurtkamer Kostelijk, Amsterdam West`,
+    `📋 *Sign in / Teach:* ${FORM_URL}`,
+    `💬 *Channel:* ${WA_CHANNEL_URL}`
+  ].filter(Boolean).join("\n");
+}
+
+function renderQueues() {
+  const pendingBox = document.getElementById("pendingQueueBox");
+  const pendingList = document.getElementById("pendingEventsList");
+  const confirmedList = document.getElementById("customEventsList");
+
+  if (!pendingEvents.length) {
+    pendingBox.style.display = "none";
+    pendingList.innerHTML = "";
+  } else {
+    pendingBox.style.display = "block";
+    pendingList.innerHTML = pendingEvents.map((ev, idx) => `
+      <div class="custom-event-chip">
+        <div>
+          <strong>${esc(ev.title)}</strong> · ${esc(ev.date)} (${esc(ev.time)})
+          ${ev.host ? `<br><span style="color:var(--text-faint); font-size:12px;">${esc(ev.host)}</span>` : ""}
         </div>
-        <div class="btn-row">
-          <button class="btn alt" onclick="exportConfirmed(${i})">Download .ICS</button>
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button type="button" class="btn btn-confirm" onclick="confirmStagedEvent(${idx})">Confirm &amp; Add</button>
+          <button type="button" class="btn btn-discard" onclick="discardStagedEvent(${idx})">Discard</button>
         </div>
       </div>
-    `).join('');
+    `).join("");
+  }
+
+  if (!confirmedEvents.length) {
+    confirmedList.innerHTML = "";
+  } else {
+    confirmedList.innerHTML = `<div class="card-kicker" style="margin-top:14px;">Confirmed Calendar Events</div>` +
+      confirmedEvents.map((ev, idx) => `
+        <div class="custom-event-chip">
+          <div><strong>${esc(ev.title)}</strong> · ${esc(ev.date)} (${esc(ev.time)})</div>
+          <button type="button" class="btn btn-outline" style="padding:5px 10px; font-size:12px;" onclick="removeConfirmedEvent(${idx})">Remove</button>
+        </div>
+      `).join("");
   }
 }
 
-window.approveEvent = function(i) {
-  const [item] = pendingQueue.splice(i, 1);
+window.confirmStagedEvent = function(idx) {
+  const [item] = pendingEvents.splice(idx, 1);
   if (item) {
-    confirmedQueue.push(item);
-    renderLists();
+    confirmedEvents.push(item);
+    saveConfirmed();
+    selectedDateStr = item.date;
+    const [, m] = item.date.split("-").map(Number);
+    currentMonth = Math.max(0, Math.min(11, m - 1));
+    document.getElementById("stageStatus").textContent = `Confirmed and added "${item.title}" on ${item.date}.`;
+    renderQueues();
+    renderCalendar();
+    renderSelectedDay();
   }
 };
 
-window.rejectEvent = function(i) {
-  pendingQueue.splice(i, 1);
-  renderLists();
+window.discardStagedEvent = function(idx) {
+  pendingEvents.splice(idx, 1);
+  document.getElementById("stageStatus").textContent = "Staged event discarded.";
+  renderQueues();
 };
 
-window.exportConfirmed = function(i) {
-  const item = confirmedQueue[i];
-  if (item) downloadIcs(item);
+window.removeConfirmedEvent = function(idx) {
+  confirmedEvents.splice(idx, 1);
+  saveConfirmed();
+  renderQueues();
+  renderCalendar();
+  renderSelectedDay();
 };
 
-document.getElementById('stage-btn').addEventListener('click', () => {
-  const msg = document.getElementById('stage-msg');
-  const title = document.getElementById('ev-title').value.trim();
-  const date = document.getElementById('ev-date').value;
-  const start = document.getElementById('ev-start').value || '18:00';
-  const end = document.getElementById('ev-end').value || '20:00';
-  const location = document.getElementById('ev-loc').value.trim();
-
-  if (!title || !date) {
-    msg.className = 'msg-err';
-    msg.textContent = 'Please enter both an event title and a date first.';
-    return;
-  }
-
-  pendingQueue.push({ title, date, start, end, location });
-  document.getElementById('ev-title').value = '';
-  document.getElementById('ev-loc').value = '';
-  msg.className = 'msg-ok';
-  msg.textContent = 'Held in Pending Confirmation — click Confirm & Add to finalize.';
-  renderLists();
+document.getElementById("prevMonthBtn").addEventListener("click", () => {
+  currentMonth = (currentMonth + 11) % 12;
+  renderCalendar();
 });
 
-function buildDigest() {
-  const week = document.getElementById('dig-week').value.trim();
-  const ev = document.getElementById('dig-event').value.trim();
-  const loc = document.getElementById('dig-loc').value.trim();
-  document.getElementById('digest-out').value = [
-    `🏳️‍🌈 *${week}*`,
-    `📌 *Event:* ${ev}`,
-    `📍 *Location:* ${loc}`,
-    `🗓️ Check the LGBT Channel Monthly Calendar for updates.`
-  ].join('\n');
-}
-
-document.getElementById('gen-digest-btn').addEventListener('click', buildDigest);
-document.getElementById('copy-digest-btn').addEventListener('click', async () => {
-  const out = document.getElementById('digest-out');
-  const status = document.getElementById('copy-msg');
-  try {
-    await navigator.clipboard.writeText(out.value);
-  } catch {
-    out.select();
-    document.execCommand('copy');
-  }
-  status.textContent = 'Copied!';
-  setTimeout(() => { status.textContent = ''; }, 2000);
+document.getElementById("nextMonthBtn").addEventListener("click", () => {
+  currentMonth = (currentMonth + 1) % 12;
+  renderCalendar();
 });
 
-buildDigest();
+document.getElementById("toggleOrganizerBtn").addEventListener("click", () => {
+  document.getElementById("organizerPanel").classList.toggle("open");
+});
+
+document.getElementById("addAgendaForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const date = document.getElementById("evDate").value;
+  const time = document.getElementById("evTime").value.trim() || "18:00 – 20:00";
+  const title = document.getElementById("evTitle").value.trim();
+  const host = document.getElementById("evHost").value.trim();
+  const notes = document.getElementById("evNotes").value.trim();
+  if (!date || !title) return;
+
+  pendingEvents.push({ date, time, title, host, notes });
+  document.getElementById("evTitle").value = "";
+  document.getElementById("evHost").value = "";
+  document.getElementById("evNotes").value = "";
+  document.getElementById("stageStatus").textContent = "Held in Pending Confirmation — click Confirm & Add before it appears on the calendar.";
+  renderQueues();
+});
+
+document.getElementById("exportJsonBtn").addEventListener("click", async () => {
+  const payload = JSON.stringify(confirmedEvents, null, 2);
+  try { await navigator.clipboard.writeText(payload); } catch {}
+  document.getElementById("stageStatus").textContent = "Confirmed agenda JSON copied to clipboard.";
+});
+
+document.getElementById("copyWaBtn").addEventListener("click", async () => {
+  const txt = document.getElementById("waDigestBox").value;
+  try { await navigator.clipboard.writeText(txt); } catch {}
+  document.getElementById("stageStatus").textContent = "Weekly WhatsApp digest copied to clipboard.";
+});
+
+applyLang("en");
+renderQueues();
 </script>
 </body>
 </html>
